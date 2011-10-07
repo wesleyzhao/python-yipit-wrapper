@@ -48,11 +48,21 @@ class Api(object):
           lat,lon:
             Latitude and longitude (respectively) of point to sort deals by 
             proximity to. Uses radius. [Optional]
-            Example lat=-37.74,lon=-76.00
+            Example: lat=-37.74,lon=-76.00
           radius:
+            Maximum distance of radius in miles to deal location from center 
+            point. Defaults to 10. Requires lat and lon if used. [Optional]
+            Example: radius=1.7
           division:
+            A list of one or more division slugs. To see division slugs call
+            Api.get_divisions() [Optional]
+            Example: [new-york, atlanta]
           source:
+            A list of one or more source slugs. To see source slugs call 
+            Api.get_sources() [Optional]
+            Example: [groupon, scoutmob]
           phone:
+            Deals available at a business matching one of the phone numbers. See Businesses API for more details.
           tag:
           paid:
           limit:
