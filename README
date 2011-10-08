@@ -1,1 +1,46 @@
 Making this very rudimentary for basic use
+
+[BASIC EXAMPLE]
+# after already navigating into the directory that holds yipit.py
+
+import yipit
+
+api = yipit.Api(api_key = "mykeyasdfasdfasdfasdfasd9fa9sfa9s")
+
+deals = api.get_deals(lat=-100.2, lon=144.444, radius=20, divison=["new-york"], source=["groupon","living-social"], phone=[2123335555], tag=['restaurants','bar-club'],paid=True,limit=5000)
+
+individ_deal = api.get_deal_by_id(deal_id = 16721)
+
+for deal in deals:
+    print deal.title
+    print deal.url
+    print deal.yipit_title
+    print deal.yipit_url
+    print deal.active 
+    print deal.business # dictionary with the business information
+    print deal.date_added 
+    print deal.division # dictionary with division information
+    print deal.end_date
+    print deal.id
+    print deal.images # dictionary with 'image_big' and 'image_small'
+    print deal.mobile_url
+    print deal.discount # dictionary with 'formatted' and 'raw'
+    print deal.price # dictionary with 'formatted' and 'raw'
+    print deal.value # dictionary with 'formatted' and 'raw'
+    print deal.purchased 
+    print deal.source # will be a dictionary of the source
+    print deal.tags # will be a list of tag dictionaries
+
+TODO:
+	* Api class
+	  - fill out all methods
+	* Deal class
+	  - finish/fill out
+	* Source class
+	  - DO IT FOR SOURCES API
+	* Division class
+	  - DO IT
+	* Tag class
+	  - JUST DO IT
+	* Business class
+	  - ALSO DO THIS

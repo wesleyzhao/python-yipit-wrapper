@@ -31,7 +31,6 @@ class Api(object):
         self._api_key = api_key
 
     def get_deals(self,
-                  deal_id = None,
                   lat = None,
                   lon = None,
                   radius = None,
@@ -43,9 +42,6 @@ class Api(object):
                   limit = 20):
         '''Return deals from Yipit given the parameters'
         Args:
-          deal_id:
-            returns a yipit.Deal instance with the an id matching deal_id
-            or nothing if it does not exist
           lat,lon:
             Latitude and longitude (respectively) of point to sort deals by 
             proximity to. Uses radius. [Optional]
@@ -57,11 +53,11 @@ class Api(object):
           division:
             A list of one or more division slugs. To see division slugs call
             Api.get_divisions() which lists yipit.Division instances[Optional]
-            Example: division=[new-york, atlanta]
+            Example: division=["new-york", "atlanta"]
           source:
             A list of one or more source slugs. To see source slugs call 
             Api.get_sources() which lists yipit.Source instances [Optional]
-            Example: source=[groupon, scoutmob]
+            Example: source=["groupon", "scoutmob"]
           phone:
             A list of phone numbers of specific bussinesses. Deals available 
             at a business matching one of the phone numbers. [Optional]
@@ -69,7 +65,7 @@ class Api(object):
           tag:
             A list of one or more tag slugs. To see tag slugs call 
             Api.get_tags() which lists yipit.Tag instances [Optional]
-            Example: tag=[restaurants,bar-club]
+            Example: tag=["restaurants","bar-club"]
           paid:
             If set to True, returns only deals Yipit pays you as a dev.
             If set to False (default/recommended), returns deals Yipit
