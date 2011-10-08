@@ -24,10 +24,10 @@ class Api(object):
     
     def __init__(self,
                  api_key):
-        self._urllib = urllib2
-        set_credentials(api_key)
+        self._urllib = urllib # urllib2...read() loads json to python dict, urllib...read() loads raw json string
+        self.set_credentials(api_key)
     
-    def set_credentials(api_key):
+    def set_credentials(self, api_key):
         self._api_key = api_key
 
     def get_deals(self,
@@ -87,7 +87,7 @@ class Api(object):
         # Build request parameters
         parameters = {}
         
-        if lat & lon:
+        if lat and lon:
             parameters['lat'] = lat
             parameters['lon'] = lon
             if radius:
@@ -113,6 +113,7 @@ class Api(object):
 
         # Make and send requests
         url = DEALS_URL
+        print "url :" + url
         deals = self.get_deals_list_by_params(url, parameters)
         return deals
         
@@ -155,16 +156,15 @@ class Api(object):
 
         json = self.fetch_url(url, parameters=parameters)
         data = self.parse_and_check_yipit(json)
-        
         # first check to make sure we got some results
-        if len(data['results']) == 0:
+        if len(data['response']) == 0:
             return [] # immediately return empty list if there were no results
 
         deals = []
 
-        for deal_json_dict in data['results']['deals']:
+        for deal_json_dict in data['response']['deals']:
             temp = Deal.new_from_json_dict(deal_json_dict)
-            results.append(temp)
+            deals.append(temp)
 
         return deals 
         
@@ -187,9 +187,9 @@ class Api(object):
         if parameters:
             params.update(parameters)
 
-        url = self.build_url(url, parameters)
+        url = self.build_url(url, params)
         
-        url_data = self._urllib.urlopen(url).read()
+        url_data = self._urllib.urlopen(url).read() # urllib.urlopen.read() gets raw json, urllib2.urlopen.read() loads json as python dict
         
         return url_data
 
@@ -236,8 +236,189 @@ class Api(object):
         return True
 
 class Deal(object):
+    '''A class representing the deal structure used by the Yipit API
+
+    The deal structure exposes the following properties:
     
-    def new_from_json_dict(json_dict):
-        return True
+      deal.title
+      deal.id
+      deal.url
+      deal.yipit_title
+      deal.yipit_url
+      deal.active
+      deal.business
+      deal.date_added
+      deal.division
+      deal.end_date
+      deal.images
+      deal.mobile_url
+      deal.discount
+      deal.price
+      deal.value
+      deal.purchased
+      deal.source
+      deal.tags
+    '''
+
+    def __init__(self,
+                 title=None,
+                 url=None,
+                 yipit_title=None,
+                 yipit_url=None,
+                 active=None,
+                 business=None,
+                 date_added=None,
+                 division=None,
+                 end_date=None,
+                 id=None,
+                 images=None,
+                 mobile_url=None,
+                 discount=None,
+                 price=None,
+                 value=None,
+                 purchased=None,
+                 source=None,
+                 tags=None):
+        '''An object to hold a Yipit Deal
+
+        This class is normally instantiated by the yipit.Api class and
+        returned in a sequence
+        
+        Note: Dates are posted in the form "2011-10-10 00:00:00"
+        time zone difference is calculated from UTC
+
+        Args:
+          title:
+            The title of the deal from the source. [Optional]
+          url:
+            The URL of the deal from the source. [Optional]
+          yipit_title:
+            The title that Yipit uses for the deal. [Optional]
+          yipit_url:
+            The url to the deal hosted on Yipit. [Optional]
+          active:
+            Signifies if the deal is still active. [Optional]
+            Example: active=1 or active=0
+          business:
+            A dictionary storing all the information of a business.
+            [Optional]
+            Example: { "id" : 64996,
+                       "locations" : [
+                            {
+                                 "address" : "1442 ne 32nd ave",
+                                 "id" : 264383,
+                                 "lat" : 137.2,
+                                 "lon" : -142.2,
+                                 "locality" : "",
+                                 "phone" : None,
+                                 "smart_locality" : "",
+                                 "state" : "New York",
+                                 "zip_code" : "10019"
+                             }
+                        ],
+                        "name" : "Lunafest",
+                        "url" : "http://www.lunafest.org"
+                      }
+           date_added:
+             Formatted date/time of when deal was added. [Optional]
+             Example: "2011-10-08 07:24:01"
+           end_date:
+             Formatted date/time for when the deal ends. [Optional]
+             Example: "2011-10-10 00:00:00"
+           id:
+             Integer id of the deal for Yipit. [Optional]
+           images:
+             A dictionary storing the images for this deal. [Optional]
+             Example: {"image_big" : "http://bigimage.yipit.com",
+                       "image_small" : "http://smallimage.yipit.com"}
+           mobile_url:
+             The mobile url to find the Yipit deal
+           division:
+             A dictionary storing all the information of the division
+             the deal is in. [Optional]
+             Example: {
+                        "active" : 1,
+                        "lat" : 40.714,
+                        "lon" : -74.005,
+                        "name" : "New York",
+                        "slug" : "new-york",
+                        "time_zone_diff" : -5,
+                        "url" : "http://yipit.com/new-york/"
+                        }
+           price:
+             A dictionary storing all the price information which usually
+             includes 'formatted' and 'raw'. [Optional]
+             Example: {"formatted" : "$40", "raw" : 40.00}
+           value:
+             A dictionary storying all the value information of the deal
+             usually including 'formatted' and 'raw'. [Optional]
+             Example: {"formatted" : "$80", "raw" : 80.00}
+           purchased:
+             A number representing how many people have bought the deal so
+             far. [Optional]
+           source:
+             A dictionary storying all the information of the source the
+             deal is from. [Optional]
+             Example: {"name" : "Groupon",
+                       "paid" : 0,
+                       "slug" : "groupon",
+                       "url" : "http://groupon.com"
+                       }
+           tags:
+             A list storying all the tag dictionaries the deal falls under.
+             [Optional]
+             Example: [{
+                        "name" : "Theater",
+                        "slug" : "theater",
+                        "url" : ""
+                       }]
+        '''
+        self.title = title
+        self.url = url
+        self.yipit_title = yipit_title
+        self.yipit_url = yipit_url
+        self.active = active
+        self.business = business
+        self.date_added = date_added
+        self.division = division
+        self.end_date = end_date
+        self.id = id
+        self.images = images
+        self.mobile_url = mobile_url
+        self.discount = discount
+        self.price = price
+        self.value = value
+        self.purchased = purchased
+        self.source = source
+        self.tags = tags
+
+    @staticmethod
+    def new_from_json_dict(data):
+        '''Create a new instance based on a JSON dict.
+        
+        Args:
+          data: A JSON dict, as converted from the JSON in the Yipit
+          API.
+        Returns:
+          A yipit.Deal instance
+        '''
+        return Deal(title = data.get('title', None),
+                    url = data.get('url', None),
+                    yipit_title = data.get('yipit_title', None),
+                    yipit_url = data.get('yipit_url', None),
+                    active = data.get('active', None),
+                    business = data.get('business', None),
+                    date_added = data.get('date_added', None),
+                    division = data.get('division', None),
+                    end_date = data.get('end_date', None),
+                    id = data.get('id', None),
+                    images = data.get('images', None),
+                    mobile_url = data.get('mobile_url', None),
+                    discount = data.get('discount', None),
+                    price = data.get('price', None),
+                    value = data.get('value', None),
+                    purchased = data.get('purchased', None),
+                    source = data.get('source', None),
+                    tags = data.get('tags', None))
 
 
