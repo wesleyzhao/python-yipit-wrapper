@@ -1,5 +1,8 @@
 Making this very rudimentary for basic use. I tried to keep this very well commented so look through the code (will generate docs later) for details.
 
+[INSTALL]
+$ python setup.py install
+
 [BASIC EXAMPLE]
 # after already navigating into the directory that holds yipit.py
 
