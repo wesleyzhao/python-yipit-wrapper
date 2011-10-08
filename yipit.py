@@ -1,7 +1,13 @@
-"""
-created by Wesley Zhao
-"""
-
+#!/usr/bin/python2.5
+# Created by Wesley Zhao
+# Modeled after the python-twitter wrapper done by
+# The Python-Twitter Developers (python-twitter@googlegroups.com)
+#
+#
+#
+#
+#
+''' A library that provides a Python interface to the Yipit API  '''
 __author__ = "wesley.zhao@gmil.com"
 __version__ = "0.1.1"
 
