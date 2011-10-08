@@ -1,5 +1,6 @@
 Making this very rudimentary for basic use. I tried to keep this very well commented so look through the code (will generate docs later) for details.
 
+this is a test
 [INSTALL]
 $ python setup.py install
 
