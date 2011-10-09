@@ -1,3 +1,30 @@
-Don't know what to write here...
+2011-10-08
 
-Begun 2011-10-08
+	bumped version to 0.2.1
+	
+	Deals API
+	Added methods to Deal class that allow for easy string representation
+	
+	Divisions API
+	Added and filled out Division class. Also added get_divisions() to
+	Api class to search for divisions by params.
+
+	Sources API
+	Added and filled out Source class. Also added get_sources() to Api
+	class to search for sources by params.
+	
+	Tags API
+	Added and filled out Tag class. Also added get_tags() to Api class to
+	get all tags.
+
+	Businesses API
+	Added and filled out Business class. Also added get_businesses() to Api
+	class to search for businesses by params.
+
+	yipit_test.py
+	Created this to show how to use the api and to make sure all the main
+	functions work.
+
+2011-10-08
+
+Don't know what to write here...
