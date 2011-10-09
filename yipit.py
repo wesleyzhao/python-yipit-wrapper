@@ -530,10 +530,10 @@ class YipitObject(object):
         raise NotImplementedError("Should have implemented this...")
 
     def as_json_string(self):
-        '''A JSON string representation of this yipit.Business instance.
+        '''A JSON string representation of the yipit.YipitObject instance.
         
         Returns:
-          A JSON string representation of this yipit.Business instance
+          A JSON string representation of the yipit.YipitObject instance
         '''
         return simplejson.dumps(self.as_dict(), sort_keys=True)
     
