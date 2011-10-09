@@ -533,6 +533,15 @@ class Deal(object):
         return data                       
         
     def make_dict_from_kwargs(self, **kwargs):
+        '''Returns a dictionary of all parameters with specified keys
+        
+        Args:
+          **kwargs:
+            Default python packaging of un-specified params with keys
+        
+        Returns:
+          A dictionary of all params with specified keys
+        '''
         return kwargs
     
     def __str__(self):
