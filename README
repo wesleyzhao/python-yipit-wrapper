@@ -1,6 +1,6 @@
-Making this very rudimentary for basic use. I tried to keep this very well commented so look through the code (will generate docs later) for details.
+Making this very rudimentary for basic use. I tried to keep this very well commented so look through the code. Docs now available here: /docs/index.html
 
-** Look at yipit_test.py for more examples of how to use this wrapper
+** Look at test.py for more examples of how to use this wrapper
 
 [INSTALL]
 $ python setup.py install
