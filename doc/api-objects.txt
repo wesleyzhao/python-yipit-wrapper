@@ -1,6 +1,7 @@
 yipit	yipit-module.html
 yipit.DEALS_URL	yipit-module.html#DEALS_URL
 yipit.TAGS_URL	yipit-module.html#TAGS_URL
+yipit.__loader__	yipit-module.html#__loader__
 yipit.__package__	yipit-module.html#__package__
 yipit.BUSINESSES_URL	yipit-module.html#BUSINESSES_URL
 yipit.DIVISIONS_URL	yipit-module.html#DIVISIONS_URL

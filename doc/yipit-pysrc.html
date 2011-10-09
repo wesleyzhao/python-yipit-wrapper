@@ -687,467 +687,475 @@ yipit.YipitObject.as_dict" class="py-name" href="#" onclick="return doclink('lin
 <a name="L614"></a><tt class="py-lineno"> 614</tt>  <tt class="py-line">                 <tt class="py-param">value</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> </tt>
 <a name="L615"></a><tt class="py-lineno"> 615</tt>  <tt class="py-line">                 <tt class="py-param">purchased</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> </tt>
 <a name="L616"></a><tt class="py-lineno"> 616</tt>  <tt class="py-line">                 <tt class="py-param">source</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> </tt>
-<a name="L617"></a><tt class="py-lineno"> 617</tt>  <tt class="py-line">                 <tt class="py-param">tags</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> </tt>
-<a name="L618"></a><tt class="py-lineno"> 618</tt>  <tt class="py-line">                 <tt class="py-op">**</tt><tt class="py-param">kwargs</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="Deal.__init__-collapsed" style="display:none;" pad="++++" indent="++++++++"></div><div id="Deal.__init__-expanded"><a name="L619"></a><tt class="py-lineno"> 619</tt>  <tt class="py-line">        <tt class="py-docstring">'''An object to hold a Yipit Deal</tt> </tt>
-<a name="L620"></a><tt class="py-lineno"> 620</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
-<a name="L621"></a><tt class="py-lineno"> 621</tt>  <tt class="py-line"><tt class="py-docstring">        This class is normally instantiated by the yipit.Api class and</tt> </tt>
-<a name="L622"></a><tt class="py-lineno"> 622</tt>  <tt class="py-line"><tt class="py-docstring">        returned in a sequence</tt> </tt>
-<a name="L623"></a><tt class="py-lineno"> 623</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
-<a name="L624"></a><tt class="py-lineno"> 624</tt>  <tt class="py-line"><tt class="py-docstring">        Note: Dates are posted in the form "2011-10-10 00:00:00"</tt> </tt>
-<a name="L625"></a><tt class="py-lineno"> 625</tt>  <tt class="py-line"><tt class="py-docstring">        time zone difference is calculated from UTC</tt> </tt>
-<a name="L626"></a><tt class="py-lineno"> 626</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
-<a name="L627"></a><tt class="py-lineno"> 627</tt>  <tt class="py-line"><tt class="py-docstring">        Args:</tt> </tt>
-<a name="L628"></a><tt class="py-lineno"> 628</tt>  <tt class="py-line"><tt class="py-docstring">          title:</tt> </tt>
-<a name="L629"></a><tt class="py-lineno"> 629</tt>  <tt class="py-line"><tt class="py-docstring">            The title of the deal from the source. [Optional]</tt> </tt>
-<a name="L630"></a><tt class="py-lineno"> 630</tt>  <tt class="py-line"><tt class="py-docstring">          url:</tt> </tt>
-<a name="L631"></a><tt class="py-lineno"> 631</tt>  <tt class="py-line"><tt class="py-docstring">            The URL of the deal from the source. [Optional]</tt> </tt>
-<a name="L632"></a><tt class="py-lineno"> 632</tt>  <tt class="py-line"><tt class="py-docstring">          yipit_title:</tt> </tt>
-<a name="L633"></a><tt class="py-lineno"> 633</tt>  <tt class="py-line"><tt class="py-docstring">            The title that Yipit uses for the deal. [Optional]</tt> </tt>
-<a name="L634"></a><tt class="py-lineno"> 634</tt>  <tt class="py-line"><tt class="py-docstring">          yipit_url:</tt> </tt>
-<a name="L635"></a><tt class="py-lineno"> 635</tt>  <tt class="py-line"><tt class="py-docstring">            The url to the deal hosted on Yipit. [Optional]</tt> </tt>
-<a name="L636"></a><tt class="py-lineno"> 636</tt>  <tt class="py-line"><tt class="py-docstring">          active:</tt> </tt>
-<a name="L637"></a><tt class="py-lineno"> 637</tt>  <tt class="py-line"><tt class="py-docstring">            Signifies if the deal is still active. [Optional]</tt> </tt>
-<a name="L638"></a><tt class="py-lineno"> 638</tt>  <tt class="py-line"><tt class="py-docstring">            Example: active=1 or active=0</tt> </tt>
-<a name="L639"></a><tt class="py-lineno"> 639</tt>  <tt class="py-line"><tt class="py-docstring">          business:</tt> </tt>
-<a name="L640"></a><tt class="py-lineno"> 640</tt>  <tt class="py-line"><tt class="py-docstring">            A dictionary storing all the information of a business.</tt> </tt>
-<a name="L641"></a><tt class="py-lineno"> 641</tt>  <tt class="py-line"><tt class="py-docstring">            [Optional]</tt> </tt>
-<a name="L642"></a><tt class="py-lineno"> 642</tt>  <tt class="py-line"><tt class="py-docstring">            Example: { "id" : 64996,</tt> </tt>
-<a name="L643"></a><tt class="py-lineno"> 643</tt>  <tt class="py-line"><tt class="py-docstring">                       "locations" : [</tt> </tt>
-<a name="L644"></a><tt class="py-lineno"> 644</tt>  <tt class="py-line"><tt class="py-docstring">                            {</tt> </tt>
-<a name="L645"></a><tt class="py-lineno"> 645</tt>  <tt class="py-line"><tt class="py-docstring">                                 "address" : "1442 ne 32nd ave",</tt> </tt>
-<a name="L646"></a><tt class="py-lineno"> 646</tt>  <tt class="py-line"><tt class="py-docstring">                                 "id" : 264383,</tt> </tt>
-<a name="L647"></a><tt class="py-lineno"> 647</tt>  <tt class="py-line"><tt class="py-docstring">                                 "lat" : 137.2,</tt> </tt>
-<a name="L648"></a><tt class="py-lineno"> 648</tt>  <tt class="py-line"><tt class="py-docstring">                                 "lon" : -142.2,</tt> </tt>
-<a name="L649"></a><tt class="py-lineno"> 649</tt>  <tt class="py-line"><tt class="py-docstring">                                 "locality" : "",</tt> </tt>
-<a name="L650"></a><tt class="py-lineno"> 650</tt>  <tt class="py-line"><tt class="py-docstring">                                 "phone" : None,</tt> </tt>
-<a name="L651"></a><tt class="py-lineno"> 651</tt>  <tt class="py-line"><tt class="py-docstring">                                 "smart_locality" : "",</tt> </tt>
-<a name="L652"></a><tt class="py-lineno"> 652</tt>  <tt class="py-line"><tt class="py-docstring">                                 "state" : "New York",</tt> </tt>
-<a name="L653"></a><tt class="py-lineno"> 653</tt>  <tt class="py-line"><tt class="py-docstring">                                 "zip_code" : "10019"</tt> </tt>
-<a name="L654"></a><tt class="py-lineno"> 654</tt>  <tt class="py-line"><tt class="py-docstring">                             }</tt> </tt>
-<a name="L655"></a><tt class="py-lineno"> 655</tt>  <tt class="py-line"><tt class="py-docstring">                        ],</tt> </tt>
-<a name="L656"></a><tt class="py-lineno"> 656</tt>  <tt class="py-line"><tt class="py-docstring">                        "name" : "Lunafest",</tt> </tt>
-<a name="L657"></a><tt class="py-lineno"> 657</tt>  <tt class="py-line"><tt class="py-docstring">                        "url" : "http://www.lunafest.org"</tt> </tt>
-<a name="L658"></a><tt class="py-lineno"> 658</tt>  <tt class="py-line"><tt class="py-docstring">                      }</tt> </tt>
-<a name="L659"></a><tt class="py-lineno"> 659</tt>  <tt class="py-line"><tt class="py-docstring">           date_added:</tt> </tt>
-<a name="L660"></a><tt class="py-lineno"> 660</tt>  <tt class="py-line"><tt class="py-docstring">             Formatted date/time of when deal was added. [Optional]</tt> </tt>
-<a name="L661"></a><tt class="py-lineno"> 661</tt>  <tt class="py-line"><tt class="py-docstring">             Example: "2011-10-08 07:24:01"</tt> </tt>
-<a name="L662"></a><tt class="py-lineno"> 662</tt>  <tt class="py-line"><tt class="py-docstring">           end_date:</tt> </tt>
-<a name="L663"></a><tt class="py-lineno"> 663</tt>  <tt class="py-line"><tt class="py-docstring">             Formatted date/time for when the deal ends. [Optional]</tt> </tt>
-<a name="L664"></a><tt class="py-lineno"> 664</tt>  <tt class="py-line"><tt class="py-docstring">             Example: "2011-10-10 00:00:00"</tt> </tt>
-<a name="L665"></a><tt class="py-lineno"> 665</tt>  <tt class="py-line"><tt class="py-docstring">           id:</tt> </tt>
-<a name="L666"></a><tt class="py-lineno"> 666</tt>  <tt class="py-line"><tt class="py-docstring">             Integer id of the deal for Yipit. [Optional]</tt> </tt>
-<a name="L667"></a><tt class="py-lineno"> 667</tt>  <tt class="py-line"><tt class="py-docstring">           images:</tt> </tt>
-<a name="L668"></a><tt class="py-lineno"> 668</tt>  <tt class="py-line"><tt class="py-docstring">             A dictionary storing the images for this deal. [Optional]</tt> </tt>
-<a name="L669"></a><tt class="py-lineno"> 669</tt>  <tt class="py-line"><tt class="py-docstring">             Example: {"image_big" : "http://bigimage.yipit.com",</tt> </tt>
-<a name="L670"></a><tt class="py-lineno"> 670</tt>  <tt class="py-line"><tt class="py-docstring">                       "image_small" : "http://smallimage.yipit.com"}</tt> </tt>
-<a name="L671"></a><tt class="py-lineno"> 671</tt>  <tt class="py-line"><tt class="py-docstring">           mobile_url:</tt> </tt>
-<a name="L672"></a><tt class="py-lineno"> 672</tt>  <tt class="py-line"><tt class="py-docstring">             The mobile url to find the Yipit deal</tt> </tt>
-<a name="L673"></a><tt class="py-lineno"> 673</tt>  <tt class="py-line"><tt class="py-docstring">           division:</tt> </tt>
-<a name="L674"></a><tt class="py-lineno"> 674</tt>  <tt class="py-line"><tt class="py-docstring">             A dictionary storing all the information of the division</tt> </tt>
-<a name="L675"></a><tt class="py-lineno"> 675</tt>  <tt class="py-line"><tt class="py-docstring">             the deal is in. [Optional]</tt> </tt>
-<a name="L676"></a><tt class="py-lineno"> 676</tt>  <tt class="py-line"><tt class="py-docstring">             Example: {</tt> </tt>
-<a name="L677"></a><tt class="py-lineno"> 677</tt>  <tt class="py-line"><tt class="py-docstring">                        "active" : 1,</tt> </tt>
-<a name="L678"></a><tt class="py-lineno"> 678</tt>  <tt class="py-line"><tt class="py-docstring">                        "lat" : 40.714,</tt> </tt>
-<a name="L679"></a><tt class="py-lineno"> 679</tt>  <tt class="py-line"><tt class="py-docstring">                        "lon" : -74.005,</tt> </tt>
-<a name="L680"></a><tt class="py-lineno"> 680</tt>  <tt class="py-line"><tt class="py-docstring">                        "name" : "New York",</tt> </tt>
-<a name="L681"></a><tt class="py-lineno"> 681</tt>  <tt class="py-line"><tt class="py-docstring">                        "slug" : "new-york",</tt> </tt>
-<a name="L682"></a><tt class="py-lineno"> 682</tt>  <tt class="py-line"><tt class="py-docstring">                        "time_zone_diff" : -5,</tt> </tt>
-<a name="L683"></a><tt class="py-lineno"> 683</tt>  <tt class="py-line"><tt class="py-docstring">                        "url" : "http://yipit.com/new-york/"</tt> </tt>
-<a name="L684"></a><tt class="py-lineno"> 684</tt>  <tt class="py-line"><tt class="py-docstring">                        }</tt> </tt>
-<a name="L685"></a><tt class="py-lineno"> 685</tt>  <tt class="py-line"><tt class="py-docstring">           price:</tt> </tt>
-<a name="L686"></a><tt class="py-lineno"> 686</tt>  <tt class="py-line"><tt class="py-docstring">             A dictionary storing all the price information which usually</tt> </tt>
-<a name="L687"></a><tt class="py-lineno"> 687</tt>  <tt class="py-line"><tt class="py-docstring">             includes 'formatted' and 'raw'. [Optional]</tt> </tt>
-<a name="L688"></a><tt class="py-lineno"> 688</tt>  <tt class="py-line"><tt class="py-docstring">             Example: {"formatted" : "$40", "raw" : 40.00}</tt> </tt>
-<a name="L689"></a><tt class="py-lineno"> 689</tt>  <tt class="py-line"><tt class="py-docstring">           value:</tt> </tt>
-<a name="L690"></a><tt class="py-lineno"> 690</tt>  <tt class="py-line"><tt class="py-docstring">             A dictionary storying all the value information of the deal</tt> </tt>
-<a name="L691"></a><tt class="py-lineno"> 691</tt>  <tt class="py-line"><tt class="py-docstring">             usually including 'formatted' and 'raw'. [Optional]</tt> </tt>
-<a name="L692"></a><tt class="py-lineno"> 692</tt>  <tt class="py-line"><tt class="py-docstring">             Example: {"formatted" : "$80", "raw" : 80.00}</tt> </tt>
-<a name="L693"></a><tt class="py-lineno"> 693</tt>  <tt class="py-line"><tt class="py-docstring">           purchased:</tt> </tt>
-<a name="L694"></a><tt class="py-lineno"> 694</tt>  <tt class="py-line"><tt class="py-docstring">             A number representing how many people have bought the deal so</tt> </tt>
-<a name="L695"></a><tt class="py-lineno"> 695</tt>  <tt class="py-line"><tt class="py-docstring">             far. [Optional]</tt> </tt>
-<a name="L696"></a><tt class="py-lineno"> 696</tt>  <tt class="py-line"><tt class="py-docstring">           source:</tt> </tt>
-<a name="L697"></a><tt class="py-lineno"> 697</tt>  <tt class="py-line"><tt class="py-docstring">             A dictionary storying all the information of the source the</tt> </tt>
-<a name="L698"></a><tt class="py-lineno"> 698</tt>  <tt class="py-line"><tt class="py-docstring">             deal is from. [Optional]</tt> </tt>
-<a name="L699"></a><tt class="py-lineno"> 699</tt>  <tt class="py-line"><tt class="py-docstring">             Example: {"name" : "Groupon",</tt> </tt>
-<a name="L700"></a><tt class="py-lineno"> 700</tt>  <tt class="py-line"><tt class="py-docstring">                       "paid" : 0,</tt> </tt>
-<a name="L701"></a><tt class="py-lineno"> 701</tt>  <tt class="py-line"><tt class="py-docstring">                       "slug" : "groupon",</tt> </tt>
-<a name="L702"></a><tt class="py-lineno"> 702</tt>  <tt class="py-line"><tt class="py-docstring">                       "url" : "http://groupon.com"</tt> </tt>
-<a name="L703"></a><tt class="py-lineno"> 703</tt>  <tt class="py-line"><tt class="py-docstring">                       }</tt> </tt>
-<a name="L704"></a><tt class="py-lineno"> 704</tt>  <tt class="py-line"><tt class="py-docstring">           tags:</tt> </tt>
-<a name="L705"></a><tt class="py-lineno"> 705</tt>  <tt class="py-line"><tt class="py-docstring">             A list storying all the tag dictionaries the deal falls under.</tt> </tt>
-<a name="L706"></a><tt class="py-lineno"> 706</tt>  <tt class="py-line"><tt class="py-docstring">             [Optional]</tt> </tt>
-<a name="L707"></a><tt class="py-lineno"> 707</tt>  <tt class="py-line"><tt class="py-docstring">             Example: [{</tt> </tt>
-<a name="L708"></a><tt class="py-lineno"> 708</tt>  <tt class="py-line"><tt class="py-docstring">                        "name" : "Theater",</tt> </tt>
-<a name="L709"></a><tt class="py-lineno"> 709</tt>  <tt class="py-line"><tt class="py-docstring">                        "slug" : "theater",</tt> </tt>
-<a name="L710"></a><tt class="py-lineno"> 710</tt>  <tt class="py-line"><tt class="py-docstring">                        "url" : ""</tt> </tt>
-<a name="L711"></a><tt class="py-lineno"> 711</tt>  <tt class="py-line"><tt class="py-docstring">                       }]</tt> </tt>
-<a name="L712"></a><tt class="py-lineno"> 712</tt>  <tt class="py-line"><tt class="py-docstring">           **kwargs:</tt> </tt>
-<a name="L713"></a><tt class="py-lineno"> 713</tt>  <tt class="py-line"><tt class="py-docstring">             Any extra key/value params that may be added if Yipit's API</tt> </tt>
-<a name="L714"></a><tt class="py-lineno"> 714</tt>  <tt class="py-line"><tt class="py-docstring">             changes and response sends more data than expected</tt> </tt>
-<a name="L715"></a><tt class="py-lineno"> 715</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
-<a name="L716"></a><tt class="py-lineno"> 716</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_title</tt> <tt class="py-op">=</tt> <tt class="py-name">title</tt> </tt>
-<a name="L717"></a><tt class="py-lineno"> 717</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_url</tt> <tt class="py-op">=</tt> <tt class="py-name">url</tt> </tt>
-<a name="L718"></a><tt class="py-lineno"> 718</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_yipit_title</tt> <tt class="py-op">=</tt> <tt class="py-name">yipit_title</tt> </tt>
-<a name="L719"></a><tt class="py-lineno"> 719</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_yipit_url</tt> <tt class="py-op">=</tt> <tt class="py-name">yipit_url</tt> </tt>
-<a name="L720"></a><tt class="py-lineno"> 720</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_active</tt> <tt class="py-op">=</tt> <tt class="py-name">active</tt> </tt>
-<a name="L721"></a><tt class="py-lineno"> 721</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_business</tt> <tt class="py-op">=</tt> <tt class="py-name">business</tt> </tt>
-<a name="L722"></a><tt class="py-lineno"> 722</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_date_added</tt> <tt class="py-op">=</tt> <tt class="py-name">date_added</tt> </tt>
-<a name="L723"></a><tt class="py-lineno"> 723</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_division</tt> <tt class="py-op">=</tt> <tt class="py-name">division</tt> </tt>
-<a name="L724"></a><tt class="py-lineno"> 724</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_end_date</tt> <tt class="py-op">=</tt> <tt class="py-name">end_date</tt> </tt>
-<a name="L725"></a><tt class="py-lineno"> 725</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_id</tt> <tt class="py-op">=</tt> <tt class="py-name">id</tt> </tt>
-<a name="L726"></a><tt class="py-lineno"> 726</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_images</tt> <tt class="py-op">=</tt> <tt class="py-name">images</tt> </tt>
-<a name="L727"></a><tt class="py-lineno"> 727</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_mobile_url</tt> <tt class="py-op">=</tt> <tt class="py-name">mobile_url</tt> </tt>
-<a name="L728"></a><tt class="py-lineno"> 728</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_discount</tt> <tt class="py-op">=</tt> <tt class="py-name">discount</tt> </tt>
-<a name="L729"></a><tt class="py-lineno"> 729</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_price</tt> <tt class="py-op">=</tt> <tt class="py-name">price</tt> </tt>
-<a name="L730"></a><tt class="py-lineno"> 730</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_value</tt> <tt class="py-op">=</tt> <tt class="py-name">value</tt> </tt>
-<a name="L731"></a><tt class="py-lineno"> 731</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_purchased</tt> <tt class="py-op">=</tt> <tt class="py-name">purchased</tt> </tt>
-<a name="L732"></a><tt class="py-lineno"> 732</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_source</tt> <tt class="py-op">=</tt> <tt class="py-name">source</tt> </tt>
-<a name="L733"></a><tt class="py-lineno"> 733</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_tags</tt> <tt class="py-op">=</tt> <tt class="py-name">tags</tt> </tt>
-</div><a name="L734"></a><tt class="py-lineno"> 734</tt>  <tt class="py-line"> </tt>
-<a name="L735"></a><tt class="py-lineno"> 735</tt>  <tt class="py-line">    <tt class="py-decorator">@</tt><tt class="py-decorator">staticmethod</tt> </tt>
-<a name="Deal.new_from_json_dict"></a><div id="Deal.new_from_json_dict-def"><a name="L736"></a><tt class="py-lineno"> 736</tt> <a class="py-toggle" href="#" id="Deal.new_from_json_dict-toggle" onclick="return toggle('Deal.new_from_json_dict');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="yipit.Deal-class.html#new_from_json_dict">new_from_json_dict</a><tt class="py-op">(</tt><tt class="py-param">data</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="Deal.new_from_json_dict-collapsed" style="display:none;" pad="++++" indent="++++++++"></div><div id="Deal.new_from_json_dict-expanded"><a name="L737"></a><tt class="py-lineno"> 737</tt>  <tt class="py-line">        <tt class="py-docstring">'''Create a new instance based on a JSON dict.</tt> </tt>
-<a name="L738"></a><tt class="py-lineno"> 738</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
-<a name="L739"></a><tt class="py-lineno"> 739</tt>  <tt class="py-line"><tt class="py-docstring">        Args:</tt> </tt>
-<a name="L740"></a><tt class="py-lineno"> 740</tt>  <tt class="py-line"><tt class="py-docstring">          data: </tt> </tt>
-<a name="L741"></a><tt class="py-lineno"> 741</tt>  <tt class="py-line"><tt class="py-docstring">            A JSON dict, as converted from the JSON in the Yipit API.</tt> </tt>
-<a name="L742"></a><tt class="py-lineno"> 742</tt>  <tt class="py-line"><tt class="py-docstring">            It should include all the keys that correspond with params</tt> </tt>
-<a name="L743"></a><tt class="py-lineno"> 743</tt>  <tt class="py-line"><tt class="py-docstring">            outlined in the constructor. Any extra keys from data </tt> </tt>
-<a name="L744"></a><tt class="py-lineno"> 744</tt>  <tt class="py-line"><tt class="py-docstring">            will be incorporated through the **kwargs param in __init__</tt> </tt>
-<a name="L745"></a><tt class="py-lineno"> 745</tt>  <tt class="py-line"><tt class="py-docstring">        Returns:</tt> </tt>
-<a name="L746"></a><tt class="py-lineno"> 746</tt>  <tt class="py-line"><tt class="py-docstring">          A yipit.Deal instance</tt> </tt>
-<a name="L747"></a><tt class="py-lineno"> 747</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
-<a name="L748"></a><tt class="py-lineno"> 748</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-34" class="py-name"><a title="yipit.Deal" class="py-name" href="#" onclick="return doclink('link-34', 'Deal', 'link-14');">Deal</a></tt><tt class="py-op">(</tt><tt class="py-op">**</tt><tt class="py-name">data</tt><tt class="py-op">)</tt> </tt>
-</div><a name="L749"></a><tt class="py-lineno"> 749</tt>  <tt class="py-line">     </tt>
-<a name="Deal.as_dict"></a><div id="Deal.as_dict-def"><a name="L750"></a><tt class="py-lineno"> 750</tt> <a class="py-toggle" href="#" id="Deal.as_dict-toggle" onclick="return toggle('Deal.as_dict');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="yipit.Deal-class.html#as_dict">as_dict</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="Deal.as_dict-collapsed" style="display:none;" pad="++++" indent="++++++++"></div><div id="Deal.as_dict-expanded"><a name="L751"></a><tt class="py-lineno"> 751</tt>  <tt class="py-line">        <tt class="py-docstring">'''A dict representation of this yipit.Deal instance.</tt> </tt>
-<a name="L752"></a><tt class="py-lineno"> 752</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
-<a name="L753"></a><tt class="py-lineno"> 753</tt>  <tt class="py-line"><tt class="py-docstring">        The return value uses the same key names as the JSON representation.</tt> </tt>
-<a name="L754"></a><tt class="py-lineno"> 754</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
-<a name="L755"></a><tt class="py-lineno"> 755</tt>  <tt class="py-line"><tt class="py-docstring">        Return:</tt> </tt>
-<a name="L756"></a><tt class="py-lineno"> 756</tt>  <tt class="py-line"><tt class="py-docstring">          A dict represention this yipit.Deal instance</tt> </tt>
-<a name="L757"></a><tt class="py-lineno"> 757</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
-<a name="L758"></a><tt class="py-lineno"> 758</tt>  <tt class="py-line">        <tt class="py-comment"># jzhao what is a better way to make this available to all the classes?</tt> </tt>
-<a name="L759"></a><tt class="py-lineno"> 759</tt>  <tt class="py-line">        <tt class="py-name">data</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-35" class="py-name" targets="Method yipit.YipitObject.make_dict_from_kwargs()=yipit.YipitObject-class.html#make_dict_from_kwargs"><a title="yipit.YipitObject.make_dict_from_kwargs" class="py-name" href="#" onclick="return doclink('link-35', 'make_dict_from_kwargs', 'link-35');">make_dict_from_kwargs</a></tt><tt class="py-op">(</tt><tt class="py-name">title</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_title</tt><tt class="py-op">,</tt> </tt>
-<a name="L760"></a><tt class="py-lineno"> 760</tt>  <tt class="py-line">                                          <tt class="py-name">url</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_url</tt><tt class="py-op">,</tt> </tt>
-<a name="L761"></a><tt class="py-lineno"> 761</tt>  <tt class="py-line">                                          <tt class="py-name">yipit_title</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_yipit_title</tt><tt class="py-op">,</tt> </tt>
-<a name="L762"></a><tt class="py-lineno"> 762</tt>  <tt class="py-line">                                          <tt class="py-name">active</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_active</tt><tt class="py-op">,</tt> </tt>
-<a name="L763"></a><tt class="py-lineno"> 763</tt>  <tt class="py-line">                                          <tt class="py-name">business</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_business</tt><tt class="py-op">,</tt> </tt>
-<a name="L764"></a><tt class="py-lineno"> 764</tt>  <tt class="py-line">                                          <tt class="py-name">date_added</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_date_added</tt><tt class="py-op">,</tt> </tt>
-<a name="L765"></a><tt class="py-lineno"> 765</tt>  <tt class="py-line">                                          <tt class="py-name">division</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_division</tt><tt class="py-op">,</tt> </tt>
-<a name="L766"></a><tt class="py-lineno"> 766</tt>  <tt class="py-line">                                          <tt class="py-name">end_date</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_end_date</tt><tt class="py-op">,</tt> </tt>
-<a name="L767"></a><tt class="py-lineno"> 767</tt>  <tt class="py-line">                                          <tt class="py-name">id</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_id</tt><tt class="py-op">,</tt> </tt>
-<a name="L768"></a><tt class="py-lineno"> 768</tt>  <tt class="py-line">                                          <tt class="py-name">images</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_images</tt><tt class="py-op">,</tt> </tt>
-<a name="L769"></a><tt class="py-lineno"> 769</tt>  <tt class="py-line">                                          <tt class="py-name">mobile_url</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_mobile_url</tt><tt class="py-op">,</tt> </tt>
-<a name="L770"></a><tt class="py-lineno"> 770</tt>  <tt class="py-line">                                          <tt class="py-name">discount</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_discount</tt><tt class="py-op">,</tt> </tt>
-<a name="L771"></a><tt class="py-lineno"> 771</tt>  <tt class="py-line">                                          <tt class="py-name">price</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_price</tt><tt class="py-op">,</tt> </tt>
-<a name="L772"></a><tt class="py-lineno"> 772</tt>  <tt class="py-line">                                          <tt class="py-name">value</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_value</tt><tt class="py-op">,</tt> </tt>
-<a name="L773"></a><tt class="py-lineno"> 773</tt>  <tt class="py-line">                                          <tt class="py-name">purchased</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_purchased</tt><tt class="py-op">,</tt> </tt>
-<a name="L774"></a><tt class="py-lineno"> 774</tt>  <tt class="py-line">                                          <tt class="py-name">source</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_source</tt><tt class="py-op">,</tt> </tt>
-<a name="L775"></a><tt class="py-lineno"> 775</tt>  <tt class="py-line">                                          <tt class="py-name">tags</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_tags</tt><tt class="py-op">)</tt> </tt>
-<a name="L776"></a><tt class="py-lineno"> 776</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">data</tt>                        </tt>
-</div></div><a name="L777"></a><tt class="py-lineno"> 777</tt>  <tt class="py-line">         </tt>
-<a name="Source"></a><div id="Source-def"><a name="L778"></a><tt class="py-lineno"> 778</tt> <a class="py-toggle" href="#" id="Source-toggle" onclick="return toggle('Source');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="yipit.Source-class.html">Source</a><tt class="py-op">(</tt><tt class="py-base-class">YipitObject</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="Source-collapsed" style="display:none;" pad="++++" indent="++++"></div><div id="Source-expanded"><a name="L779"></a><tt class="py-lineno"> 779</tt>  <tt class="py-line">    <tt class="py-docstring">'''A class representing the source structure used by the Yipit API</tt> </tt>
-<a name="L780"></a><tt class="py-lineno"> 780</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
-<a name="L781"></a><tt class="py-lineno"> 781</tt>  <tt class="py-line"><tt class="py-docstring">    The source structure exposes the following properties:</tt> </tt>
-<a name="L782"></a><tt class="py-lineno"> 782</tt>  <tt class="py-line"><tt class="py-docstring">    </tt> </tt>
-<a name="L783"></a><tt class="py-lineno"> 783</tt>  <tt class="py-line"><tt class="py-docstring">      source._name</tt> </tt>
-<a name="L784"></a><tt class="py-lineno"> 784</tt>  <tt class="py-line"><tt class="py-docstring">      source._slug</tt> </tt>
-<a name="L785"></a><tt class="py-lineno"> 785</tt>  <tt class="py-line"><tt class="py-docstring">      source._paid</tt> </tt>
-<a name="L786"></a><tt class="py-lineno"> 786</tt>  <tt class="py-line"><tt class="py-docstring">      source._url</tt> </tt>
-<a name="L787"></a><tt class="py-lineno"> 787</tt>  <tt class="py-line"><tt class="py-docstring">    '''</tt> </tt>
-<a name="L788"></a><tt class="py-lineno"> 788</tt>  <tt class="py-line"> </tt>
-<a name="Source.__init__"></a><div id="Source.__init__-def"><a name="L789"></a><tt class="py-lineno"> 789</tt> <a class="py-toggle" href="#" id="Source.__init__-toggle" onclick="return toggle('Source.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="yipit.Source-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> </tt>
-<a name="L790"></a><tt class="py-lineno"> 790</tt>  <tt class="py-line">                 <tt class="py-param">name</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt><tt class="py-op">,</tt> </tt>
-<a name="L791"></a><tt class="py-lineno"> 791</tt>  <tt class="py-line">                 <tt class="py-param">slug</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt><tt class="py-op">,</tt> </tt>
-<a name="L792"></a><tt class="py-lineno"> 792</tt>  <tt class="py-line">                 <tt class="py-param">paid</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt><tt class="py-op">,</tt> </tt>
-<a name="L793"></a><tt class="py-lineno"> 793</tt>  <tt class="py-line">                 <tt class="py-param">url</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt><tt class="py-op">,</tt> </tt>
-<a name="L794"></a><tt class="py-lineno"> 794</tt>  <tt class="py-line">                 <tt class="py-op">**</tt><tt class="py-param">kwargs</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="Source.__init__-collapsed" style="display:none;" pad="++++" indent="++++++++"></div><div id="Source.__init__-expanded"><a name="L795"></a><tt class="py-lineno"> 795</tt>  <tt class="py-line">        <tt class="py-docstring">'''An object to hold a Yipit Source</tt> </tt>
-<a name="L796"></a><tt class="py-lineno"> 796</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
-<a name="L797"></a><tt class="py-lineno"> 797</tt>  <tt class="py-line"><tt class="py-docstring">        This class is normally instantiated by the yipit.Api class and</tt> </tt>
-<a name="L798"></a><tt class="py-lineno"> 798</tt>  <tt class="py-line"><tt class="py-docstring">        returned in a sequence</tt> </tt>
-<a name="L799"></a><tt class="py-lineno"> 799</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
-<a name="L800"></a><tt class="py-lineno"> 800</tt>  <tt class="py-line"><tt class="py-docstring">        Args:</tt> </tt>
-<a name="L801"></a><tt class="py-lineno"> 801</tt>  <tt class="py-line"><tt class="py-docstring">          name:</tt> </tt>
-<a name="L802"></a><tt class="py-lineno"> 802</tt>  <tt class="py-line"><tt class="py-docstring">            The name of the source. [Optional]</tt> </tt>
-<a name="L803"></a><tt class="py-lineno"> 803</tt>  <tt class="py-line"><tt class="py-docstring">          slug:</tt> </tt>
-<a name="L804"></a><tt class="py-lineno"> 804</tt>  <tt class="py-line"><tt class="py-docstring">            The slug of the source. [Optional]</tt> </tt>
-<a name="L805"></a><tt class="py-lineno"> 805</tt>  <tt class="py-line"><tt class="py-docstring">          paid:</tt> </tt>
-<a name="L806"></a><tt class="py-lineno"> 806</tt>  <tt class="py-line"><tt class="py-docstring">            If Yipit pays you for source link click. Integer 1/0. [Optional]</tt> </tt>
-<a name="L807"></a><tt class="py-lineno"> 807</tt>  <tt class="py-line"><tt class="py-docstring">          url:</tt> </tt>
-<a name="L808"></a><tt class="py-lineno"> 808</tt>  <tt class="py-line"><tt class="py-docstring">            The url of the source. [Optional]</tt> </tt>
-<a name="L809"></a><tt class="py-lineno"> 809</tt>  <tt class="py-line"><tt class="py-docstring">          **kwargs:</tt> </tt>
-<a name="L810"></a><tt class="py-lineno"> 810</tt>  <tt class="py-line"><tt class="py-docstring">            Any extra key/value params that the Yipit API may add on in the</tt> </tt>
-<a name="L811"></a><tt class="py-lineno"> 811</tt>  <tt class="py-line"><tt class="py-docstring">            future to the response JSON. [Optional]</tt> </tt>
-<a name="L812"></a><tt class="py-lineno"> 812</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
-<a name="L813"></a><tt class="py-lineno"> 813</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_name</tt> <tt class="py-op">=</tt> <tt class="py-name">name</tt> </tt>
-<a name="L814"></a><tt class="py-lineno"> 814</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_slug</tt> <tt class="py-op">=</tt> <tt class="py-name">slug</tt> </tt>
-<a name="L815"></a><tt class="py-lineno"> 815</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_paid</tt> <tt class="py-op">=</tt> <tt class="py-name">paid</tt> </tt>
-<a name="L816"></a><tt class="py-lineno"> 816</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_url</tt> <tt class="py-op">=</tt> <tt class="py-name">url</tt> </tt>
-</div><a name="L817"></a><tt class="py-lineno"> 817</tt>  <tt class="py-line"> </tt>
-<a name="L818"></a><tt class="py-lineno"> 818</tt>  <tt class="py-line">    <tt class="py-decorator">@</tt><tt class="py-decorator">staticmethod</tt> </tt>
-<a name="Source.new_from_json_dict"></a><div id="Source.new_from_json_dict-def"><a name="L819"></a><tt class="py-lineno"> 819</tt> <a class="py-toggle" href="#" id="Source.new_from_json_dict-toggle" onclick="return toggle('Source.new_from_json_dict');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="yipit.Source-class.html#new_from_json_dict">new_from_json_dict</a><tt class="py-op">(</tt><tt class="py-param">data</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="Source.new_from_json_dict-collapsed" style="display:none;" pad="++++" indent="++++++++"></div><div id="Source.new_from_json_dict-expanded"><a name="L820"></a><tt class="py-lineno"> 820</tt>  <tt class="py-line">        <tt class="py-docstring">'''Create a new instance based on a JSON dict.</tt> </tt>
-<a name="L821"></a><tt class="py-lineno"> 821</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
-<a name="L822"></a><tt class="py-lineno"> 822</tt>  <tt class="py-line"><tt class="py-docstring">        Args:</tt> </tt>
-<a name="L823"></a><tt class="py-lineno"> 823</tt>  <tt class="py-line"><tt class="py-docstring">          data: A JSON dict, as converted from the JSON in the Yipit API.</tt> </tt>
-<a name="L824"></a><tt class="py-lineno"> 824</tt>  <tt class="py-line"><tt class="py-docstring">          It should include all the keys that correspond with params</tt> </tt>
-<a name="L825"></a><tt class="py-lineno"> 825</tt>  <tt class="py-line"><tt class="py-docstring">          outlined in the constructor. Any extra keys from data </tt> </tt>
-<a name="L826"></a><tt class="py-lineno"> 826</tt>  <tt class="py-line"><tt class="py-docstring">          will be incorporated through the **kwargs param in __init__</tt> </tt>
-<a name="L827"></a><tt class="py-lineno"> 827</tt>  <tt class="py-line"><tt class="py-docstring">        Returns:</tt> </tt>
-<a name="L828"></a><tt class="py-lineno"> 828</tt>  <tt class="py-line"><tt class="py-docstring">          A yipit.Source instance</tt> </tt>
-<a name="L829"></a><tt class="py-lineno"> 829</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
-<a name="L830"></a><tt class="py-lineno"> 830</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-36" class="py-name"><a title="yipit.Source" class="py-name" href="#" onclick="return doclink('link-36', 'Source', 'link-15');">Source</a></tt><tt class="py-op">(</tt><tt class="py-op">**</tt><tt class="py-name">data</tt><tt class="py-op">)</tt> </tt>
-</div><a name="L831"></a><tt class="py-lineno"> 831</tt>  <tt class="py-line">         </tt>
-<a name="Source.as_dict"></a><div id="Source.as_dict-def"><a name="L832"></a><tt class="py-lineno"> 832</tt> <a class="py-toggle" href="#" id="Source.as_dict-toggle" onclick="return toggle('Source.as_dict');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="yipit.Source-class.html#as_dict">as_dict</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="Source.as_dict-collapsed" style="display:none;" pad="++++" indent="++++++++"></div><div id="Source.as_dict-expanded"><a name="L833"></a><tt class="py-lineno"> 833</tt>  <tt class="py-line">        <tt class="py-docstring">'''A dict representation of this yipit.Source instance.</tt> </tt>
-<a name="L834"></a><tt class="py-lineno"> 834</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
-<a name="L835"></a><tt class="py-lineno"> 835</tt>  <tt class="py-line"><tt class="py-docstring">        The return value uses the same key names as the JSON representation.</tt> </tt>
-<a name="L836"></a><tt class="py-lineno"> 836</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
-<a name="L837"></a><tt class="py-lineno"> 837</tt>  <tt class="py-line"><tt class="py-docstring">        Return:</tt> </tt>
-<a name="L838"></a><tt class="py-lineno"> 838</tt>  <tt class="py-line"><tt class="py-docstring">          A dict represention this yipit.Source instance</tt> </tt>
-<a name="L839"></a><tt class="py-lineno"> 839</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
-<a name="L840"></a><tt class="py-lineno"> 840</tt>  <tt class="py-line">        <tt class="py-comment"># jzhao what is a better way to make this available to all the classes?</tt> </tt>
-<a name="L841"></a><tt class="py-lineno"> 841</tt>  <tt class="py-line">        <tt class="py-name">data</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-37" class="py-name"><a title="yipit.YipitObject.make_dict_from_kwargs" class="py-name" href="#" onclick="return doclink('link-37', 'make_dict_from_kwargs', 'link-35');">make_dict_from_kwargs</a></tt><tt class="py-op">(</tt><tt class="py-name">name</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_name</tt><tt class="py-op">,</tt> </tt>
-<a name="L842"></a><tt class="py-lineno"> 842</tt>  <tt class="py-line">                                          <tt class="py-name">slug</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_slug</tt><tt class="py-op">,</tt> </tt>
-<a name="L843"></a><tt class="py-lineno"> 843</tt>  <tt class="py-line">                                          <tt class="py-name">paid</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_paid</tt><tt class="py-op">,</tt> </tt>
-<a name="L844"></a><tt class="py-lineno"> 844</tt>  <tt class="py-line">                                          <tt class="py-name">url</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_url</tt><tt class="py-op">)</tt> </tt>
-<a name="L845"></a><tt class="py-lineno"> 845</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">data</tt>                        </tt>
-</div></div><a name="L846"></a><tt class="py-lineno"> 846</tt>  <tt class="py-line">         </tt>
-<a name="Division"></a><div id="Division-def"><a name="L847"></a><tt class="py-lineno"> 847</tt>  <tt class="py-line">     </tt>
-<a name="L848"></a><tt class="py-lineno"> 848</tt> <a class="py-toggle" href="#" id="Division-toggle" onclick="return toggle('Division');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="yipit.Division-class.html">Division</a><tt class="py-op">(</tt><tt class="py-base-class">YipitObject</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="Division-collapsed" style="display:none;" pad="++++" indent="++++"></div><div id="Division-expanded"><a name="L849"></a><tt class="py-lineno"> 849</tt>  <tt class="py-line">    <tt class="py-docstring">'''A class representing the division structure used by the Yipit API</tt> </tt>
-<a name="L850"></a><tt class="py-lineno"> 850</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
-<a name="L851"></a><tt class="py-lineno"> 851</tt>  <tt class="py-line"><tt class="py-docstring">    The division structure exposes the following properties:</tt> </tt>
-<a name="L852"></a><tt class="py-lineno"> 852</tt>  <tt class="py-line"><tt class="py-docstring">    </tt> </tt>
-<a name="L853"></a><tt class="py-lineno"> 853</tt>  <tt class="py-line"><tt class="py-docstring">      division._name</tt> </tt>
-<a name="L854"></a><tt class="py-lineno"> 854</tt>  <tt class="py-line"><tt class="py-docstring">      division._slug</tt> </tt>
-<a name="L855"></a><tt class="py-lineno"> 855</tt>  <tt class="py-line"><tt class="py-docstring">      division._active</tt> </tt>
-<a name="L856"></a><tt class="py-lineno"> 856</tt>  <tt class="py-line"><tt class="py-docstring">      division._time_zone_diff</tt> </tt>
-<a name="L857"></a><tt class="py-lineno"> 857</tt>  <tt class="py-line"><tt class="py-docstring">      division._lat</tt> </tt>
-<a name="L858"></a><tt class="py-lineno"> 858</tt>  <tt class="py-line"><tt class="py-docstring">      division._lon</tt> </tt>
-<a name="L859"></a><tt class="py-lineno"> 859</tt>  <tt class="py-line"><tt class="py-docstring">      division._url</tt> </tt>
-<a name="L860"></a><tt class="py-lineno"> 860</tt>  <tt class="py-line"><tt class="py-docstring">    '''</tt> </tt>
-<a name="L861"></a><tt class="py-lineno"> 861</tt>  <tt class="py-line"> </tt>
-<a name="Division.__init__"></a><div id="Division.__init__-def"><a name="L862"></a><tt class="py-lineno"> 862</tt> <a class="py-toggle" href="#" id="Division.__init__-toggle" onclick="return toggle('Division.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="yipit.Division-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> </tt>
-<a name="L863"></a><tt class="py-lineno"> 863</tt>  <tt class="py-line">                 <tt class="py-param">name</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt><tt class="py-op">,</tt> </tt>
-<a name="L864"></a><tt class="py-lineno"> 864</tt>  <tt class="py-line">                 <tt class="py-param">slug</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt><tt class="py-op">,</tt> </tt>
-<a name="L865"></a><tt class="py-lineno"> 865</tt>  <tt class="py-line">                 <tt class="py-param">active</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt><tt class="py-op">,</tt> </tt>
-<a name="L866"></a><tt class="py-lineno"> 866</tt>  <tt class="py-line">                 <tt class="py-param">time_zone_diff</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt><tt class="py-op">,</tt> </tt>
-<a name="L867"></a><tt class="py-lineno"> 867</tt>  <tt class="py-line">                 <tt class="py-param">lat</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt><tt class="py-op">,</tt> </tt>
-<a name="L868"></a><tt class="py-lineno"> 868</tt>  <tt class="py-line">                 <tt class="py-param">lon</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt><tt class="py-op">,</tt> </tt>
-<a name="L869"></a><tt class="py-lineno"> 869</tt>  <tt class="py-line">                 <tt class="py-param">url</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt><tt class="py-op">,</tt> </tt>
-<a name="L870"></a><tt class="py-lineno"> 870</tt>  <tt class="py-line">                 <tt class="py-op">**</tt><tt class="py-param">kwargs</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="Division.__init__-collapsed" style="display:none;" pad="++++" indent="++++++++"></div><div id="Division.__init__-expanded"><a name="L871"></a><tt class="py-lineno"> 871</tt>  <tt class="py-line">        <tt class="py-docstring">'''An object to hold a Yipit Division</tt> </tt>
-<a name="L872"></a><tt class="py-lineno"> 872</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
-<a name="L873"></a><tt class="py-lineno"> 873</tt>  <tt class="py-line"><tt class="py-docstring">        This class is normally instantiated by the yipit.Api class and</tt> </tt>
-<a name="L874"></a><tt class="py-lineno"> 874</tt>  <tt class="py-line"><tt class="py-docstring">        returned in a sequence</tt> </tt>
-<a name="L875"></a><tt class="py-lineno"> 875</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
-<a name="L876"></a><tt class="py-lineno"> 876</tt>  <tt class="py-line"><tt class="py-docstring">        Args:</tt> </tt>
-<a name="L877"></a><tt class="py-lineno"> 877</tt>  <tt class="py-line"><tt class="py-docstring">          name:</tt> </tt>
-<a name="L878"></a><tt class="py-lineno"> 878</tt>  <tt class="py-line"><tt class="py-docstring">            The name of the division. [Optional]</tt> </tt>
-<a name="L879"></a><tt class="py-lineno"> 879</tt>  <tt class="py-line"><tt class="py-docstring">          slug:</tt> </tt>
-<a name="L880"></a><tt class="py-lineno"> 880</tt>  <tt class="py-line"><tt class="py-docstring">            The slug of the division. [Optional]</tt> </tt>
-<a name="L881"></a><tt class="py-lineno"> 881</tt>  <tt class="py-line"><tt class="py-docstring">          active:</tt> </tt>
-<a name="L882"></a><tt class="py-lineno"> 882</tt>  <tt class="py-line"><tt class="py-docstring">            Whether or not Yipit gets active deals from this Division.</tt> </tt>
-<a name="L883"></a><tt class="py-lineno"> 883</tt>  <tt class="py-line"><tt class="py-docstring">            Integer 1/0. [Optional]</tt> </tt>
-<a name="L884"></a><tt class="py-lineno"> 884</tt>  <tt class="py-line"><tt class="py-docstring">          time_zone_diff:</tt> </tt>
-<a name="L885"></a><tt class="py-lineno"> 885</tt>  <tt class="py-line"><tt class="py-docstring">            The difference in time zone from UTC as an integer. [Optional]</tt> </tt>
-<a name="L886"></a><tt class="py-lineno"> 886</tt>  <tt class="py-line"><tt class="py-docstring">          lat:</tt> </tt>
-<a name="L887"></a><tt class="py-lineno"> 887</tt>  <tt class="py-line"><tt class="py-docstring">            The latitude of the division as a float. [Optional]</tt> </tt>
-<a name="L888"></a><tt class="py-lineno"> 888</tt>  <tt class="py-line"><tt class="py-docstring">          lon:</tt> </tt>
-<a name="L889"></a><tt class="py-lineno"> 889</tt>  <tt class="py-line"><tt class="py-docstring">            The longitude of the division as a float. [Optional]</tt> </tt>
-<a name="L890"></a><tt class="py-lineno"> 890</tt>  <tt class="py-line"><tt class="py-docstring">          url:</tt> </tt>
-<a name="L891"></a><tt class="py-lineno"> 891</tt>  <tt class="py-line"><tt class="py-docstring">            The url of the source. [Optional]</tt> </tt>
-<a name="L892"></a><tt class="py-lineno"> 892</tt>  <tt class="py-line"><tt class="py-docstring">          **kwargs:</tt> </tt>
-<a name="L893"></a><tt class="py-lineno"> 893</tt>  <tt class="py-line"><tt class="py-docstring">            Any extra key/value params that the Yipit API may add on in</tt> </tt>
-<a name="L894"></a><tt class="py-lineno"> 894</tt>  <tt class="py-line"><tt class="py-docstring">            the future to the response JSON. [Optional]</tt> </tt>
-<a name="L895"></a><tt class="py-lineno"> 895</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
-<a name="L896"></a><tt class="py-lineno"> 896</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_name</tt> <tt class="py-op">=</tt> <tt class="py-name">name</tt> </tt>
-<a name="L897"></a><tt class="py-lineno"> 897</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_slug</tt> <tt class="py-op">=</tt> <tt class="py-name">slug</tt> </tt>
-<a name="L898"></a><tt class="py-lineno"> 898</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_active</tt> <tt class="py-op">=</tt> <tt class="py-name">active</tt> </tt>
-<a name="L899"></a><tt class="py-lineno"> 899</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_time_zone_diff</tt> <tt class="py-op">=</tt> <tt class="py-name">time_zone_diff</tt> </tt>
-<a name="L900"></a><tt class="py-lineno"> 900</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_lat</tt> <tt class="py-op">=</tt> <tt class="py-name">lat</tt> </tt>
-<a name="L901"></a><tt class="py-lineno"> 901</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_lon</tt> <tt class="py-op">=</tt> <tt class="py-name">lon</tt> </tt>
-<a name="L902"></a><tt class="py-lineno"> 902</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_url</tt> <tt class="py-op">=</tt> <tt class="py-name">url</tt> </tt>
-</div><a name="L903"></a><tt class="py-lineno"> 903</tt>  <tt class="py-line"> </tt>
-<a name="L904"></a><tt class="py-lineno"> 904</tt>  <tt class="py-line">    <tt class="py-decorator">@</tt><tt class="py-decorator">staticmethod</tt> </tt>
-<a name="Division.new_from_json_dict"></a><div id="Division.new_from_json_dict-def"><a name="L905"></a><tt class="py-lineno"> 905</tt> <a class="py-toggle" href="#" id="Division.new_from_json_dict-toggle" onclick="return toggle('Division.new_from_json_dict');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="yipit.Division-class.html#new_from_json_dict">new_from_json_dict</a><tt class="py-op">(</tt><tt class="py-param">data</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="Division.new_from_json_dict-collapsed" style="display:none;" pad="++++" indent="++++++++"></div><div id="Division.new_from_json_dict-expanded"><a name="L906"></a><tt class="py-lineno"> 906</tt>  <tt class="py-line">        <tt class="py-docstring">'''Create a new instance based on a JSON dict.</tt> </tt>
-<a name="L907"></a><tt class="py-lineno"> 907</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
-<a name="L908"></a><tt class="py-lineno"> 908</tt>  <tt class="py-line"><tt class="py-docstring">        Args:</tt> </tt>
-<a name="L909"></a><tt class="py-lineno"> 909</tt>  <tt class="py-line"><tt class="py-docstring">          data: A JSON dict, as converted from the JSON in the Yipit API.</tt> </tt>
-<a name="L910"></a><tt class="py-lineno"> 910</tt>  <tt class="py-line"><tt class="py-docstring">          It should include all the keys that correspond with params</tt> </tt>
-<a name="L911"></a><tt class="py-lineno"> 911</tt>  <tt class="py-line"><tt class="py-docstring">          outlined in the constructor. Any extra keys from data </tt> </tt>
-<a name="L912"></a><tt class="py-lineno"> 912</tt>  <tt class="py-line"><tt class="py-docstring">          will be incorporated through the **kwargs param in __init__</tt> </tt>
-<a name="L913"></a><tt class="py-lineno"> 913</tt>  <tt class="py-line"><tt class="py-docstring">        Returns:</tt> </tt>
-<a name="L914"></a><tt class="py-lineno"> 914</tt>  <tt class="py-line"><tt class="py-docstring">          A yipit.Division instance</tt> </tt>
-<a name="L915"></a><tt class="py-lineno"> 915</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
-<a name="L916"></a><tt class="py-lineno"> 916</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-38" class="py-name"><a title="yipit.Division" class="py-name" href="#" onclick="return doclink('link-38', 'Division', 'link-16');">Division</a></tt><tt class="py-op">(</tt><tt class="py-op">**</tt><tt class="py-name">data</tt><tt class="py-op">)</tt> </tt>
-</div><a name="L917"></a><tt class="py-lineno"> 917</tt>  <tt class="py-line">     </tt>
-<a name="L918"></a><tt class="py-lineno"> 918</tt>  <tt class="py-line">     </tt>
-<a name="Division.as_dict"></a><div id="Division.as_dict-def"><a name="L919"></a><tt class="py-lineno"> 919</tt> <a class="py-toggle" href="#" id="Division.as_dict-toggle" onclick="return toggle('Division.as_dict');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="yipit.Division-class.html#as_dict">as_dict</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="Division.as_dict-collapsed" style="display:none;" pad="++++" indent="++++++++"></div><div id="Division.as_dict-expanded"><a name="L920"></a><tt class="py-lineno"> 920</tt>  <tt class="py-line">        <tt class="py-docstring">'''A dict representation of this yipit.Division instance.</tt> </tt>
-<a name="L921"></a><tt class="py-lineno"> 921</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
-<a name="L922"></a><tt class="py-lineno"> 922</tt>  <tt class="py-line"><tt class="py-docstring">        The return value uses the same key names as the JSON representation.</tt> </tt>
-<a name="L923"></a><tt class="py-lineno"> 923</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
-<a name="L924"></a><tt class="py-lineno"> 924</tt>  <tt class="py-line"><tt class="py-docstring">        Return:</tt> </tt>
-<a name="L925"></a><tt class="py-lineno"> 925</tt>  <tt class="py-line"><tt class="py-docstring">          A dict represention this yipit.Division instance</tt> </tt>
-<a name="L926"></a><tt class="py-lineno"> 926</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
-<a name="L927"></a><tt class="py-lineno"> 927</tt>  <tt class="py-line">        <tt class="py-comment"># jzhao what is a better way to make this available to all the classes?</tt> </tt>
-<a name="L928"></a><tt class="py-lineno"> 928</tt>  <tt class="py-line">        <tt class="py-name">data</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-39" class="py-name"><a title="yipit.YipitObject.make_dict_from_kwargs" class="py-name" href="#" onclick="return doclink('link-39', 'make_dict_from_kwargs', 'link-35');">make_dict_from_kwargs</a></tt><tt class="py-op">(</tt><tt class="py-name">name</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_name</tt><tt class="py-op">,</tt> </tt>
-<a name="L929"></a><tt class="py-lineno"> 929</tt>  <tt class="py-line">                                          <tt class="py-name">slug</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_slug</tt><tt class="py-op">,</tt> </tt>
-<a name="L930"></a><tt class="py-lineno"> 930</tt>  <tt class="py-line">                                          <tt class="py-name">active</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_active</tt><tt class="py-op">,</tt> </tt>
-<a name="L931"></a><tt class="py-lineno"> 931</tt>  <tt class="py-line">                                          <tt class="py-name">time_zone_diff</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_time_zone_diff</tt><tt class="py-op">,</tt> </tt>
-<a name="L932"></a><tt class="py-lineno"> 932</tt>  <tt class="py-line">                                          <tt class="py-name">lat</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_lat</tt><tt class="py-op">,</tt> </tt>
-<a name="L933"></a><tt class="py-lineno"> 933</tt>  <tt class="py-line">                                          <tt class="py-name">lon</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_lon</tt><tt class="py-op">,</tt> </tt>
-<a name="L934"></a><tt class="py-lineno"> 934</tt>  <tt class="py-line">                                          <tt class="py-name">url</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_url</tt><tt class="py-op">)</tt> </tt>
-<a name="L935"></a><tt class="py-lineno"> 935</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">data</tt>                        </tt>
-</div></div><a name="L936"></a><tt class="py-lineno"> 936</tt>  <tt class="py-line">         </tt>
-<a name="Tag"></a><div id="Tag-def"><a name="L937"></a><tt class="py-lineno"> 937</tt>  <tt class="py-line"> </tt>
-<a name="L938"></a><tt class="py-lineno"> 938</tt> <a class="py-toggle" href="#" id="Tag-toggle" onclick="return toggle('Tag');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="yipit.Tag-class.html">Tag</a><tt class="py-op">(</tt><tt class="py-base-class">YipitObject</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="Tag-collapsed" style="display:none;" pad="++++" indent="++++"></div><div id="Tag-expanded"><a name="L939"></a><tt class="py-lineno"> 939</tt>  <tt class="py-line">    <tt class="py-docstring">'''A class representing the tag structure used by the Yipit API</tt> </tt>
-<a name="L940"></a><tt class="py-lineno"> 940</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
-<a name="L941"></a><tt class="py-lineno"> 941</tt>  <tt class="py-line"><tt class="py-docstring">    The tag structure exposes the following properties:</tt> </tt>
-<a name="L942"></a><tt class="py-lineno"> 942</tt>  <tt class="py-line"><tt class="py-docstring">    </tt> </tt>
-<a name="L943"></a><tt class="py-lineno"> 943</tt>  <tt class="py-line"><tt class="py-docstring">      tag._name</tt> </tt>
-<a name="L944"></a><tt class="py-lineno"> 944</tt>  <tt class="py-line"><tt class="py-docstring">      tag._slug</tt> </tt>
-<a name="L945"></a><tt class="py-lineno"> 945</tt>  <tt class="py-line"><tt class="py-docstring">      tag._url</tt> </tt>
-<a name="L946"></a><tt class="py-lineno"> 946</tt>  <tt class="py-line"><tt class="py-docstring">    '''</tt> </tt>
-<a name="L947"></a><tt class="py-lineno"> 947</tt>  <tt class="py-line"> </tt>
-<a name="Tag.__init__"></a><div id="Tag.__init__-def"><a name="L948"></a><tt class="py-lineno"> 948</tt> <a class="py-toggle" href="#" id="Tag.__init__-toggle" onclick="return toggle('Tag.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="yipit.Tag-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> </tt>
-<a name="L949"></a><tt class="py-lineno"> 949</tt>  <tt class="py-line">                 <tt class="py-param">name</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt><tt class="py-op">,</tt> </tt>
-<a name="L950"></a><tt class="py-lineno"> 950</tt>  <tt class="py-line">                 <tt class="py-param">slug</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt><tt class="py-op">,</tt> </tt>
-<a name="L951"></a><tt class="py-lineno"> 951</tt>  <tt class="py-line">                 <tt class="py-param">url</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="Tag.__init__-collapsed" style="display:none;" pad="++++" indent="++++++++"></div><div id="Tag.__init__-expanded"><a name="L952"></a><tt class="py-lineno"> 952</tt>  <tt class="py-line">        <tt class="py-docstring">'''An object to hold a Yipit Tag</tt> </tt>
-<a name="L953"></a><tt class="py-lineno"> 953</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
-<a name="L954"></a><tt class="py-lineno"> 954</tt>  <tt class="py-line"><tt class="py-docstring">        This class is normally instantiated by the yipit.Api class and</tt> </tt>
-<a name="L955"></a><tt class="py-lineno"> 955</tt>  <tt class="py-line"><tt class="py-docstring">        returned in a sequence</tt> </tt>
-<a name="L956"></a><tt class="py-lineno"> 956</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
-<a name="L957"></a><tt class="py-lineno"> 957</tt>  <tt class="py-line"><tt class="py-docstring">        Args:</tt> </tt>
-<a name="L958"></a><tt class="py-lineno"> 958</tt>  <tt class="py-line"><tt class="py-docstring">          name:</tt> </tt>
-<a name="L959"></a><tt class="py-lineno"> 959</tt>  <tt class="py-line"><tt class="py-docstring">            The name of the tag. [Optional]</tt> </tt>
-<a name="L960"></a><tt class="py-lineno"> 960</tt>  <tt class="py-line"><tt class="py-docstring">          slug:</tt> </tt>
-<a name="L961"></a><tt class="py-lineno"> 961</tt>  <tt class="py-line"><tt class="py-docstring">            The slug of the tag. [Optional]</tt> </tt>
-<a name="L962"></a><tt class="py-lineno"> 962</tt>  <tt class="py-line"><tt class="py-docstring">          url:</tt> </tt>
-<a name="L963"></a><tt class="py-lineno"> 963</tt>  <tt class="py-line"><tt class="py-docstring">            The url of thetag. [Optional]</tt> </tt>
-<a name="L964"></a><tt class="py-lineno"> 964</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
-<a name="L965"></a><tt class="py-lineno"> 965</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_name</tt> <tt class="py-op">=</tt> <tt class="py-name">name</tt> </tt>
-<a name="L966"></a><tt class="py-lineno"> 966</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_slug</tt> <tt class="py-op">=</tt> <tt class="py-name">slug</tt> </tt>
-<a name="L967"></a><tt class="py-lineno"> 967</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_url</tt> <tt class="py-op">=</tt> <tt class="py-name">url</tt> </tt>
-</div><a name="L968"></a><tt class="py-lineno"> 968</tt>  <tt class="py-line"> </tt>
-<a name="L969"></a><tt class="py-lineno"> 969</tt>  <tt class="py-line">    <tt class="py-decorator">@</tt><tt class="py-decorator">staticmethod</tt> </tt>
-<a name="Tag.new_from_json_dict"></a><div id="Tag.new_from_json_dict-def"><a name="L970"></a><tt class="py-lineno"> 970</tt> <a class="py-toggle" href="#" id="Tag.new_from_json_dict-toggle" onclick="return toggle('Tag.new_from_json_dict');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="yipit.Tag-class.html#new_from_json_dict">new_from_json_dict</a><tt class="py-op">(</tt><tt class="py-param">data</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="Tag.new_from_json_dict-collapsed" style="display:none;" pad="++++" indent="++++++++"></div><div id="Tag.new_from_json_dict-expanded"><a name="L971"></a><tt class="py-lineno"> 971</tt>  <tt class="py-line">        <tt class="py-docstring">'''Create a new instance based on a JSON dict.</tt> </tt>
-<a name="L972"></a><tt class="py-lineno"> 972</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
-<a name="L973"></a><tt class="py-lineno"> 973</tt>  <tt class="py-line"><tt class="py-docstring">        Args:</tt> </tt>
-<a name="L974"></a><tt class="py-lineno"> 974</tt>  <tt class="py-line"><tt class="py-docstring">          data: A JSON dict, as converted from the JSON in the Yipit API.</tt> </tt>
-<a name="L975"></a><tt class="py-lineno"> 975</tt>  <tt class="py-line"><tt class="py-docstring">          It should include all the keys that correspond with params</tt> </tt>
-<a name="L976"></a><tt class="py-lineno"> 976</tt>  <tt class="py-line"><tt class="py-docstring">          outlined in the constructor. Any extra keys from data </tt> </tt>
-<a name="L977"></a><tt class="py-lineno"> 977</tt>  <tt class="py-line"><tt class="py-docstring">          will be incorporated through the **kwargs param in __init__</tt> </tt>
-<a name="L978"></a><tt class="py-lineno"> 978</tt>  <tt class="py-line"><tt class="py-docstring">        Returns:</tt> </tt>
-<a name="L979"></a><tt class="py-lineno"> 979</tt>  <tt class="py-line"><tt class="py-docstring">          A yipit.Tag instance</tt> </tt>
-<a name="L980"></a><tt class="py-lineno"> 980</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
-<a name="L981"></a><tt class="py-lineno"> 981</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-40" class="py-name"><a title="yipit.Tag" class="py-name" href="#" onclick="return doclink('link-40', 'Tag', 'link-17');">Tag</a></tt><tt class="py-op">(</tt><tt class="py-op">**</tt><tt class="py-name">data</tt><tt class="py-op">)</tt> </tt>
-</div><a name="L982"></a><tt class="py-lineno"> 982</tt>  <tt class="py-line">     </tt>
-<a name="Tag.as_dict"></a><div id="Tag.as_dict-def"><a name="L983"></a><tt class="py-lineno"> 983</tt> <a class="py-toggle" href="#" id="Tag.as_dict-toggle" onclick="return toggle('Tag.as_dict');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="yipit.Tag-class.html#as_dict">as_dict</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="Tag.as_dict-collapsed" style="display:none;" pad="++++" indent="++++++++"></div><div id="Tag.as_dict-expanded"><a name="L984"></a><tt class="py-lineno"> 984</tt>  <tt class="py-line">        <tt class="py-docstring">'''A dict representation of this yipit.Tag instance.</tt> </tt>
-<a name="L985"></a><tt class="py-lineno"> 985</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
-<a name="L986"></a><tt class="py-lineno"> 986</tt>  <tt class="py-line"><tt class="py-docstring">        The return value uses the same key names as the JSON representation.</tt> </tt>
-<a name="L987"></a><tt class="py-lineno"> 987</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
-<a name="L988"></a><tt class="py-lineno"> 988</tt>  <tt class="py-line"><tt class="py-docstring">        Return:</tt> </tt>
-<a name="L989"></a><tt class="py-lineno"> 989</tt>  <tt class="py-line"><tt class="py-docstring">          A dict represention this yipit.Tag instance</tt> </tt>
-<a name="L990"></a><tt class="py-lineno"> 990</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
-<a name="L991"></a><tt class="py-lineno"> 991</tt>  <tt class="py-line">        <tt class="py-comment"># jzhao what is a better way to make this available to all the classes?</tt> </tt>
-<a name="L992"></a><tt class="py-lineno"> 992</tt>  <tt class="py-line">        <tt class="py-name">data</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-41" class="py-name"><a title="yipit.YipitObject.make_dict_from_kwargs" class="py-name" href="#" onclick="return doclink('link-41', 'make_dict_from_kwargs', 'link-35');">make_dict_from_kwargs</a></tt><tt class="py-op">(</tt><tt class="py-name">name</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_name</tt><tt class="py-op">,</tt> </tt>
-<a name="L993"></a><tt class="py-lineno"> 993</tt>  <tt class="py-line">                                          <tt class="py-name">slug</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_slug</tt><tt class="py-op">,</tt> </tt>
-<a name="L994"></a><tt class="py-lineno"> 994</tt>  <tt class="py-line">                                          <tt class="py-name">url</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_url</tt><tt class="py-op">)</tt> </tt>
-<a name="L995"></a><tt class="py-lineno"> 995</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">data</tt>                        </tt>
-</div></div><a name="L996"></a><tt class="py-lineno"> 996</tt>  <tt class="py-line">         </tt>
-<a name="Business"></a><div id="Business-def"><a name="L997"></a><tt class="py-lineno"> 997</tt>  <tt class="py-line"> </tt>
-<a name="L998"></a><tt class="py-lineno"> 998</tt> <a class="py-toggle" href="#" id="Business-toggle" onclick="return toggle('Business');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="yipit.Business-class.html">Business</a><tt class="py-op">(</tt><tt class="py-base-class">YipitObject</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="Business-collapsed" style="display:none;" pad="++++" indent="++++"></div><div id="Business-expanded"><a name="L999"></a><tt class="py-lineno"> 999</tt>  <tt class="py-line">    <tt class="py-docstring">'''A class representing the business structure used by the Yipit API</tt> </tt>
-<a name="L1000"></a><tt class="py-lineno">1000</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
-<a name="L1001"></a><tt class="py-lineno">1001</tt>  <tt class="py-line"><tt class="py-docstring">    The business structure exposes the following properties:</tt> </tt>
-<a name="L1002"></a><tt class="py-lineno">1002</tt>  <tt class="py-line"><tt class="py-docstring">    </tt> </tt>
-<a name="L1003"></a><tt class="py-lineno">1003</tt>  <tt class="py-line"><tt class="py-docstring">      business._id</tt> </tt>
-<a name="L1004"></a><tt class="py-lineno">1004</tt>  <tt class="py-line"><tt class="py-docstring">      business._name</tt> </tt>
-<a name="L1005"></a><tt class="py-lineno">1005</tt>  <tt class="py-line"><tt class="py-docstring">      business._url</tt> </tt>
-<a name="L1006"></a><tt class="py-lineno">1006</tt>  <tt class="py-line"><tt class="py-docstring">      business._locations</tt> </tt>
+<a name="L617"></a><tt class="py-lineno"> 617</tt>  <tt class="py-line">                 <tt class="py-param">tags</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Deal.__init__-collapsed" style="display:none;" pad="++++" indent="++++++++"></div><div id="Deal.__init__-expanded"><a name="L618"></a><tt class="py-lineno"> 618</tt>  <tt class="py-line">        <tt class="py-docstring">'''An object to hold a Yipit Deal</tt> </tt>
+<a name="L619"></a><tt class="py-lineno"> 619</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L620"></a><tt class="py-lineno"> 620</tt>  <tt class="py-line"><tt class="py-docstring">        This class is normally instantiated by the yipit.Api class and</tt> </tt>
+<a name="L621"></a><tt class="py-lineno"> 621</tt>  <tt class="py-line"><tt class="py-docstring">        returned in a sequence</tt> </tt>
+<a name="L622"></a><tt class="py-lineno"> 622</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L623"></a><tt class="py-lineno"> 623</tt>  <tt class="py-line"><tt class="py-docstring">        Note: Dates are posted in the form "2011-10-10 00:00:00"</tt> </tt>
+<a name="L624"></a><tt class="py-lineno"> 624</tt>  <tt class="py-line"><tt class="py-docstring">        time zone difference is calculated from UTC</tt> </tt>
+<a name="L625"></a><tt class="py-lineno"> 625</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L626"></a><tt class="py-lineno"> 626</tt>  <tt class="py-line"><tt class="py-docstring">        Args:</tt> </tt>
+<a name="L627"></a><tt class="py-lineno"> 627</tt>  <tt class="py-line"><tt class="py-docstring">          title:</tt> </tt>
+<a name="L628"></a><tt class="py-lineno"> 628</tt>  <tt class="py-line"><tt class="py-docstring">            The title of the deal from the source. [Optional]</tt> </tt>
+<a name="L629"></a><tt class="py-lineno"> 629</tt>  <tt class="py-line"><tt class="py-docstring">          url:</tt> </tt>
+<a name="L630"></a><tt class="py-lineno"> 630</tt>  <tt class="py-line"><tt class="py-docstring">            The URL of the deal from the source. [Optional]</tt> </tt>
+<a name="L631"></a><tt class="py-lineno"> 631</tt>  <tt class="py-line"><tt class="py-docstring">          yipit_title:</tt> </tt>
+<a name="L632"></a><tt class="py-lineno"> 632</tt>  <tt class="py-line"><tt class="py-docstring">            The title that Yipit uses for the deal. [Optional]</tt> </tt>
+<a name="L633"></a><tt class="py-lineno"> 633</tt>  <tt class="py-line"><tt class="py-docstring">          yipit_url:</tt> </tt>
+<a name="L634"></a><tt class="py-lineno"> 634</tt>  <tt class="py-line"><tt class="py-docstring">            The url to the deal hosted on Yipit. [Optional]</tt> </tt>
+<a name="L635"></a><tt class="py-lineno"> 635</tt>  <tt class="py-line"><tt class="py-docstring">          active:</tt> </tt>
+<a name="L636"></a><tt class="py-lineno"> 636</tt>  <tt class="py-line"><tt class="py-docstring">            Signifies if the deal is still active. [Optional]</tt> </tt>
+<a name="L637"></a><tt class="py-lineno"> 637</tt>  <tt class="py-line"><tt class="py-docstring">            Example: active=1 or active=0</tt> </tt>
+<a name="L638"></a><tt class="py-lineno"> 638</tt>  <tt class="py-line"><tt class="py-docstring">          business:</tt> </tt>
+<a name="L639"></a><tt class="py-lineno"> 639</tt>  <tt class="py-line"><tt class="py-docstring">            A dictionary storing all the information of a business.</tt> </tt>
+<a name="L640"></a><tt class="py-lineno"> 640</tt>  <tt class="py-line"><tt class="py-docstring">            [Optional]</tt> </tt>
+<a name="L641"></a><tt class="py-lineno"> 641</tt>  <tt class="py-line"><tt class="py-docstring">            Example: { "id" : 64996,</tt> </tt>
+<a name="L642"></a><tt class="py-lineno"> 642</tt>  <tt class="py-line"><tt class="py-docstring">                       "locations" : [</tt> </tt>
+<a name="L643"></a><tt class="py-lineno"> 643</tt>  <tt class="py-line"><tt class="py-docstring">                            {</tt> </tt>
+<a name="L644"></a><tt class="py-lineno"> 644</tt>  <tt class="py-line"><tt class="py-docstring">                                 "address" : "1442 ne 32nd ave",</tt> </tt>
+<a name="L645"></a><tt class="py-lineno"> 645</tt>  <tt class="py-line"><tt class="py-docstring">                                 "id" : 264383,</tt> </tt>
+<a name="L646"></a><tt class="py-lineno"> 646</tt>  <tt class="py-line"><tt class="py-docstring">                                 "lat" : 137.2,</tt> </tt>
+<a name="L647"></a><tt class="py-lineno"> 647</tt>  <tt class="py-line"><tt class="py-docstring">                                 "lon" : -142.2,</tt> </tt>
+<a name="L648"></a><tt class="py-lineno"> 648</tt>  <tt class="py-line"><tt class="py-docstring">                                 "locality" : "",</tt> </tt>
+<a name="L649"></a><tt class="py-lineno"> 649</tt>  <tt class="py-line"><tt class="py-docstring">                                 "phone" : None,</tt> </tt>
+<a name="L650"></a><tt class="py-lineno"> 650</tt>  <tt class="py-line"><tt class="py-docstring">                                 "smart_locality" : "",</tt> </tt>
+<a name="L651"></a><tt class="py-lineno"> 651</tt>  <tt class="py-line"><tt class="py-docstring">                                 "state" : "New York",</tt> </tt>
+<a name="L652"></a><tt class="py-lineno"> 652</tt>  <tt class="py-line"><tt class="py-docstring">                                 "zip_code" : "10019"</tt> </tt>
+<a name="L653"></a><tt class="py-lineno"> 653</tt>  <tt class="py-line"><tt class="py-docstring">                             }</tt> </tt>
+<a name="L654"></a><tt class="py-lineno"> 654</tt>  <tt class="py-line"><tt class="py-docstring">                        ],</tt> </tt>
+<a name="L655"></a><tt class="py-lineno"> 655</tt>  <tt class="py-line"><tt class="py-docstring">                        "name" : "Lunafest",</tt> </tt>
+<a name="L656"></a><tt class="py-lineno"> 656</tt>  <tt class="py-line"><tt class="py-docstring">                        "url" : "http://www.lunafest.org"</tt> </tt>
+<a name="L657"></a><tt class="py-lineno"> 657</tt>  <tt class="py-line"><tt class="py-docstring">                      }</tt> </tt>
+<a name="L658"></a><tt class="py-lineno"> 658</tt>  <tt class="py-line"><tt class="py-docstring">           date_added:</tt> </tt>
+<a name="L659"></a><tt class="py-lineno"> 659</tt>  <tt class="py-line"><tt class="py-docstring">             Formatted date/time of when deal was added. [Optional]</tt> </tt>
+<a name="L660"></a><tt class="py-lineno"> 660</tt>  <tt class="py-line"><tt class="py-docstring">             Example: "2011-10-08 07:24:01"</tt> </tt>
+<a name="L661"></a><tt class="py-lineno"> 661</tt>  <tt class="py-line"><tt class="py-docstring">           end_date:</tt> </tt>
+<a name="L662"></a><tt class="py-lineno"> 662</tt>  <tt class="py-line"><tt class="py-docstring">             Formatted date/time for when the deal ends. [Optional]</tt> </tt>
+<a name="L663"></a><tt class="py-lineno"> 663</tt>  <tt class="py-line"><tt class="py-docstring">             Example: "2011-10-10 00:00:00"</tt> </tt>
+<a name="L664"></a><tt class="py-lineno"> 664</tt>  <tt class="py-line"><tt class="py-docstring">           id:</tt> </tt>
+<a name="L665"></a><tt class="py-lineno"> 665</tt>  <tt class="py-line"><tt class="py-docstring">             Integer id of the deal for Yipit. [Optional]</tt> </tt>
+<a name="L666"></a><tt class="py-lineno"> 666</tt>  <tt class="py-line"><tt class="py-docstring">           images:</tt> </tt>
+<a name="L667"></a><tt class="py-lineno"> 667</tt>  <tt class="py-line"><tt class="py-docstring">             A dictionary storing the images for this deal. [Optional]</tt> </tt>
+<a name="L668"></a><tt class="py-lineno"> 668</tt>  <tt class="py-line"><tt class="py-docstring">             Example: {"image_big" : "http://bigimage.yipit.com",</tt> </tt>
+<a name="L669"></a><tt class="py-lineno"> 669</tt>  <tt class="py-line"><tt class="py-docstring">                       "image_small" : "http://smallimage.yipit.com"}</tt> </tt>
+<a name="L670"></a><tt class="py-lineno"> 670</tt>  <tt class="py-line"><tt class="py-docstring">           mobile_url:</tt> </tt>
+<a name="L671"></a><tt class="py-lineno"> 671</tt>  <tt class="py-line"><tt class="py-docstring">             The mobile url to find the Yipit deal</tt> </tt>
+<a name="L672"></a><tt class="py-lineno"> 672</tt>  <tt class="py-line"><tt class="py-docstring">           division:</tt> </tt>
+<a name="L673"></a><tt class="py-lineno"> 673</tt>  <tt class="py-line"><tt class="py-docstring">             A dictionary storing all the information of the division</tt> </tt>
+<a name="L674"></a><tt class="py-lineno"> 674</tt>  <tt class="py-line"><tt class="py-docstring">             the deal is in. [Optional]</tt> </tt>
+<a name="L675"></a><tt class="py-lineno"> 675</tt>  <tt class="py-line"><tt class="py-docstring">             Example: {</tt> </tt>
+<a name="L676"></a><tt class="py-lineno"> 676</tt>  <tt class="py-line"><tt class="py-docstring">                        "active" : 1,</tt> </tt>
+<a name="L677"></a><tt class="py-lineno"> 677</tt>  <tt class="py-line"><tt class="py-docstring">                        "lat" : 40.714,</tt> </tt>
+<a name="L678"></a><tt class="py-lineno"> 678</tt>  <tt class="py-line"><tt class="py-docstring">                        "lon" : -74.005,</tt> </tt>
+<a name="L679"></a><tt class="py-lineno"> 679</tt>  <tt class="py-line"><tt class="py-docstring">                        "name" : "New York",</tt> </tt>
+<a name="L680"></a><tt class="py-lineno"> 680</tt>  <tt class="py-line"><tt class="py-docstring">                        "slug" : "new-york",</tt> </tt>
+<a name="L681"></a><tt class="py-lineno"> 681</tt>  <tt class="py-line"><tt class="py-docstring">                        "time_zone_diff" : -5,</tt> </tt>
+<a name="L682"></a><tt class="py-lineno"> 682</tt>  <tt class="py-line"><tt class="py-docstring">                        "url" : "http://yipit.com/new-york/"</tt> </tt>
+<a name="L683"></a><tt class="py-lineno"> 683</tt>  <tt class="py-line"><tt class="py-docstring">                        }</tt> </tt>
+<a name="L684"></a><tt class="py-lineno"> 684</tt>  <tt class="py-line"><tt class="py-docstring">           price:</tt> </tt>
+<a name="L685"></a><tt class="py-lineno"> 685</tt>  <tt class="py-line"><tt class="py-docstring">             A dictionary storing all the price information which usually</tt> </tt>
+<a name="L686"></a><tt class="py-lineno"> 686</tt>  <tt class="py-line"><tt class="py-docstring">             includes 'formatted' and 'raw'. [Optional]</tt> </tt>
+<a name="L687"></a><tt class="py-lineno"> 687</tt>  <tt class="py-line"><tt class="py-docstring">             Example: {"formatted" : "$40", "raw" : 40.00}</tt> </tt>
+<a name="L688"></a><tt class="py-lineno"> 688</tt>  <tt class="py-line"><tt class="py-docstring">           value:</tt> </tt>
+<a name="L689"></a><tt class="py-lineno"> 689</tt>  <tt class="py-line"><tt class="py-docstring">             A dictionary storying all the value information of the deal</tt> </tt>
+<a name="L690"></a><tt class="py-lineno"> 690</tt>  <tt class="py-line"><tt class="py-docstring">             usually including 'formatted' and 'raw'. [Optional]</tt> </tt>
+<a name="L691"></a><tt class="py-lineno"> 691</tt>  <tt class="py-line"><tt class="py-docstring">             Example: {"formatted" : "$80", "raw" : 80.00}</tt> </tt>
+<a name="L692"></a><tt class="py-lineno"> 692</tt>  <tt class="py-line"><tt class="py-docstring">           purchased:</tt> </tt>
+<a name="L693"></a><tt class="py-lineno"> 693</tt>  <tt class="py-line"><tt class="py-docstring">             A number representing how many people have bought the deal so</tt> </tt>
+<a name="L694"></a><tt class="py-lineno"> 694</tt>  <tt class="py-line"><tt class="py-docstring">             far. [Optional]</tt> </tt>
+<a name="L695"></a><tt class="py-lineno"> 695</tt>  <tt class="py-line"><tt class="py-docstring">           source:</tt> </tt>
+<a name="L696"></a><tt class="py-lineno"> 696</tt>  <tt class="py-line"><tt class="py-docstring">             A dictionary storying all the information of the source the</tt> </tt>
+<a name="L697"></a><tt class="py-lineno"> 697</tt>  <tt class="py-line"><tt class="py-docstring">             deal is from. [Optional]</tt> </tt>
+<a name="L698"></a><tt class="py-lineno"> 698</tt>  <tt class="py-line"><tt class="py-docstring">             Example: {"name" : "Groupon",</tt> </tt>
+<a name="L699"></a><tt class="py-lineno"> 699</tt>  <tt class="py-line"><tt class="py-docstring">                       "paid" : 0,</tt> </tt>
+<a name="L700"></a><tt class="py-lineno"> 700</tt>  <tt class="py-line"><tt class="py-docstring">                       "slug" : "groupon",</tt> </tt>
+<a name="L701"></a><tt class="py-lineno"> 701</tt>  <tt class="py-line"><tt class="py-docstring">                       "url" : "http://groupon.com"</tt> </tt>
+<a name="L702"></a><tt class="py-lineno"> 702</tt>  <tt class="py-line"><tt class="py-docstring">                       }</tt> </tt>
+<a name="L703"></a><tt class="py-lineno"> 703</tt>  <tt class="py-line"><tt class="py-docstring">           tags:</tt> </tt>
+<a name="L704"></a><tt class="py-lineno"> 704</tt>  <tt class="py-line"><tt class="py-docstring">             A list storying all the tag dictionaries the deal falls under.</tt> </tt>
+<a name="L705"></a><tt class="py-lineno"> 705</tt>  <tt class="py-line"><tt class="py-docstring">             [Optional]</tt> </tt>
+<a name="L706"></a><tt class="py-lineno"> 706</tt>  <tt class="py-line"><tt class="py-docstring">             Example: [{</tt> </tt>
+<a name="L707"></a><tt class="py-lineno"> 707</tt>  <tt class="py-line"><tt class="py-docstring">                        "name" : "Theater",</tt> </tt>
+<a name="L708"></a><tt class="py-lineno"> 708</tt>  <tt class="py-line"><tt class="py-docstring">                        "slug" : "theater",</tt> </tt>
+<a name="L709"></a><tt class="py-lineno"> 709</tt>  <tt class="py-line"><tt class="py-docstring">                        "url" : ""</tt> </tt>
+<a name="L710"></a><tt class="py-lineno"> 710</tt>  <tt class="py-line"><tt class="py-docstring">                       }]</tt> </tt>
+<a name="L711"></a><tt class="py-lineno"> 711</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L712"></a><tt class="py-lineno"> 712</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_title</tt> <tt class="py-op">=</tt> <tt class="py-name">title</tt> </tt>
+<a name="L713"></a><tt class="py-lineno"> 713</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_url</tt> <tt class="py-op">=</tt> <tt class="py-name">url</tt> </tt>
+<a name="L714"></a><tt class="py-lineno"> 714</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_yipit_title</tt> <tt class="py-op">=</tt> <tt class="py-name">yipit_title</tt> </tt>
+<a name="L715"></a><tt class="py-lineno"> 715</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_yipit_url</tt> <tt class="py-op">=</tt> <tt class="py-name">yipit_url</tt> </tt>
+<a name="L716"></a><tt class="py-lineno"> 716</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_active</tt> <tt class="py-op">=</tt> <tt class="py-name">active</tt> </tt>
+<a name="L717"></a><tt class="py-lineno"> 717</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_business</tt> <tt class="py-op">=</tt> <tt class="py-name">business</tt> </tt>
+<a name="L718"></a><tt class="py-lineno"> 718</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_date_added</tt> <tt class="py-op">=</tt> <tt class="py-name">date_added</tt> </tt>
+<a name="L719"></a><tt class="py-lineno"> 719</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_division</tt> <tt class="py-op">=</tt> <tt class="py-name">division</tt> </tt>
+<a name="L720"></a><tt class="py-lineno"> 720</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_end_date</tt> <tt class="py-op">=</tt> <tt class="py-name">end_date</tt> </tt>
+<a name="L721"></a><tt class="py-lineno"> 721</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_id</tt> <tt class="py-op">=</tt> <tt class="py-name">id</tt> </tt>
+<a name="L722"></a><tt class="py-lineno"> 722</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_images</tt> <tt class="py-op">=</tt> <tt class="py-name">images</tt> </tt>
+<a name="L723"></a><tt class="py-lineno"> 723</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_mobile_url</tt> <tt class="py-op">=</tt> <tt class="py-name">mobile_url</tt> </tt>
+<a name="L724"></a><tt class="py-lineno"> 724</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_discount</tt> <tt class="py-op">=</tt> <tt class="py-name">discount</tt> </tt>
+<a name="L725"></a><tt class="py-lineno"> 725</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_price</tt> <tt class="py-op">=</tt> <tt class="py-name">price</tt> </tt>
+<a name="L726"></a><tt class="py-lineno"> 726</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_value</tt> <tt class="py-op">=</tt> <tt class="py-name">value</tt> </tt>
+<a name="L727"></a><tt class="py-lineno"> 727</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_purchased</tt> <tt class="py-op">=</tt> <tt class="py-name">purchased</tt> </tt>
+<a name="L728"></a><tt class="py-lineno"> 728</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_source</tt> <tt class="py-op">=</tt> <tt class="py-name">source</tt> </tt>
+<a name="L729"></a><tt class="py-lineno"> 729</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_tags</tt> <tt class="py-op">=</tt> <tt class="py-name">tags</tt> </tt>
+</div><a name="L730"></a><tt class="py-lineno"> 730</tt>  <tt class="py-line"> </tt>
+<a name="L731"></a><tt class="py-lineno"> 731</tt>  <tt class="py-line">    <tt class="py-decorator">@</tt><tt class="py-decorator">staticmethod</tt> </tt>
+<a name="Deal.new_from_json_dict"></a><div id="Deal.new_from_json_dict-def"><a name="L732"></a><tt class="py-lineno"> 732</tt> <a class="py-toggle" href="#" id="Deal.new_from_json_dict-toggle" onclick="return toggle('Deal.new_from_json_dict');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="yipit.Deal-class.html#new_from_json_dict">new_from_json_dict</a><tt class="py-op">(</tt><tt class="py-param">data</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Deal.new_from_json_dict-collapsed" style="display:none;" pad="++++" indent="++++++++"></div><div id="Deal.new_from_json_dict-expanded"><a name="L733"></a><tt class="py-lineno"> 733</tt>  <tt class="py-line">        <tt class="py-docstring">'''Create a new instance based on a JSON dict.</tt> </tt>
+<a name="L734"></a><tt class="py-lineno"> 734</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L735"></a><tt class="py-lineno"> 735</tt>  <tt class="py-line"><tt class="py-docstring">        Args:</tt> </tt>
+<a name="L736"></a><tt class="py-lineno"> 736</tt>  <tt class="py-line"><tt class="py-docstring">          data: A JSON dict, as converted from the JSON in the Yipit</tt> </tt>
+<a name="L737"></a><tt class="py-lineno"> 737</tt>  <tt class="py-line"><tt class="py-docstring">          API.</tt> </tt>
+<a name="L738"></a><tt class="py-lineno"> 738</tt>  <tt class="py-line"><tt class="py-docstring">        Returns:</tt> </tt>
+<a name="L739"></a><tt class="py-lineno"> 739</tt>  <tt class="py-line"><tt class="py-docstring">          A yipit.Deal instance</tt> </tt>
+<a name="L740"></a><tt class="py-lineno"> 740</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L741"></a><tt class="py-lineno"> 741</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-34" class="py-name"><a title="yipit.Deal" class="py-name" href="#" onclick="return doclink('link-34', 'Deal', 'link-14');">Deal</a></tt><tt class="py-op">(</tt><tt class="py-name">title</tt> <tt class="py-op">=</tt> <tt class="py-name">data</tt><tt class="py-op">.</tt><tt class="py-name">get</tt><tt class="py-op">(</tt><tt class="py-string">'title'</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L742"></a><tt class="py-lineno"> 742</tt>  <tt class="py-line">                    <tt class="py-name">url</tt> <tt class="py-op">=</tt> <tt class="py-name">data</tt><tt class="py-op">.</tt><tt class="py-name">get</tt><tt class="py-op">(</tt><tt class="py-string">'url'</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L743"></a><tt class="py-lineno"> 743</tt>  <tt class="py-line">                    <tt class="py-name">yipit_title</tt> <tt class="py-op">=</tt> <tt class="py-name">data</tt><tt class="py-op">.</tt><tt class="py-name">get</tt><tt class="py-op">(</tt><tt class="py-string">'yipit_title'</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L744"></a><tt class="py-lineno"> 744</tt>  <tt class="py-line">                    <tt class="py-name">yipit_url</tt> <tt class="py-op">=</tt> <tt class="py-name">data</tt><tt class="py-op">.</tt><tt class="py-name">get</tt><tt class="py-op">(</tt><tt class="py-string">'yipit_url'</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L745"></a><tt class="py-lineno"> 745</tt>  <tt class="py-line">                    <tt class="py-name">active</tt> <tt class="py-op">=</tt> <tt class="py-name">data</tt><tt class="py-op">.</tt><tt class="py-name">get</tt><tt class="py-op">(</tt><tt class="py-string">'active'</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L746"></a><tt class="py-lineno"> 746</tt>  <tt class="py-line">                    <tt class="py-name">business</tt> <tt class="py-op">=</tt> <tt class="py-name">data</tt><tt class="py-op">.</tt><tt class="py-name">get</tt><tt class="py-op">(</tt><tt class="py-string">'business'</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L747"></a><tt class="py-lineno"> 747</tt>  <tt class="py-line">                    <tt class="py-name">date_added</tt> <tt class="py-op">=</tt> <tt class="py-name">data</tt><tt class="py-op">.</tt><tt class="py-name">get</tt><tt class="py-op">(</tt><tt class="py-string">'date_added'</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L748"></a><tt class="py-lineno"> 748</tt>  <tt class="py-line">                    <tt class="py-name">division</tt> <tt class="py-op">=</tt> <tt class="py-name">data</tt><tt class="py-op">.</tt><tt class="py-name">get</tt><tt class="py-op">(</tt><tt class="py-string">'division'</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L749"></a><tt class="py-lineno"> 749</tt>  <tt class="py-line">                    <tt class="py-name">end_date</tt> <tt class="py-op">=</tt> <tt class="py-name">data</tt><tt class="py-op">.</tt><tt class="py-name">get</tt><tt class="py-op">(</tt><tt class="py-string">'end_date'</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L750"></a><tt class="py-lineno"> 750</tt>  <tt class="py-line">                    <tt class="py-name">id</tt> <tt class="py-op">=</tt> <tt class="py-name">data</tt><tt class="py-op">.</tt><tt class="py-name">get</tt><tt class="py-op">(</tt><tt class="py-string">'id'</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L751"></a><tt class="py-lineno"> 751</tt>  <tt class="py-line">                    <tt class="py-name">images</tt> <tt class="py-op">=</tt> <tt class="py-name">data</tt><tt class="py-op">.</tt><tt class="py-name">get</tt><tt class="py-op">(</tt><tt class="py-string">'images'</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L752"></a><tt class="py-lineno"> 752</tt>  <tt class="py-line">                    <tt class="py-name">mobile_url</tt> <tt class="py-op">=</tt> <tt class="py-name">data</tt><tt class="py-op">.</tt><tt class="py-name">get</tt><tt class="py-op">(</tt><tt class="py-string">'mobile_url'</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L753"></a><tt class="py-lineno"> 753</tt>  <tt class="py-line">                    <tt class="py-name">discount</tt> <tt class="py-op">=</tt> <tt class="py-name">data</tt><tt class="py-op">.</tt><tt class="py-name">get</tt><tt class="py-op">(</tt><tt class="py-string">'discount'</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L754"></a><tt class="py-lineno"> 754</tt>  <tt class="py-line">                    <tt class="py-name">price</tt> <tt class="py-op">=</tt> <tt class="py-name">data</tt><tt class="py-op">.</tt><tt class="py-name">get</tt><tt class="py-op">(</tt><tt class="py-string">'price'</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L755"></a><tt class="py-lineno"> 755</tt>  <tt class="py-line">                    <tt class="py-name">value</tt> <tt class="py-op">=</tt> <tt class="py-name">data</tt><tt class="py-op">.</tt><tt class="py-name">get</tt><tt class="py-op">(</tt><tt class="py-string">'value'</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L756"></a><tt class="py-lineno"> 756</tt>  <tt class="py-line">                    <tt class="py-name">purchased</tt> <tt class="py-op">=</tt> <tt class="py-name">data</tt><tt class="py-op">.</tt><tt class="py-name">get</tt><tt class="py-op">(</tt><tt class="py-string">'purchased'</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L757"></a><tt class="py-lineno"> 757</tt>  <tt class="py-line">                    <tt class="py-name">source</tt> <tt class="py-op">=</tt> <tt class="py-name">data</tt><tt class="py-op">.</tt><tt class="py-name">get</tt><tt class="py-op">(</tt><tt class="py-string">'source'</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L758"></a><tt class="py-lineno"> 758</tt>  <tt class="py-line">                    <tt class="py-name">tags</tt> <tt class="py-op">=</tt> <tt class="py-name">data</tt><tt class="py-op">.</tt><tt class="py-name">get</tt><tt class="py-op">(</tt><tt class="py-string">'tags'</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L759"></a><tt class="py-lineno"> 759</tt>  <tt class="py-line">     </tt>
+<a name="Deal.as_dict"></a><div id="Deal.as_dict-def"><a name="L760"></a><tt class="py-lineno"> 760</tt> <a class="py-toggle" href="#" id="Deal.as_dict-toggle" onclick="return toggle('Deal.as_dict');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="yipit.Deal-class.html#as_dict">as_dict</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Deal.as_dict-collapsed" style="display:none;" pad="++++" indent="++++++++"></div><div id="Deal.as_dict-expanded"><a name="L761"></a><tt class="py-lineno"> 761</tt>  <tt class="py-line">        <tt class="py-docstring">'''A dict representation of this yipit.Deal instance.</tt> </tt>
+<a name="L762"></a><tt class="py-lineno"> 762</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L763"></a><tt class="py-lineno"> 763</tt>  <tt class="py-line"><tt class="py-docstring">        The return value uses the same key names as the JSON representation.</tt> </tt>
+<a name="L764"></a><tt class="py-lineno"> 764</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L765"></a><tt class="py-lineno"> 765</tt>  <tt class="py-line"><tt class="py-docstring">        Return:</tt> </tt>
+<a name="L766"></a><tt class="py-lineno"> 766</tt>  <tt class="py-line"><tt class="py-docstring">          A dict represention this yipit.Deal instance</tt> </tt>
+<a name="L767"></a><tt class="py-lineno"> 767</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L768"></a><tt class="py-lineno"> 768</tt>  <tt class="py-line">        <tt class="py-comment"># jzhao what is a better way to make this available to all the classes?</tt> </tt>
+<a name="L769"></a><tt class="py-lineno"> 769</tt>  <tt class="py-line">        <tt class="py-name">data</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-35" class="py-name" targets="Method yipit.YipitObject.make_dict_from_kwargs()=yipit.YipitObject-class.html#make_dict_from_kwargs"><a title="yipit.YipitObject.make_dict_from_kwargs" class="py-name" href="#" onclick="return doclink('link-35', 'make_dict_from_kwargs', 'link-35');">make_dict_from_kwargs</a></tt><tt class="py-op">(</tt><tt class="py-name">title</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_title</tt><tt class="py-op">,</tt> </tt>
+<a name="L770"></a><tt class="py-lineno"> 770</tt>  <tt class="py-line">                                          <tt class="py-name">url</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_url</tt><tt class="py-op">,</tt> </tt>
+<a name="L771"></a><tt class="py-lineno"> 771</tt>  <tt class="py-line">                                          <tt class="py-name">yipit_title</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_yipit_title</tt><tt class="py-op">,</tt> </tt>
+<a name="L772"></a><tt class="py-lineno"> 772</tt>  <tt class="py-line">                                          <tt class="py-name">active</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_active</tt><tt class="py-op">,</tt> </tt>
+<a name="L773"></a><tt class="py-lineno"> 773</tt>  <tt class="py-line">                                          <tt class="py-name">business</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_business</tt><tt class="py-op">,</tt> </tt>
+<a name="L774"></a><tt class="py-lineno"> 774</tt>  <tt class="py-line">                                          <tt class="py-name">date_added</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_date_added</tt><tt class="py-op">,</tt> </tt>
+<a name="L775"></a><tt class="py-lineno"> 775</tt>  <tt class="py-line">                                          <tt class="py-name">division</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_division</tt><tt class="py-op">,</tt> </tt>
+<a name="L776"></a><tt class="py-lineno"> 776</tt>  <tt class="py-line">                                          <tt class="py-name">end_date</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_end_date</tt><tt class="py-op">,</tt> </tt>
+<a name="L777"></a><tt class="py-lineno"> 777</tt>  <tt class="py-line">                                          <tt class="py-name">id</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_id</tt><tt class="py-op">,</tt> </tt>
+<a name="L778"></a><tt class="py-lineno"> 778</tt>  <tt class="py-line">                                          <tt class="py-name">images</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_images</tt><tt class="py-op">,</tt> </tt>
+<a name="L779"></a><tt class="py-lineno"> 779</tt>  <tt class="py-line">                                          <tt class="py-name">mobile_url</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_mobile_url</tt><tt class="py-op">,</tt> </tt>
+<a name="L780"></a><tt class="py-lineno"> 780</tt>  <tt class="py-line">                                          <tt class="py-name">discount</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_discount</tt><tt class="py-op">,</tt> </tt>
+<a name="L781"></a><tt class="py-lineno"> 781</tt>  <tt class="py-line">                                          <tt class="py-name">price</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_price</tt><tt class="py-op">,</tt> </tt>
+<a name="L782"></a><tt class="py-lineno"> 782</tt>  <tt class="py-line">                                          <tt class="py-name">value</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_value</tt><tt class="py-op">,</tt> </tt>
+<a name="L783"></a><tt class="py-lineno"> 783</tt>  <tt class="py-line">                                          <tt class="py-name">purchased</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_purchased</tt><tt class="py-op">,</tt> </tt>
+<a name="L784"></a><tt class="py-lineno"> 784</tt>  <tt class="py-line">                                          <tt class="py-name">source</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_source</tt><tt class="py-op">,</tt> </tt>
+<a name="L785"></a><tt class="py-lineno"> 785</tt>  <tt class="py-line">                                          <tt class="py-name">tags</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_tags</tt><tt class="py-op">)</tt> </tt>
+<a name="L786"></a><tt class="py-lineno"> 786</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">data</tt>                        </tt>
+</div></div><a name="L787"></a><tt class="py-lineno"> 787</tt>  <tt class="py-line">         </tt>
+<a name="Source"></a><div id="Source-def"><a name="L788"></a><tt class="py-lineno"> 788</tt> <a class="py-toggle" href="#" id="Source-toggle" onclick="return toggle('Source');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="yipit.Source-class.html">Source</a><tt class="py-op">(</tt><tt class="py-base-class">YipitObject</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Source-collapsed" style="display:none;" pad="++++" indent="++++"></div><div id="Source-expanded"><a name="L789"></a><tt class="py-lineno"> 789</tt>  <tt class="py-line">    <tt class="py-docstring">'''A class representing the source structure used by the Yipit API</tt> </tt>
+<a name="L790"></a><tt class="py-lineno"> 790</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L791"></a><tt class="py-lineno"> 791</tt>  <tt class="py-line"><tt class="py-docstring">    The source structure exposes the following properties:</tt> </tt>
+<a name="L792"></a><tt class="py-lineno"> 792</tt>  <tt class="py-line"><tt class="py-docstring">    </tt> </tt>
+<a name="L793"></a><tt class="py-lineno"> 793</tt>  <tt class="py-line"><tt class="py-docstring">      source._name</tt> </tt>
+<a name="L794"></a><tt class="py-lineno"> 794</tt>  <tt class="py-line"><tt class="py-docstring">      source._slug</tt> </tt>
+<a name="L795"></a><tt class="py-lineno"> 795</tt>  <tt class="py-line"><tt class="py-docstring">      source._paid</tt> </tt>
+<a name="L796"></a><tt class="py-lineno"> 796</tt>  <tt class="py-line"><tt class="py-docstring">      source._url</tt> </tt>
+<a name="L797"></a><tt class="py-lineno"> 797</tt>  <tt class="py-line"><tt class="py-docstring">    '''</tt> </tt>
+<a name="L798"></a><tt class="py-lineno"> 798</tt>  <tt class="py-line"> </tt>
+<a name="Source.__init__"></a><div id="Source.__init__-def"><a name="L799"></a><tt class="py-lineno"> 799</tt> <a class="py-toggle" href="#" id="Source.__init__-toggle" onclick="return toggle('Source.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="yipit.Source-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> </tt>
+<a name="L800"></a><tt class="py-lineno"> 800</tt>  <tt class="py-line">                 <tt class="py-param">name</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt><tt class="py-op">,</tt> </tt>
+<a name="L801"></a><tt class="py-lineno"> 801</tt>  <tt class="py-line">                 <tt class="py-param">slug</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt><tt class="py-op">,</tt> </tt>
+<a name="L802"></a><tt class="py-lineno"> 802</tt>  <tt class="py-line">                 <tt class="py-param">paid</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt><tt class="py-op">,</tt> </tt>
+<a name="L803"></a><tt class="py-lineno"> 803</tt>  <tt class="py-line">                 <tt class="py-param">url</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Source.__init__-collapsed" style="display:none;" pad="++++" indent="++++++++"></div><div id="Source.__init__-expanded"><a name="L804"></a><tt class="py-lineno"> 804</tt>  <tt class="py-line">        <tt class="py-docstring">'''An object to hold a Yipit Source</tt> </tt>
+<a name="L805"></a><tt class="py-lineno"> 805</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L806"></a><tt class="py-lineno"> 806</tt>  <tt class="py-line"><tt class="py-docstring">        This class is normally instantiated by the yipit.Api class and</tt> </tt>
+<a name="L807"></a><tt class="py-lineno"> 807</tt>  <tt class="py-line"><tt class="py-docstring">        returned in a sequence</tt> </tt>
+<a name="L808"></a><tt class="py-lineno"> 808</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L809"></a><tt class="py-lineno"> 809</tt>  <tt class="py-line"><tt class="py-docstring">        Args:</tt> </tt>
+<a name="L810"></a><tt class="py-lineno"> 810</tt>  <tt class="py-line"><tt class="py-docstring">          name:</tt> </tt>
+<a name="L811"></a><tt class="py-lineno"> 811</tt>  <tt class="py-line"><tt class="py-docstring">            The name of the source. [Optional]</tt> </tt>
+<a name="L812"></a><tt class="py-lineno"> 812</tt>  <tt class="py-line"><tt class="py-docstring">          slug:</tt> </tt>
+<a name="L813"></a><tt class="py-lineno"> 813</tt>  <tt class="py-line"><tt class="py-docstring">            The slug of the source. [Optional]</tt> </tt>
+<a name="L814"></a><tt class="py-lineno"> 814</tt>  <tt class="py-line"><tt class="py-docstring">          paid:</tt> </tt>
+<a name="L815"></a><tt class="py-lineno"> 815</tt>  <tt class="py-line"><tt class="py-docstring">            If Yipit pays you for source link click. Integer 1/0. [Optional]</tt> </tt>
+<a name="L816"></a><tt class="py-lineno"> 816</tt>  <tt class="py-line"><tt class="py-docstring">          url:</tt> </tt>
+<a name="L817"></a><tt class="py-lineno"> 817</tt>  <tt class="py-line"><tt class="py-docstring">            The url of the source. [Optional]</tt> </tt>
+<a name="L818"></a><tt class="py-lineno"> 818</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L819"></a><tt class="py-lineno"> 819</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_name</tt> <tt class="py-op">=</tt> <tt class="py-name">name</tt> </tt>
+<a name="L820"></a><tt class="py-lineno"> 820</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_slug</tt> <tt class="py-op">=</tt> <tt class="py-name">slug</tt> </tt>
+<a name="L821"></a><tt class="py-lineno"> 821</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_paid</tt> <tt class="py-op">=</tt> <tt class="py-name">paid</tt> </tt>
+<a name="L822"></a><tt class="py-lineno"> 822</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_url</tt> <tt class="py-op">=</tt> <tt class="py-name">url</tt> </tt>
+</div><a name="L823"></a><tt class="py-lineno"> 823</tt>  <tt class="py-line"> </tt>
+<a name="L824"></a><tt class="py-lineno"> 824</tt>  <tt class="py-line">    <tt class="py-decorator">@</tt><tt class="py-decorator">staticmethod</tt> </tt>
+<a name="Source.new_from_json_dict"></a><div id="Source.new_from_json_dict-def"><a name="L825"></a><tt class="py-lineno"> 825</tt> <a class="py-toggle" href="#" id="Source.new_from_json_dict-toggle" onclick="return toggle('Source.new_from_json_dict');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="yipit.Source-class.html#new_from_json_dict">new_from_json_dict</a><tt class="py-op">(</tt><tt class="py-param">data</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Source.new_from_json_dict-collapsed" style="display:none;" pad="++++" indent="++++++++"></div><div id="Source.new_from_json_dict-expanded"><a name="L826"></a><tt class="py-lineno"> 826</tt>  <tt class="py-line">        <tt class="py-docstring">'''Create a new instance based on a JSON dict.</tt> </tt>
+<a name="L827"></a><tt class="py-lineno"> 827</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L828"></a><tt class="py-lineno"> 828</tt>  <tt class="py-line"><tt class="py-docstring">        Args:</tt> </tt>
+<a name="L829"></a><tt class="py-lineno"> 829</tt>  <tt class="py-line"><tt class="py-docstring">          data: A JSON dict, as converted from the JSON in the Yipit</tt> </tt>
+<a name="L830"></a><tt class="py-lineno"> 830</tt>  <tt class="py-line"><tt class="py-docstring">          API.</tt> </tt>
+<a name="L831"></a><tt class="py-lineno"> 831</tt>  <tt class="py-line"><tt class="py-docstring">        Returns:</tt> </tt>
+<a name="L832"></a><tt class="py-lineno"> 832</tt>  <tt class="py-line"><tt class="py-docstring">          A yipit.Source instance</tt> </tt>
+<a name="L833"></a><tt class="py-lineno"> 833</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L834"></a><tt class="py-lineno"> 834</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-36" class="py-name"><a title="yipit.Source" class="py-name" href="#" onclick="return doclink('link-36', 'Source', 'link-15');">Source</a></tt><tt class="py-op">(</tt><tt class="py-name">name</tt> <tt class="py-op">=</tt> <tt class="py-name">data</tt><tt class="py-op">.</tt><tt class="py-name">get</tt><tt class="py-op">(</tt><tt class="py-string">'name'</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L835"></a><tt class="py-lineno"> 835</tt>  <tt class="py-line">                    <tt class="py-name">slug</tt> <tt class="py-op">=</tt> <tt class="py-name">data</tt><tt class="py-op">.</tt><tt class="py-name">get</tt><tt class="py-op">(</tt><tt class="py-string">'slug'</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L836"></a><tt class="py-lineno"> 836</tt>  <tt class="py-line">                    <tt class="py-name">paid</tt> <tt class="py-op">=</tt> <tt class="py-name">data</tt><tt class="py-op">.</tt><tt class="py-name">get</tt><tt class="py-op">(</tt><tt class="py-string">'paid'</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L837"></a><tt class="py-lineno"> 837</tt>  <tt class="py-line">                    <tt class="py-name">url</tt> <tt class="py-op">=</tt> <tt class="py-name">data</tt><tt class="py-op">.</tt><tt class="py-name">get</tt><tt class="py-op">(</tt><tt class="py-string">'url'</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L838"></a><tt class="py-lineno"> 838</tt>  <tt class="py-line">         </tt>
+<a name="Source.as_dict"></a><div id="Source.as_dict-def"><a name="L839"></a><tt class="py-lineno"> 839</tt> <a class="py-toggle" href="#" id="Source.as_dict-toggle" onclick="return toggle('Source.as_dict');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="yipit.Source-class.html#as_dict">as_dict</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Source.as_dict-collapsed" style="display:none;" pad="++++" indent="++++++++"></div><div id="Source.as_dict-expanded"><a name="L840"></a><tt class="py-lineno"> 840</tt>  <tt class="py-line">        <tt class="py-docstring">'''A dict representation of this yipit.Source instance.</tt> </tt>
+<a name="L841"></a><tt class="py-lineno"> 841</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L842"></a><tt class="py-lineno"> 842</tt>  <tt class="py-line"><tt class="py-docstring">        The return value uses the same key names as the JSON representation.</tt> </tt>
+<a name="L843"></a><tt class="py-lineno"> 843</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L844"></a><tt class="py-lineno"> 844</tt>  <tt class="py-line"><tt class="py-docstring">        Return:</tt> </tt>
+<a name="L845"></a><tt class="py-lineno"> 845</tt>  <tt class="py-line"><tt class="py-docstring">          A dict represention this yipit.Source instance</tt> </tt>
+<a name="L846"></a><tt class="py-lineno"> 846</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L847"></a><tt class="py-lineno"> 847</tt>  <tt class="py-line">        <tt class="py-comment"># jzhao what is a better way to make this available to all the classes?</tt> </tt>
+<a name="L848"></a><tt class="py-lineno"> 848</tt>  <tt class="py-line">        <tt class="py-name">data</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-37" class="py-name"><a title="yipit.YipitObject.make_dict_from_kwargs" class="py-name" href="#" onclick="return doclink('link-37', 'make_dict_from_kwargs', 'link-35');">make_dict_from_kwargs</a></tt><tt class="py-op">(</tt><tt class="py-name">name</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_name</tt><tt class="py-op">,</tt> </tt>
+<a name="L849"></a><tt class="py-lineno"> 849</tt>  <tt class="py-line">                                          <tt class="py-name">slug</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_slug</tt><tt class="py-op">,</tt> </tt>
+<a name="L850"></a><tt class="py-lineno"> 850</tt>  <tt class="py-line">                                          <tt class="py-name">paid</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_paid</tt><tt class="py-op">,</tt> </tt>
+<a name="L851"></a><tt class="py-lineno"> 851</tt>  <tt class="py-line">                                          <tt class="py-name">url</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_url</tt><tt class="py-op">)</tt> </tt>
+<a name="L852"></a><tt class="py-lineno"> 852</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">data</tt>                        </tt>
+</div></div><a name="L853"></a><tt class="py-lineno"> 853</tt>  <tt class="py-line">         </tt>
+<a name="Division"></a><div id="Division-def"><a name="L854"></a><tt class="py-lineno"> 854</tt>  <tt class="py-line">     </tt>
+<a name="L855"></a><tt class="py-lineno"> 855</tt> <a class="py-toggle" href="#" id="Division-toggle" onclick="return toggle('Division');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="yipit.Division-class.html">Division</a><tt class="py-op">(</tt><tt class="py-base-class">YipitObject</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Division-collapsed" style="display:none;" pad="++++" indent="++++"></div><div id="Division-expanded"><a name="L856"></a><tt class="py-lineno"> 856</tt>  <tt class="py-line">    <tt class="py-docstring">'''A class representing the division structure used by the Yipit API</tt> </tt>
+<a name="L857"></a><tt class="py-lineno"> 857</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L858"></a><tt class="py-lineno"> 858</tt>  <tt class="py-line"><tt class="py-docstring">    The division structure exposes the following properties:</tt> </tt>
+<a name="L859"></a><tt class="py-lineno"> 859</tt>  <tt class="py-line"><tt class="py-docstring">    </tt> </tt>
+<a name="L860"></a><tt class="py-lineno"> 860</tt>  <tt class="py-line"><tt class="py-docstring">      division._name</tt> </tt>
+<a name="L861"></a><tt class="py-lineno"> 861</tt>  <tt class="py-line"><tt class="py-docstring">      division._slug</tt> </tt>
+<a name="L862"></a><tt class="py-lineno"> 862</tt>  <tt class="py-line"><tt class="py-docstring">      division._active</tt> </tt>
+<a name="L863"></a><tt class="py-lineno"> 863</tt>  <tt class="py-line"><tt class="py-docstring">      division._time_zone_diff</tt> </tt>
+<a name="L864"></a><tt class="py-lineno"> 864</tt>  <tt class="py-line"><tt class="py-docstring">      division._lat</tt> </tt>
+<a name="L865"></a><tt class="py-lineno"> 865</tt>  <tt class="py-line"><tt class="py-docstring">      division._lon</tt> </tt>
+<a name="L866"></a><tt class="py-lineno"> 866</tt>  <tt class="py-line"><tt class="py-docstring">      division._url</tt> </tt>
+<a name="L867"></a><tt class="py-lineno"> 867</tt>  <tt class="py-line"><tt class="py-docstring">    '''</tt> </tt>
+<a name="L868"></a><tt class="py-lineno"> 868</tt>  <tt class="py-line"> </tt>
+<a name="Division.__init__"></a><div id="Division.__init__-def"><a name="L869"></a><tt class="py-lineno"> 869</tt> <a class="py-toggle" href="#" id="Division.__init__-toggle" onclick="return toggle('Division.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="yipit.Division-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> </tt>
+<a name="L870"></a><tt class="py-lineno"> 870</tt>  <tt class="py-line">                 <tt class="py-param">name</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt><tt class="py-op">,</tt> </tt>
+<a name="L871"></a><tt class="py-lineno"> 871</tt>  <tt class="py-line">                 <tt class="py-param">slug</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt><tt class="py-op">,</tt> </tt>
+<a name="L872"></a><tt class="py-lineno"> 872</tt>  <tt class="py-line">                 <tt class="py-param">active</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt><tt class="py-op">,</tt> </tt>
+<a name="L873"></a><tt class="py-lineno"> 873</tt>  <tt class="py-line">                 <tt class="py-param">time_zone_diff</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt><tt class="py-op">,</tt> </tt>
+<a name="L874"></a><tt class="py-lineno"> 874</tt>  <tt class="py-line">                 <tt class="py-param">lat</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt><tt class="py-op">,</tt> </tt>
+<a name="L875"></a><tt class="py-lineno"> 875</tt>  <tt class="py-line">                 <tt class="py-param">lon</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt><tt class="py-op">,</tt> </tt>
+<a name="L876"></a><tt class="py-lineno"> 876</tt>  <tt class="py-line">                 <tt class="py-param">url</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Division.__init__-collapsed" style="display:none;" pad="++++" indent="++++++++"></div><div id="Division.__init__-expanded"><a name="L877"></a><tt class="py-lineno"> 877</tt>  <tt class="py-line">        <tt class="py-docstring">'''An object to hold a Yipit Division</tt> </tt>
+<a name="L878"></a><tt class="py-lineno"> 878</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L879"></a><tt class="py-lineno"> 879</tt>  <tt class="py-line"><tt class="py-docstring">        This class is normally instantiated by the yipit.Api class and</tt> </tt>
+<a name="L880"></a><tt class="py-lineno"> 880</tt>  <tt class="py-line"><tt class="py-docstring">        returned in a sequence</tt> </tt>
+<a name="L881"></a><tt class="py-lineno"> 881</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L882"></a><tt class="py-lineno"> 882</tt>  <tt class="py-line"><tt class="py-docstring">        Args:</tt> </tt>
+<a name="L883"></a><tt class="py-lineno"> 883</tt>  <tt class="py-line"><tt class="py-docstring">          name:</tt> </tt>
+<a name="L884"></a><tt class="py-lineno"> 884</tt>  <tt class="py-line"><tt class="py-docstring">            The name of the division. [Optional]</tt> </tt>
+<a name="L885"></a><tt class="py-lineno"> 885</tt>  <tt class="py-line"><tt class="py-docstring">          slug:</tt> </tt>
+<a name="L886"></a><tt class="py-lineno"> 886</tt>  <tt class="py-line"><tt class="py-docstring">            The slug of the division. [Optional]</tt> </tt>
+<a name="L887"></a><tt class="py-lineno"> 887</tt>  <tt class="py-line"><tt class="py-docstring">          active:</tt> </tt>
+<a name="L888"></a><tt class="py-lineno"> 888</tt>  <tt class="py-line"><tt class="py-docstring">            Whether or not Yipit gets active deals from this Division.</tt> </tt>
+<a name="L889"></a><tt class="py-lineno"> 889</tt>  <tt class="py-line"><tt class="py-docstring">            Integer 1/0. [Optional]</tt> </tt>
+<a name="L890"></a><tt class="py-lineno"> 890</tt>  <tt class="py-line"><tt class="py-docstring">          time_zone_diff:</tt> </tt>
+<a name="L891"></a><tt class="py-lineno"> 891</tt>  <tt class="py-line"><tt class="py-docstring">            The difference in time zone from UTC as an integer. [Optional]</tt> </tt>
+<a name="L892"></a><tt class="py-lineno"> 892</tt>  <tt class="py-line"><tt class="py-docstring">          lat:</tt> </tt>
+<a name="L893"></a><tt class="py-lineno"> 893</tt>  <tt class="py-line"><tt class="py-docstring">            The latitude of the division as a float. [Optional]</tt> </tt>
+<a name="L894"></a><tt class="py-lineno"> 894</tt>  <tt class="py-line"><tt class="py-docstring">          lon:</tt> </tt>
+<a name="L895"></a><tt class="py-lineno"> 895</tt>  <tt class="py-line"><tt class="py-docstring">            The longitude of the division as a float. [Optional]</tt> </tt>
+<a name="L896"></a><tt class="py-lineno"> 896</tt>  <tt class="py-line"><tt class="py-docstring">          url:</tt> </tt>
+<a name="L897"></a><tt class="py-lineno"> 897</tt>  <tt class="py-line"><tt class="py-docstring">            The url of the source. [Optional]</tt> </tt>
+<a name="L898"></a><tt class="py-lineno"> 898</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L899"></a><tt class="py-lineno"> 899</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_name</tt> <tt class="py-op">=</tt> <tt class="py-name">name</tt> </tt>
+<a name="L900"></a><tt class="py-lineno"> 900</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_slug</tt> <tt class="py-op">=</tt> <tt class="py-name">slug</tt> </tt>
+<a name="L901"></a><tt class="py-lineno"> 901</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_active</tt> <tt class="py-op">=</tt> <tt class="py-name">active</tt> </tt>
+<a name="L902"></a><tt class="py-lineno"> 902</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_time_zone_diff</tt> <tt class="py-op">=</tt> <tt class="py-name">time_zone_diff</tt> </tt>
+<a name="L903"></a><tt class="py-lineno"> 903</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_lat</tt> <tt class="py-op">=</tt> <tt class="py-name">lat</tt> </tt>
+<a name="L904"></a><tt class="py-lineno"> 904</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_lon</tt> <tt class="py-op">=</tt> <tt class="py-name">lon</tt> </tt>
+<a name="L905"></a><tt class="py-lineno"> 905</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_url</tt> <tt class="py-op">=</tt> <tt class="py-name">url</tt> </tt>
+</div><a name="L906"></a><tt class="py-lineno"> 906</tt>  <tt class="py-line"> </tt>
+<a name="L907"></a><tt class="py-lineno"> 907</tt>  <tt class="py-line">    <tt class="py-decorator">@</tt><tt class="py-decorator">staticmethod</tt> </tt>
+<a name="Division.new_from_json_dict"></a><div id="Division.new_from_json_dict-def"><a name="L908"></a><tt class="py-lineno"> 908</tt> <a class="py-toggle" href="#" id="Division.new_from_json_dict-toggle" onclick="return toggle('Division.new_from_json_dict');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="yipit.Division-class.html#new_from_json_dict">new_from_json_dict</a><tt class="py-op">(</tt><tt class="py-param">data</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Division.new_from_json_dict-collapsed" style="display:none;" pad="++++" indent="++++++++"></div><div id="Division.new_from_json_dict-expanded"><a name="L909"></a><tt class="py-lineno"> 909</tt>  <tt class="py-line">        <tt class="py-docstring">'''Create a new instance based on a JSON dict.</tt> </tt>
+<a name="L910"></a><tt class="py-lineno"> 910</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L911"></a><tt class="py-lineno"> 911</tt>  <tt class="py-line"><tt class="py-docstring">        Args:</tt> </tt>
+<a name="L912"></a><tt class="py-lineno"> 912</tt>  <tt class="py-line"><tt class="py-docstring">          data: A JSON dict, as converted from the JSON in the Yipit</tt> </tt>
+<a name="L913"></a><tt class="py-lineno"> 913</tt>  <tt class="py-line"><tt class="py-docstring">          API.</tt> </tt>
+<a name="L914"></a><tt class="py-lineno"> 914</tt>  <tt class="py-line"><tt class="py-docstring">        Returns:</tt> </tt>
+<a name="L915"></a><tt class="py-lineno"> 915</tt>  <tt class="py-line"><tt class="py-docstring">          A yipit.Division instance</tt> </tt>
+<a name="L916"></a><tt class="py-lineno"> 916</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L917"></a><tt class="py-lineno"> 917</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-38" class="py-name"><a title="yipit.Division" class="py-name" href="#" onclick="return doclink('link-38', 'Division', 'link-16');">Division</a></tt><tt class="py-op">(</tt><tt class="py-name">name</tt> <tt class="py-op">=</tt> <tt class="py-name">data</tt><tt class="py-op">.</tt><tt class="py-name">get</tt><tt class="py-op">(</tt><tt class="py-string">'name'</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L918"></a><tt class="py-lineno"> 918</tt>  <tt class="py-line">                        <tt class="py-name">slug</tt> <tt class="py-op">=</tt> <tt class="py-name">data</tt><tt class="py-op">.</tt><tt class="py-name">get</tt><tt class="py-op">(</tt><tt class="py-string">'slug'</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L919"></a><tt class="py-lineno"> 919</tt>  <tt class="py-line">                        <tt class="py-name">active</tt> <tt class="py-op">=</tt> <tt class="py-name">data</tt><tt class="py-op">.</tt><tt class="py-name">get</tt><tt class="py-op">(</tt><tt class="py-string">'active'</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L920"></a><tt class="py-lineno"> 920</tt>  <tt class="py-line">                        <tt class="py-name">time_zone_diff</tt> <tt class="py-op">=</tt> <tt class="py-name">data</tt><tt class="py-op">.</tt><tt class="py-name">get</tt><tt class="py-op">(</tt><tt class="py-string">'time_zone_diff'</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L921"></a><tt class="py-lineno"> 921</tt>  <tt class="py-line">                        <tt class="py-name">lat</tt> <tt class="py-op">=</tt> <tt class="py-name">data</tt><tt class="py-op">.</tt><tt class="py-name">get</tt><tt class="py-op">(</tt><tt class="py-string">'lat'</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L922"></a><tt class="py-lineno"> 922</tt>  <tt class="py-line">                        <tt class="py-name">lon</tt> <tt class="py-op">=</tt> <tt class="py-name">data</tt><tt class="py-op">.</tt><tt class="py-name">get</tt><tt class="py-op">(</tt><tt class="py-string">'lon'</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L923"></a><tt class="py-lineno"> 923</tt>  <tt class="py-line">                        <tt class="py-name">url</tt> <tt class="py-op">=</tt> <tt class="py-name">data</tt><tt class="py-op">.</tt><tt class="py-name">get</tt><tt class="py-op">(</tt><tt class="py-string">'url'</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L924"></a><tt class="py-lineno"> 924</tt>  <tt class="py-line">     </tt>
+<a name="L925"></a><tt class="py-lineno"> 925</tt>  <tt class="py-line">     </tt>
+<a name="Division.as_dict"></a><div id="Division.as_dict-def"><a name="L926"></a><tt class="py-lineno"> 926</tt> <a class="py-toggle" href="#" id="Division.as_dict-toggle" onclick="return toggle('Division.as_dict');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="yipit.Division-class.html#as_dict">as_dict</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Division.as_dict-collapsed" style="display:none;" pad="++++" indent="++++++++"></div><div id="Division.as_dict-expanded"><a name="L927"></a><tt class="py-lineno"> 927</tt>  <tt class="py-line">        <tt class="py-docstring">'''A dict representation of this yipit.Division instance.</tt> </tt>
+<a name="L928"></a><tt class="py-lineno"> 928</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L929"></a><tt class="py-lineno"> 929</tt>  <tt class="py-line"><tt class="py-docstring">        The return value uses the same key names as the JSON representation.</tt> </tt>
+<a name="L930"></a><tt class="py-lineno"> 930</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L931"></a><tt class="py-lineno"> 931</tt>  <tt class="py-line"><tt class="py-docstring">        Return:</tt> </tt>
+<a name="L932"></a><tt class="py-lineno"> 932</tt>  <tt class="py-line"><tt class="py-docstring">          A dict represention this yipit.Division instance</tt> </tt>
+<a name="L933"></a><tt class="py-lineno"> 933</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L934"></a><tt class="py-lineno"> 934</tt>  <tt class="py-line">        <tt class="py-comment"># jzhao what is a better way to make this available to all the classes?</tt> </tt>
+<a name="L935"></a><tt class="py-lineno"> 935</tt>  <tt class="py-line">        <tt class="py-name">data</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-39" class="py-name"><a title="yipit.YipitObject.make_dict_from_kwargs" class="py-name" href="#" onclick="return doclink('link-39', 'make_dict_from_kwargs', 'link-35');">make_dict_from_kwargs</a></tt><tt class="py-op">(</tt><tt class="py-name">name</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_name</tt><tt class="py-op">,</tt> </tt>
+<a name="L936"></a><tt class="py-lineno"> 936</tt>  <tt class="py-line">                                          <tt class="py-name">slug</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_slug</tt><tt class="py-op">,</tt> </tt>
+<a name="L937"></a><tt class="py-lineno"> 937</tt>  <tt class="py-line">                                          <tt class="py-name">active</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_active</tt><tt class="py-op">,</tt> </tt>
+<a name="L938"></a><tt class="py-lineno"> 938</tt>  <tt class="py-line">                                          <tt class="py-name">time_zone_diff</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_time_zone_diff</tt><tt class="py-op">,</tt> </tt>
+<a name="L939"></a><tt class="py-lineno"> 939</tt>  <tt class="py-line">                                          <tt class="py-name">lat</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_lat</tt><tt class="py-op">,</tt> </tt>
+<a name="L940"></a><tt class="py-lineno"> 940</tt>  <tt class="py-line">                                          <tt class="py-name">lon</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_lon</tt><tt class="py-op">,</tt> </tt>
+<a name="L941"></a><tt class="py-lineno"> 941</tt>  <tt class="py-line">                                          <tt class="py-name">url</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_url</tt><tt class="py-op">)</tt> </tt>
+<a name="L942"></a><tt class="py-lineno"> 942</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">data</tt>                        </tt>
+</div></div><a name="L943"></a><tt class="py-lineno"> 943</tt>  <tt class="py-line">         </tt>
+<a name="Tag"></a><div id="Tag-def"><a name="L944"></a><tt class="py-lineno"> 944</tt>  <tt class="py-line"> </tt>
+<a name="L945"></a><tt class="py-lineno"> 945</tt> <a class="py-toggle" href="#" id="Tag-toggle" onclick="return toggle('Tag');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="yipit.Tag-class.html">Tag</a><tt class="py-op">(</tt><tt class="py-base-class">YipitObject</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Tag-collapsed" style="display:none;" pad="++++" indent="++++"></div><div id="Tag-expanded"><a name="L946"></a><tt class="py-lineno"> 946</tt>  <tt class="py-line">    <tt class="py-docstring">'''A class representing the tag structure used by the Yipit API</tt> </tt>
+<a name="L947"></a><tt class="py-lineno"> 947</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L948"></a><tt class="py-lineno"> 948</tt>  <tt class="py-line"><tt class="py-docstring">    The tag structure exposes the following properties:</tt> </tt>
+<a name="L949"></a><tt class="py-lineno"> 949</tt>  <tt class="py-line"><tt class="py-docstring">    </tt> </tt>
+<a name="L950"></a><tt class="py-lineno"> 950</tt>  <tt class="py-line"><tt class="py-docstring">      tag._name</tt> </tt>
+<a name="L951"></a><tt class="py-lineno"> 951</tt>  <tt class="py-line"><tt class="py-docstring">      tag._slug</tt> </tt>
+<a name="L952"></a><tt class="py-lineno"> 952</tt>  <tt class="py-line"><tt class="py-docstring">      tag._url</tt> </tt>
+<a name="L953"></a><tt class="py-lineno"> 953</tt>  <tt class="py-line"><tt class="py-docstring">    '''</tt> </tt>
+<a name="L954"></a><tt class="py-lineno"> 954</tt>  <tt class="py-line"> </tt>
+<a name="Tag.__init__"></a><div id="Tag.__init__-def"><a name="L955"></a><tt class="py-lineno"> 955</tt> <a class="py-toggle" href="#" id="Tag.__init__-toggle" onclick="return toggle('Tag.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="yipit.Tag-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> </tt>
+<a name="L956"></a><tt class="py-lineno"> 956</tt>  <tt class="py-line">                 <tt class="py-param">name</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt><tt class="py-op">,</tt> </tt>
+<a name="L957"></a><tt class="py-lineno"> 957</tt>  <tt class="py-line">                 <tt class="py-param">slug</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt><tt class="py-op">,</tt> </tt>
+<a name="L958"></a><tt class="py-lineno"> 958</tt>  <tt class="py-line">                 <tt class="py-param">url</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Tag.__init__-collapsed" style="display:none;" pad="++++" indent="++++++++"></div><div id="Tag.__init__-expanded"><a name="L959"></a><tt class="py-lineno"> 959</tt>  <tt class="py-line">        <tt class="py-docstring">'''An object to hold a Yipit Tag</tt> </tt>
+<a name="L960"></a><tt class="py-lineno"> 960</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L961"></a><tt class="py-lineno"> 961</tt>  <tt class="py-line"><tt class="py-docstring">        This class is normally instantiated by the yipit.Api class and</tt> </tt>
+<a name="L962"></a><tt class="py-lineno"> 962</tt>  <tt class="py-line"><tt class="py-docstring">        returned in a sequence</tt> </tt>
+<a name="L963"></a><tt class="py-lineno"> 963</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L964"></a><tt class="py-lineno"> 964</tt>  <tt class="py-line"><tt class="py-docstring">        Args:</tt> </tt>
+<a name="L965"></a><tt class="py-lineno"> 965</tt>  <tt class="py-line"><tt class="py-docstring">          name:</tt> </tt>
+<a name="L966"></a><tt class="py-lineno"> 966</tt>  <tt class="py-line"><tt class="py-docstring">            The name of the tag. [Optional]</tt> </tt>
+<a name="L967"></a><tt class="py-lineno"> 967</tt>  <tt class="py-line"><tt class="py-docstring">          slug:</tt> </tt>
+<a name="L968"></a><tt class="py-lineno"> 968</tt>  <tt class="py-line"><tt class="py-docstring">            The slug of the tag. [Optional]</tt> </tt>
+<a name="L969"></a><tt class="py-lineno"> 969</tt>  <tt class="py-line"><tt class="py-docstring">          url:</tt> </tt>
+<a name="L970"></a><tt class="py-lineno"> 970</tt>  <tt class="py-line"><tt class="py-docstring">            The url of thetag. [Optional]</tt> </tt>
+<a name="L971"></a><tt class="py-lineno"> 971</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L972"></a><tt class="py-lineno"> 972</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_name</tt> <tt class="py-op">=</tt> <tt class="py-name">name</tt> </tt>
+<a name="L973"></a><tt class="py-lineno"> 973</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_slug</tt> <tt class="py-op">=</tt> <tt class="py-name">slug</tt> </tt>
+<a name="L974"></a><tt class="py-lineno"> 974</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_url</tt> <tt class="py-op">=</tt> <tt class="py-name">url</tt> </tt>
+</div><a name="L975"></a><tt class="py-lineno"> 975</tt>  <tt class="py-line"> </tt>
+<a name="L976"></a><tt class="py-lineno"> 976</tt>  <tt class="py-line">    <tt class="py-decorator">@</tt><tt class="py-decorator">staticmethod</tt> </tt>
+<a name="Tag.new_from_json_dict"></a><div id="Tag.new_from_json_dict-def"><a name="L977"></a><tt class="py-lineno"> 977</tt> <a class="py-toggle" href="#" id="Tag.new_from_json_dict-toggle" onclick="return toggle('Tag.new_from_json_dict');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="yipit.Tag-class.html#new_from_json_dict">new_from_json_dict</a><tt class="py-op">(</tt><tt class="py-param">data</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Tag.new_from_json_dict-collapsed" style="display:none;" pad="++++" indent="++++++++"></div><div id="Tag.new_from_json_dict-expanded"><a name="L978"></a><tt class="py-lineno"> 978</tt>  <tt class="py-line">        <tt class="py-docstring">'''Create a new instance based on a JSON dict.</tt> </tt>
+<a name="L979"></a><tt class="py-lineno"> 979</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L980"></a><tt class="py-lineno"> 980</tt>  <tt class="py-line"><tt class="py-docstring">        Args:</tt> </tt>
+<a name="L981"></a><tt class="py-lineno"> 981</tt>  <tt class="py-line"><tt class="py-docstring">          data: A JSON dict, as converted from the JSON in the Yipit</tt> </tt>
+<a name="L982"></a><tt class="py-lineno"> 982</tt>  <tt class="py-line"><tt class="py-docstring">          API.</tt> </tt>
+<a name="L983"></a><tt class="py-lineno"> 983</tt>  <tt class="py-line"><tt class="py-docstring">        Returns:</tt> </tt>
+<a name="L984"></a><tt class="py-lineno"> 984</tt>  <tt class="py-line"><tt class="py-docstring">          A yipit.Tag instance</tt> </tt>
+<a name="L985"></a><tt class="py-lineno"> 985</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L986"></a><tt class="py-lineno"> 986</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-40" class="py-name"><a title="yipit.Tag" class="py-name" href="#" onclick="return doclink('link-40', 'Tag', 'link-17');">Tag</a></tt><tt class="py-op">(</tt><tt class="py-name">name</tt> <tt class="py-op">=</tt> <tt class="py-name">data</tt><tt class="py-op">.</tt><tt class="py-name">get</tt><tt class="py-op">(</tt><tt class="py-string">'name'</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L987"></a><tt class="py-lineno"> 987</tt>  <tt class="py-line">                   <tt class="py-name">slug</tt> <tt class="py-op">=</tt> <tt class="py-name">data</tt><tt class="py-op">.</tt><tt class="py-name">get</tt><tt class="py-op">(</tt><tt class="py-string">'slug'</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L988"></a><tt class="py-lineno"> 988</tt>  <tt class="py-line">                   <tt class="py-name">url</tt> <tt class="py-op">=</tt> <tt class="py-name">data</tt><tt class="py-op">.</tt><tt class="py-name">get</tt><tt class="py-op">(</tt><tt class="py-string">'url'</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L989"></a><tt class="py-lineno"> 989</tt>  <tt class="py-line">     </tt>
+<a name="Tag.as_dict"></a><div id="Tag.as_dict-def"><a name="L990"></a><tt class="py-lineno"> 990</tt> <a class="py-toggle" href="#" id="Tag.as_dict-toggle" onclick="return toggle('Tag.as_dict');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="yipit.Tag-class.html#as_dict">as_dict</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Tag.as_dict-collapsed" style="display:none;" pad="++++" indent="++++++++"></div><div id="Tag.as_dict-expanded"><a name="L991"></a><tt class="py-lineno"> 991</tt>  <tt class="py-line">        <tt class="py-docstring">'''A dict representation of this yipit.Tag instance.</tt> </tt>
+<a name="L992"></a><tt class="py-lineno"> 992</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L993"></a><tt class="py-lineno"> 993</tt>  <tt class="py-line"><tt class="py-docstring">        The return value uses the same key names as the JSON representation.</tt> </tt>
+<a name="L994"></a><tt class="py-lineno"> 994</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L995"></a><tt class="py-lineno"> 995</tt>  <tt class="py-line"><tt class="py-docstring">        Return:</tt> </tt>
+<a name="L996"></a><tt class="py-lineno"> 996</tt>  <tt class="py-line"><tt class="py-docstring">          A dict represention this yipit.Tag instance</tt> </tt>
+<a name="L997"></a><tt class="py-lineno"> 997</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L998"></a><tt class="py-lineno"> 998</tt>  <tt class="py-line">        <tt class="py-comment"># jzhao what is a better way to make this available to all the classes?</tt> </tt>
+<a name="L999"></a><tt class="py-lineno"> 999</tt>  <tt class="py-line">        <tt class="py-name">data</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-41" class="py-name"><a title="yipit.YipitObject.make_dict_from_kwargs" class="py-name" href="#" onclick="return doclink('link-41', 'make_dict_from_kwargs', 'link-35');">make_dict_from_kwargs</a></tt><tt class="py-op">(</tt><tt class="py-name">name</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_name</tt><tt class="py-op">,</tt> </tt>
+<a name="L1000"></a><tt class="py-lineno">1000</tt>  <tt class="py-line">                                          <tt class="py-name">slug</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_slug</tt><tt class="py-op">,</tt> </tt>
+<a name="L1001"></a><tt class="py-lineno">1001</tt>  <tt class="py-line">                                          <tt class="py-name">url</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_url</tt><tt class="py-op">)</tt> </tt>
+<a name="L1002"></a><tt class="py-lineno">1002</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">data</tt>                        </tt>
+</div></div><a name="L1003"></a><tt class="py-lineno">1003</tt>  <tt class="py-line">         </tt>
+<a name="Business"></a><div id="Business-def"><a name="L1004"></a><tt class="py-lineno">1004</tt>  <tt class="py-line"> </tt>
+<a name="L1005"></a><tt class="py-lineno">1005</tt> <a class="py-toggle" href="#" id="Business-toggle" onclick="return toggle('Business');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="yipit.Business-class.html">Business</a><tt class="py-op">(</tt><tt class="py-base-class">YipitObject</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Business-collapsed" style="display:none;" pad="++++" indent="++++"></div><div id="Business-expanded"><a name="L1006"></a><tt class="py-lineno">1006</tt>  <tt class="py-line">    <tt class="py-docstring">'''A class representing the business structure used by the Yipit API</tt> </tt>
 <a name="L1007"></a><tt class="py-lineno">1007</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
-<a name="L1008"></a><tt class="py-lineno">1008</tt>  <tt class="py-line"><tt class="py-docstring">    NOTE: The Businesses API has not yet been fully implemented by Yipit.</tt> </tt>
-<a name="L1009"></a><tt class="py-lineno">1009</tt>  <tt class="py-line"><tt class="py-docstring">    The Businesses API is intended to be used to look up businesses.</tt> </tt>
-<a name="L1010"></a><tt class="py-lineno">1010</tt>  <tt class="py-line"><tt class="py-docstring">    '''</tt> </tt>
-<a name="L1011"></a><tt class="py-lineno">1011</tt>  <tt class="py-line"> </tt>
-<a name="Business.__init__"></a><div id="Business.__init__-def"><a name="L1012"></a><tt class="py-lineno">1012</tt> <a class="py-toggle" href="#" id="Business.__init__-toggle" onclick="return toggle('Business.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="yipit.Business-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> </tt>
-<a name="L1013"></a><tt class="py-lineno">1013</tt>  <tt class="py-line">                 <tt class="py-param">id</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt><tt class="py-op">,</tt> </tt>
-<a name="L1014"></a><tt class="py-lineno">1014</tt>  <tt class="py-line">                 <tt class="py-param">name</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt><tt class="py-op">,</tt> </tt>
-<a name="L1015"></a><tt class="py-lineno">1015</tt>  <tt class="py-line">                 <tt class="py-param">url</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt><tt class="py-op">,</tt> </tt>
-<a name="L1016"></a><tt class="py-lineno">1016</tt>  <tt class="py-line">                 <tt class="py-param">locations</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="Business.__init__-collapsed" style="display:none;" pad="++++" indent="++++++++"></div><div id="Business.__init__-expanded"><a name="L1017"></a><tt class="py-lineno">1017</tt>  <tt class="py-line">        <tt class="py-docstring">'''An object to hold a Yipit Business</tt> </tt>
-<a name="L1018"></a><tt class="py-lineno">1018</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
-<a name="L1019"></a><tt class="py-lineno">1019</tt>  <tt class="py-line"><tt class="py-docstring">        This class is normally instantiated by the yipit.Api class and</tt> </tt>
-<a name="L1020"></a><tt class="py-lineno">1020</tt>  <tt class="py-line"><tt class="py-docstring">        returned in a sequence</tt> </tt>
-<a name="L1021"></a><tt class="py-lineno">1021</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
-<a name="L1022"></a><tt class="py-lineno">1022</tt>  <tt class="py-line"><tt class="py-docstring">        Args:</tt> </tt>
-<a name="L1023"></a><tt class="py-lineno">1023</tt>  <tt class="py-line"><tt class="py-docstring">          id:</tt> </tt>
-<a name="L1024"></a><tt class="py-lineno">1024</tt>  <tt class="py-line"><tt class="py-docstring">            Id number of the business. [Optional]</tt> </tt>
-<a name="L1025"></a><tt class="py-lineno">1025</tt>  <tt class="py-line"><tt class="py-docstring">          name:</tt> </tt>
-<a name="L1026"></a><tt class="py-lineno">1026</tt>  <tt class="py-line"><tt class="py-docstring">            The name of the business. [Optional]</tt> </tt>
-<a name="L1027"></a><tt class="py-lineno">1027</tt>  <tt class="py-line"><tt class="py-docstring">          url:</tt> </tt>
-<a name="L1028"></a><tt class="py-lineno">1028</tt>  <tt class="py-line"><tt class="py-docstring">            The url of the business. [Optional]</tt> </tt>
-<a name="L1029"></a><tt class="py-lineno">1029</tt>  <tt class="py-line"><tt class="py-docstring">          locations:</tt> </tt>
-<a name="L1030"></a><tt class="py-lineno">1030</tt>  <tt class="py-line"><tt class="py-docstring">            A list of location dictionaries of the business. [Optional]</tt> </tt>
-<a name="L1031"></a><tt class="py-lineno">1031</tt>  <tt class="py-line"><tt class="py-docstring">            Example:</tt> </tt>
-<a name="L1032"></a><tt class="py-lineno">1032</tt>  <tt class="py-line"><tt class="py-docstring">              locations = [</tt> </tt>
-<a name="L1033"></a><tt class="py-lineno">1033</tt>  <tt class="py-line"><tt class="py-docstring">                            {</tt> </tt>
-<a name="L1034"></a><tt class="py-lineno">1034</tt>  <tt class="py-line"><tt class="py-docstring">                              "id": 19185,</tt> </tt>
-<a name="L1035"></a><tt class="py-lineno">1035</tt>  <tt class="py-line"><tt class="py-docstring">                              "address" : "126 2nd Ave.",</tt> </tt>
-<a name="L1036"></a><tt class="py-lineno">1036</tt>  <tt class="py-line"><tt class="py-docstring">                              "locality" : "New York",</tt> </tt>
-<a name="L1037"></a><tt class="py-lineno">1037</tt>  <tt class="py-line"><tt class="py-docstring">                              "phone" : "212-477-2477",</tt> </tt>
-<a name="L1038"></a><tt class="py-lineno">1038</tt>  <tt class="py-line"><tt class="py-docstring">                              "lat" : 40.728,</tt> </tt>
-<a name="L1039"></a><tt class="py-lineno">1039</tt>  <tt class="py-line"><tt class="py-docstring">                              "lon" : -73.987</tt> </tt>
-<a name="L1040"></a><tt class="py-lineno">1040</tt>  <tt class="py-line"><tt class="py-docstring">                             },</tt> </tt>
-<a name="L1041"></a><tt class="py-lineno">1041</tt>  <tt class="py-line"><tt class="py-docstring">                             { *another location}</tt> </tt>
-<a name="L1042"></a><tt class="py-lineno">1042</tt>  <tt class="py-line"><tt class="py-docstring">                           ]</tt> </tt>
-<a name="L1043"></a><tt class="py-lineno">1043</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
-<a name="L1044"></a><tt class="py-lineno">1044</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_id</tt> <tt class="py-op">=</tt> <tt class="py-name">id</tt> </tt>
-<a name="L1045"></a><tt class="py-lineno">1045</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_name</tt> <tt class="py-op">=</tt> <tt class="py-name">name</tt> </tt>
-<a name="L1046"></a><tt class="py-lineno">1046</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_url</tt> <tt class="py-op">=</tt> <tt class="py-name">url</tt> </tt>
-<a name="L1047"></a><tt class="py-lineno">1047</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_locations</tt> <tt class="py-op">=</tt> <tt class="py-name">locations</tt> </tt>
-</div><a name="L1048"></a><tt class="py-lineno">1048</tt>  <tt class="py-line"> </tt>
-<a name="L1049"></a><tt class="py-lineno">1049</tt>  <tt class="py-line">    <tt class="py-decorator">@</tt><tt class="py-decorator">staticmethod</tt> </tt>
-<a name="Business.new_from_json_dict"></a><div id="Business.new_from_json_dict-def"><a name="L1050"></a><tt class="py-lineno">1050</tt> <a class="py-toggle" href="#" id="Business.new_from_json_dict-toggle" onclick="return toggle('Business.new_from_json_dict');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="yipit.Business-class.html#new_from_json_dict">new_from_json_dict</a><tt class="py-op">(</tt><tt class="py-param">data</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="Business.new_from_json_dict-collapsed" style="display:none;" pad="++++" indent="++++++++"></div><div id="Business.new_from_json_dict-expanded"><a name="L1051"></a><tt class="py-lineno">1051</tt>  <tt class="py-line">        <tt class="py-docstring">'''Create a new instance based on a JSON dict.</tt> </tt>
-<a name="L1052"></a><tt class="py-lineno">1052</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
-<a name="L1053"></a><tt class="py-lineno">1053</tt>  <tt class="py-line"><tt class="py-docstring">        Args:</tt> </tt>
-<a name="L1054"></a><tt class="py-lineno">1054</tt>  <tt class="py-line"><tt class="py-docstring">          data: A JSON dict, as converted from the JSON in the Yipit API.</tt> </tt>
-<a name="L1055"></a><tt class="py-lineno">1055</tt>  <tt class="py-line"><tt class="py-docstring">          It should include all the keys that correspond with params</tt> </tt>
-<a name="L1056"></a><tt class="py-lineno">1056</tt>  <tt class="py-line"><tt class="py-docstring">          outlined in the constructor. Any extra keys from data </tt> </tt>
-<a name="L1057"></a><tt class="py-lineno">1057</tt>  <tt class="py-line"><tt class="py-docstring">          will be incorporated through the **kwargs param in __init__</tt> </tt>
-<a name="L1058"></a><tt class="py-lineno">1058</tt>  <tt class="py-line"><tt class="py-docstring">        Returns:</tt> </tt>
-<a name="L1059"></a><tt class="py-lineno">1059</tt>  <tt class="py-line"><tt class="py-docstring">          A yipit.Business instance</tt> </tt>
-<a name="L1060"></a><tt class="py-lineno">1060</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
-<a name="L1061"></a><tt class="py-lineno">1061</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-42" class="py-name"><a title="yipit.Business" class="py-name" href="#" onclick="return doclink('link-42', 'Business', 'link-18');">Business</a></tt><tt class="py-op">(</tt><tt class="py-op">**</tt><tt class="py-name">data</tt><tt class="py-op">)</tt>         </tt>
-</div><a name="L1062"></a><tt class="py-lineno">1062</tt>  <tt class="py-line">         </tt>
-<a name="Business.as_dict"></a><div id="Business.as_dict-def"><a name="L1063"></a><tt class="py-lineno">1063</tt> <a class="py-toggle" href="#" id="Business.as_dict-toggle" onclick="return toggle('Business.as_dict');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="yipit.Business-class.html#as_dict">as_dict</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="Business.as_dict-collapsed" style="display:none;" pad="++++" indent="++++++++"></div><div id="Business.as_dict-expanded"><a name="L1064"></a><tt class="py-lineno">1064</tt>  <tt class="py-line">        <tt class="py-docstring">'''A dict representation of this yipit.Business instance.</tt> </tt>
-<a name="L1065"></a><tt class="py-lineno">1065</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
-<a name="L1066"></a><tt class="py-lineno">1066</tt>  <tt class="py-line"><tt class="py-docstring">        The return value uses the same key names as the JSON representation.</tt> </tt>
-<a name="L1067"></a><tt class="py-lineno">1067</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
-<a name="L1068"></a><tt class="py-lineno">1068</tt>  <tt class="py-line"><tt class="py-docstring">        Return:</tt> </tt>
-<a name="L1069"></a><tt class="py-lineno">1069</tt>  <tt class="py-line"><tt class="py-docstring">          A dict represention this yipit.Business instance</tt> </tt>
-<a name="L1070"></a><tt class="py-lineno">1070</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
-<a name="L1071"></a><tt class="py-lineno">1071</tt>  <tt class="py-line">        <tt class="py-comment"># jzhao what is a better way to make this available to all the classes?</tt> </tt>
-<a name="L1072"></a><tt class="py-lineno">1072</tt>  <tt class="py-line">        <tt class="py-name">data</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-43" class="py-name"><a title="yipit.YipitObject.make_dict_from_kwargs" class="py-name" href="#" onclick="return doclink('link-43', 'make_dict_from_kwargs', 'link-35');">make_dict_from_kwargs</a></tt><tt class="py-op">(</tt><tt class="py-name">id</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_id</tt><tt class="py-op">,</tt> </tt>
-<a name="L1073"></a><tt class="py-lineno">1073</tt>  <tt class="py-line">                                          <tt class="py-name">name</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_name</tt><tt class="py-op">,</tt> </tt>
-<a name="L1074"></a><tt class="py-lineno">1074</tt>  <tt class="py-line">                                          <tt class="py-name">url</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_url</tt><tt class="py-op">,</tt> </tt>
-<a name="L1075"></a><tt class="py-lineno">1075</tt>  <tt class="py-line">                                          <tt class="py-name">locations</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_locations</tt><tt class="py-op">)</tt> </tt>
-<a name="L1076"></a><tt class="py-lineno">1076</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">data</tt> </tt>
-</div></div><a name="L1077"></a><tt class="py-lineno">1077</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<a name="L1008"></a><tt class="py-lineno">1008</tt>  <tt class="py-line"><tt class="py-docstring">    The business structure exposes the following properties:</tt> </tt>
+<a name="L1009"></a><tt class="py-lineno">1009</tt>  <tt class="py-line"><tt class="py-docstring">    </tt> </tt>
+<a name="L1010"></a><tt class="py-lineno">1010</tt>  <tt class="py-line"><tt class="py-docstring">      business._id</tt> </tt>
+<a name="L1011"></a><tt class="py-lineno">1011</tt>  <tt class="py-line"><tt class="py-docstring">      business._name</tt> </tt>
+<a name="L1012"></a><tt class="py-lineno">1012</tt>  <tt class="py-line"><tt class="py-docstring">      business._url</tt> </tt>
+<a name="L1013"></a><tt class="py-lineno">1013</tt>  <tt class="py-line"><tt class="py-docstring">      business._locations</tt> </tt>
+<a name="L1014"></a><tt class="py-lineno">1014</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L1015"></a><tt class="py-lineno">1015</tt>  <tt class="py-line"><tt class="py-docstring">    NOTE: The Businesses API has not yet been fully implemented by Yipit.</tt> </tt>
+<a name="L1016"></a><tt class="py-lineno">1016</tt>  <tt class="py-line"><tt class="py-docstring">    The Businesses API is intended to be used to look up businesses.</tt> </tt>
+<a name="L1017"></a><tt class="py-lineno">1017</tt>  <tt class="py-line"><tt class="py-docstring">    '''</tt> </tt>
+<a name="L1018"></a><tt class="py-lineno">1018</tt>  <tt class="py-line"> </tt>
+<a name="Business.__init__"></a><div id="Business.__init__-def"><a name="L1019"></a><tt class="py-lineno">1019</tt> <a class="py-toggle" href="#" id="Business.__init__-toggle" onclick="return toggle('Business.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="yipit.Business-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> </tt>
+<a name="L1020"></a><tt class="py-lineno">1020</tt>  <tt class="py-line">                 <tt class="py-param">id</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt><tt class="py-op">,</tt> </tt>
+<a name="L1021"></a><tt class="py-lineno">1021</tt>  <tt class="py-line">                 <tt class="py-param">name</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt><tt class="py-op">,</tt> </tt>
+<a name="L1022"></a><tt class="py-lineno">1022</tt>  <tt class="py-line">                 <tt class="py-param">url</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt><tt class="py-op">,</tt> </tt>
+<a name="L1023"></a><tt class="py-lineno">1023</tt>  <tt class="py-line">                 <tt class="py-param">locations</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Business.__init__-collapsed" style="display:none;" pad="++++" indent="++++++++"></div><div id="Business.__init__-expanded"><a name="L1024"></a><tt class="py-lineno">1024</tt>  <tt class="py-line">        <tt class="py-docstring">'''An object to hold a Yipit Business</tt> </tt>
+<a name="L1025"></a><tt class="py-lineno">1025</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L1026"></a><tt class="py-lineno">1026</tt>  <tt class="py-line"><tt class="py-docstring">        This class is normally instantiated by the yipit.Api class and</tt> </tt>
+<a name="L1027"></a><tt class="py-lineno">1027</tt>  <tt class="py-line"><tt class="py-docstring">        returned in a sequence</tt> </tt>
+<a name="L1028"></a><tt class="py-lineno">1028</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L1029"></a><tt class="py-lineno">1029</tt>  <tt class="py-line"><tt class="py-docstring">        Args:</tt> </tt>
+<a name="L1030"></a><tt class="py-lineno">1030</tt>  <tt class="py-line"><tt class="py-docstring">          id:</tt> </tt>
+<a name="L1031"></a><tt class="py-lineno">1031</tt>  <tt class="py-line"><tt class="py-docstring">            Id number of the business. [Optional]</tt> </tt>
+<a name="L1032"></a><tt class="py-lineno">1032</tt>  <tt class="py-line"><tt class="py-docstring">          name:</tt> </tt>
+<a name="L1033"></a><tt class="py-lineno">1033</tt>  <tt class="py-line"><tt class="py-docstring">            The name of the business. [Optional]</tt> </tt>
+<a name="L1034"></a><tt class="py-lineno">1034</tt>  <tt class="py-line"><tt class="py-docstring">          url:</tt> </tt>
+<a name="L1035"></a><tt class="py-lineno">1035</tt>  <tt class="py-line"><tt class="py-docstring">            The url of the business. [Optional]</tt> </tt>
+<a name="L1036"></a><tt class="py-lineno">1036</tt>  <tt class="py-line"><tt class="py-docstring">          locations:</tt> </tt>
+<a name="L1037"></a><tt class="py-lineno">1037</tt>  <tt class="py-line"><tt class="py-docstring">            A list of location dictionaries of the business. [Optional]</tt> </tt>
+<a name="L1038"></a><tt class="py-lineno">1038</tt>  <tt class="py-line"><tt class="py-docstring">            Example:</tt> </tt>
+<a name="L1039"></a><tt class="py-lineno">1039</tt>  <tt class="py-line"><tt class="py-docstring">              locations = [</tt> </tt>
+<a name="L1040"></a><tt class="py-lineno">1040</tt>  <tt class="py-line"><tt class="py-docstring">                            {</tt> </tt>
+<a name="L1041"></a><tt class="py-lineno">1041</tt>  <tt class="py-line"><tt class="py-docstring">                              "id": 19185,</tt> </tt>
+<a name="L1042"></a><tt class="py-lineno">1042</tt>  <tt class="py-line"><tt class="py-docstring">                              "address" : "126 2nd Ave.",</tt> </tt>
+<a name="L1043"></a><tt class="py-lineno">1043</tt>  <tt class="py-line"><tt class="py-docstring">                              "locality" : "New York",</tt> </tt>
+<a name="L1044"></a><tt class="py-lineno">1044</tt>  <tt class="py-line"><tt class="py-docstring">                              "phone" : "212-477-2477",</tt> </tt>
+<a name="L1045"></a><tt class="py-lineno">1045</tt>  <tt class="py-line"><tt class="py-docstring">                              "lat" : 40.728,</tt> </tt>
+<a name="L1046"></a><tt class="py-lineno">1046</tt>  <tt class="py-line"><tt class="py-docstring">                              "lon" : -73.987</tt> </tt>
+<a name="L1047"></a><tt class="py-lineno">1047</tt>  <tt class="py-line"><tt class="py-docstring">                             },</tt> </tt>
+<a name="L1048"></a><tt class="py-lineno">1048</tt>  <tt class="py-line"><tt class="py-docstring">                             { *another location}</tt> </tt>
+<a name="L1049"></a><tt class="py-lineno">1049</tt>  <tt class="py-line"><tt class="py-docstring">                           ]</tt> </tt>
+<a name="L1050"></a><tt class="py-lineno">1050</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L1051"></a><tt class="py-lineno">1051</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_id</tt> <tt class="py-op">=</tt> <tt class="py-name">id</tt> </tt>
+<a name="L1052"></a><tt class="py-lineno">1052</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_name</tt> <tt class="py-op">=</tt> <tt class="py-name">name</tt> </tt>
+<a name="L1053"></a><tt class="py-lineno">1053</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_url</tt> <tt class="py-op">=</tt> <tt class="py-name">url</tt> </tt>
+<a name="L1054"></a><tt class="py-lineno">1054</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_locations</tt> <tt class="py-op">=</tt> <tt class="py-name">locations</tt> </tt>
+</div><a name="L1055"></a><tt class="py-lineno">1055</tt>  <tt class="py-line"> </tt>
+<a name="L1056"></a><tt class="py-lineno">1056</tt>  <tt class="py-line">    <tt class="py-decorator">@</tt><tt class="py-decorator">staticmethod</tt> </tt>
+<a name="Business.new_from_json_dict"></a><div id="Business.new_from_json_dict-def"><a name="L1057"></a><tt class="py-lineno">1057</tt> <a class="py-toggle" href="#" id="Business.new_from_json_dict-toggle" onclick="return toggle('Business.new_from_json_dict');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="yipit.Business-class.html#new_from_json_dict">new_from_json_dict</a><tt class="py-op">(</tt><tt class="py-param">data</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Business.new_from_json_dict-collapsed" style="display:none;" pad="++++" indent="++++++++"></div><div id="Business.new_from_json_dict-expanded"><a name="L1058"></a><tt class="py-lineno">1058</tt>  <tt class="py-line">        <tt class="py-docstring">'''Create a new instance based on a JSON dict.</tt> </tt>
+<a name="L1059"></a><tt class="py-lineno">1059</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L1060"></a><tt class="py-lineno">1060</tt>  <tt class="py-line"><tt class="py-docstring">        Args:</tt> </tt>
+<a name="L1061"></a><tt class="py-lineno">1061</tt>  <tt class="py-line"><tt class="py-docstring">          data: A JSON dict, as converted from the JSON in the Yipit</tt> </tt>
+<a name="L1062"></a><tt class="py-lineno">1062</tt>  <tt class="py-line"><tt class="py-docstring">          API.</tt> </tt>
+<a name="L1063"></a><tt class="py-lineno">1063</tt>  <tt class="py-line"><tt class="py-docstring">        Returns:</tt> </tt>
+<a name="L1064"></a><tt class="py-lineno">1064</tt>  <tt class="py-line"><tt class="py-docstring">          A yipit.Business instance</tt> </tt>
+<a name="L1065"></a><tt class="py-lineno">1065</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L1066"></a><tt class="py-lineno">1066</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-42" class="py-name"><a title="yipit.Business" class="py-name" href="#" onclick="return doclink('link-42', 'Business', 'link-18');">Business</a></tt><tt class="py-op">(</tt><tt class="py-name">id</tt> <tt class="py-op">=</tt> <tt class="py-name">data</tt><tt class="py-op">.</tt><tt class="py-name">get</tt><tt class="py-op">(</tt><tt class="py-string">'id'</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L1067"></a><tt class="py-lineno">1067</tt>  <tt class="py-line">                        <tt class="py-name">name</tt> <tt class="py-op">=</tt> <tt class="py-name">data</tt><tt class="py-op">.</tt><tt class="py-name">get</tt><tt class="py-op">(</tt><tt class="py-string">'name'</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L1068"></a><tt class="py-lineno">1068</tt>  <tt class="py-line">                        <tt class="py-name">url</tt> <tt class="py-op">=</tt> <tt class="py-name">data</tt><tt class="py-op">.</tt><tt class="py-name">get</tt><tt class="py-op">(</tt><tt class="py-string">'url'</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L1069"></a><tt class="py-lineno">1069</tt>  <tt class="py-line">                        <tt class="py-name">locations</tt> <tt class="py-op">=</tt> <tt class="py-name">data</tt><tt class="py-op">.</tt><tt class="py-name">get</tt><tt class="py-op">(</tt><tt class="py-string">'locations'</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L1070"></a><tt class="py-lineno">1070</tt>  <tt class="py-line">         </tt>
+<a name="Business.as_dict"></a><div id="Business.as_dict-def"><a name="L1071"></a><tt class="py-lineno">1071</tt> <a class="py-toggle" href="#" id="Business.as_dict-toggle" onclick="return toggle('Business.as_dict');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="yipit.Business-class.html#as_dict">as_dict</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Business.as_dict-collapsed" style="display:none;" pad="++++" indent="++++++++"></div><div id="Business.as_dict-expanded"><a name="L1072"></a><tt class="py-lineno">1072</tt>  <tt class="py-line">        <tt class="py-docstring">'''A dict representation of this yipit.Business instance.</tt> </tt>
+<a name="L1073"></a><tt class="py-lineno">1073</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L1074"></a><tt class="py-lineno">1074</tt>  <tt class="py-line"><tt class="py-docstring">        The return value uses the same key names as the JSON representation.</tt> </tt>
+<a name="L1075"></a><tt class="py-lineno">1075</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L1076"></a><tt class="py-lineno">1076</tt>  <tt class="py-line"><tt class="py-docstring">        Return:</tt> </tt>
+<a name="L1077"></a><tt class="py-lineno">1077</tt>  <tt class="py-line"><tt class="py-docstring">          A dict represention this yipit.Business instance</tt> </tt>
+<a name="L1078"></a><tt class="py-lineno">1078</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L1079"></a><tt class="py-lineno">1079</tt>  <tt class="py-line">        <tt class="py-comment"># jzhao what is a better way to make this available to all the classes?</tt> </tt>
+<a name="L1080"></a><tt class="py-lineno">1080</tt>  <tt class="py-line">        <tt class="py-name">data</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-43" class="py-name"><a title="yipit.YipitObject.make_dict_from_kwargs" class="py-name" href="#" onclick="return doclink('link-43', 'make_dict_from_kwargs', 'link-35');">make_dict_from_kwargs</a></tt><tt class="py-op">(</tt><tt class="py-name">id</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_id</tt><tt class="py-op">,</tt> </tt>
+<a name="L1081"></a><tt class="py-lineno">1081</tt>  <tt class="py-line">                                          <tt class="py-name">name</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_name</tt><tt class="py-op">,</tt> </tt>
+<a name="L1082"></a><tt class="py-lineno">1082</tt>  <tt class="py-line">                                          <tt class="py-name">url</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_url</tt><tt class="py-op">,</tt> </tt>
+<a name="L1083"></a><tt class="py-lineno">1083</tt>  <tt class="py-line">                                          <tt class="py-name">locations</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_locations</tt><tt class="py-op">)</tt> </tt>
+<a name="L1084"></a><tt class="py-lineno">1084</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">data</tt> </tt>
+</div></div><a name="L1085"></a><tt class="py-lineno">1085</tt>  <tt class="py-line"> </tt><script type="text/javascript">
 <!--
 expandto(location.href);
 // -->
@@ -1180,7 +1188,7 @@ expandto(location.href);
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Sun Oct  9 02:02:06 2011
+    Generated by Epydoc 3.0.1 on Sun Oct  9 02:19:13 2011
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"
