@@ -172,7 +172,6 @@ class Api(object):
 
         # Make and send requests
         url = DEALS_URL
-        # deals = self.get_deal_list_by_params(url, parameters)
         deals = self.get_yipit_list_by_params(url,
                                               yipit_type_key = 'deals',
                                               **parameters)
@@ -203,36 +202,6 @@ class Api(object):
                 raise err
         
         return deals[0] # should be one and only one Deal
-        
-    def get_deals_list_by_params(self,
-                                 url,
-                                 parameters = None):
-        '''Returns a list of Deal instances from calling the api with the
-        url and given parameters
-        Args:
-          url:
-            The string url to be requested.
-          parameters: 
-            A dictionary object with the param key and value. [Optional]
-            
-        Returns:
-          A list of yipit.Deal instances grabbed and processed from the url
-          with the given parameters
-        '''
-
-        json = self.fetch_url(url, **parameters)
-        data = self.parse_and_check_yipit(json)
-        # first check to make sure we got some results
-        if len(data['response']) == 0:
-            return [] # immediately return empty list if there were no results
-
-        deals = []
-
-        for deal_json_dict in data['response']['deals']:
-            temp = Deal.new_from_json_dict(deal_json_dict)
-            deals.append(temp)
-
-        return deals 
 
     def get_yipit_list_by_params(self,
                                  url,
