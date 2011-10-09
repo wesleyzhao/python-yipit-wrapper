@@ -217,6 +217,7 @@ class Api(object):
           yipit_type_key:
             The string key to be found inside the 'response' section of the
             Yipit API call. The following keys are known to currently work:
+              'deals',
               'sources',
               'divisions',
               'tags',
@@ -226,9 +227,9 @@ class Api(object):
             string. [Optional]
             
         Returns:
-          A list of yipit.Source/yipit.Division/yipit.Tag/yipit.Business
-          (depending on the yipit_type_key given) instances grabbed and 
-          processed from the url with the given parameters
+          A list of yipit.Deal/yipit.Source/yipit.Division/yipit.Tag/
+          yipit.Business (depending on the yipit_type_key given) instances 
+          grabbed and processed from the url with the given parameters
         '''
 
         json = self.fetch_url(url, **params)
@@ -240,10 +241,14 @@ class Api(object):
         yipit_objects = []
         
         for object_json_dict in data['response'][yipit_type_key]:
+            # first must determine which object we are trying to use
             if yipit_type_key == 'deals':
                 class_ = Deal
-            if yipit_type_key == 'sources':
+            elif yipit_type_key == 'sources':
                 class_ = Source
+            else:
+                raise YipitError("Please use a correct Yipit object type key. Available: 'deals', 'sources', 'divisions', 'tags', and 'businesses'")
+
             temp = class_.new_from_json_dict(object_json_dict)
             yipit_objects.append(temp)
 
