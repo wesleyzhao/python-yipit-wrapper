@@ -191,9 +191,13 @@ class Api(object):
         url = DEALS_URL + deal_id # example: api.yipit.com/vi/deals/16721
         try:
             deals = self.get_deals_list_by_params(url)
-        except YipitError:
+        except YipitError as err:
             # this should only raise an error if the id was incorrect
-            return None
+            if err._error_code == 404:
+                return None
+            else:
+                # if it wasn't a bad deal id, then raise a YipitError
+                raise err
         
         return deals[0] # should be one and only one Deal
         
@@ -291,9 +295,19 @@ class Api(object):
     
     def check_for_yipit_error(self, data):
         """Raises a YipitError if Yipit returns an error 
-        """
         
-        return True
+        Args:
+          data:
+            A converted JSON dict with a response from the Yipit API. 
+            Should always have the keys 'meta' and 'response'
+            
+        Raises:
+          YipitError wrapping for yipit error message if one exists
+        """
+        meta = data['meta']
+        if meta['code'] != 200:
+            # if everything is NOT OK
+            raise YipitError("code: %s, name: %s, message: %s" %(str(meta['code']), meta['name'], meta['message']), error_code=meta['code'])
 
 class Deal(object):
     '''A class representing the deal structure used by the Yipit API
