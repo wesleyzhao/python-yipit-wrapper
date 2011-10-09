@@ -1,10 +1,27 @@
+#!/usr/bin/env python
+
 import yipit
+import optparse
 
 API_KEY = 'YOUR_API_KEY'
 
 class YipitTest(object):
+    """ Used just to test the main methods for this wrapper
+    
+    Proper usage:
+    $ python test.py YIPIT_API_KEY
+    """
     def main():
         # jzhao why is this main function not being called automatically?
+
+        parser = optparse.OptionParser() # only doing this for the 1st arg
+        (opts, args) = parser.parse_args()
+        try:
+            API_KEY = args[0]
+        except IndexError:
+            # no args were given, user needs to input API_KEY
+            print "Please paste your API key as an arg. This is how you should use test.py. >> python test.py my_yipit_api_key"
+            exit(-1)
 
         api = yipit.Api(api_key = API_KEY)
         
