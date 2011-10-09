@@ -20,6 +20,15 @@ class YipitTest(object):
         
         print "Individual Deal: "
         print deal
+        
+        # test sources general fetch
+        sources = api.get_sources()
+        print "Sources: "
+        print sources
+        
+        # test individual source
+        print "Individual Source:"
+        print sources[0]
 
     if __name__ == "__main__":
         self.__main__()

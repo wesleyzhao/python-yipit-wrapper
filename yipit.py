@@ -26,6 +26,7 @@ import urllib2
 
 
 DEALS_URL = "http://api.yipit.com/v1/deals/"
+SOURCES_URL = "http://api.yipit.com/v1/sources/"
 
 class YipitError(Exception):
     '''Base class for Yipit errors
@@ -171,7 +172,10 @@ class Api(object):
 
         # Make and send requests
         url = DEALS_URL
-        deals = self.get_deals_list_by_params(url, parameters)
+        # deals = self.get_deal_list_by_params(url, parameters)
+        deals = self.get_yipit_list_by_params(url,
+                                              yipit_type_key = 'deals',
+                                              **parameters)
         return deals
         
 
@@ -216,7 +220,7 @@ class Api(object):
           with the given parameters
         '''
 
-        json = self.fetch_url(url, parameters=parameters)
+        json = self.fetch_url(url, **parameters)
         data = self.parse_and_check_yipit(json)
         # first check to make sure we got some results
         if len(data['response']) == 0:
@@ -229,20 +233,108 @@ class Api(object):
             deals.append(temp)
 
         return deals 
+
+    def get_yipit_list_by_params(self,
+                                 url,
+                                 yipit_type_key,
+                                 **params):
+        '''Returns a list of object instances from calling the api with the
+        url and given parameters. The object type is determined by the 
+        yipit_type_key.
+
+        Args:
+          url:
+            The string url to be requested.
+          yipit_type_key:
+            The string key to be found inside the 'response' section of the
+            Yipit API call. The following keys are known to currently work:
+              'sources',
+              'divisions',
+              'tags',
+              'businesses'              
+          **params: 
+            A packed dictionary of values to be translated into a query
+            string. [Optional]
+            
+        Returns:
+          A list of yipit.Source/yipit.Division/yipit.Tag/yipit.Business
+          (depending on the yipit_type_key given) instances grabbed and 
+          processed from the url with the given parameters
+        '''
+
+        json = self.fetch_url(url, **params)
+        data = self.parse_and_check_yipit(json)
+        # first check to make sure we got some results
+        if len(data['response']) == 0:
+            return [] # immediately return empty list if there were no results
+
+        yipit_objects = []
         
-    
+        for object_json_dict in data['response'][yipit_type_key]:
+            if yipit_type_key == 'deals':
+                class_ = Deal
+            if yipit_type_key == 'sources':
+                class_ = Source
+            temp = class_.new_from_json_dict(object_json_dict)
+            yipit_objects.append(temp)
+
+        return yipit_objects 
+        
+    def get_sources(self,
+                  division = None,
+                  paid = None,
+                  limit = 20):
+        '''Return Sources from Yipit given the parameters'
+        
+        Args:
+          division:
+            A list of one or more division slugs. To see division slugs call
+            Api.get_divisions() which lists yipit.Division instances[Optional]
+            Example: division=["new-york", "atlanta"]
+          paid:
+            If set to True, returns only deals Yipit pays you as a dev.
+            If set to False (default/recommended), returns deals Yipit
+            does not pay you for. [Optional]
+            Example: paid=True
+          limit:
+            Sets maximum number of items returned. Default 20. Max 1000.
+            [Optional]
+            Example: limit=300
+            
+        Returns:
+          A list of yipit.Source instances, each matching the parameters given
+        '''
+
+        # Build request parameters
+        parameters = {}
+            
+        if division is not None:
+            parameters['division'] = ','.join(division)
+
+        if paid is not None:
+            parameters['paid'] = paid
+            
+        parameters['limit'] = limit
+
+        # Make and send requests
+        url = SOURCES_URL
+        sources = self.get_yipit_list_by_params(url,
+                                                yipit_type_key = 'sources',
+                                                **parameters)
+        return sources
+            
 
     def fetch_url(self,
                    url,
-                   parameters = None):
+                   **parameters):
         '''Fetch the data from a url with the given parameters
         
         Args:
           url:
             The URL to retrieve
           parameters:
-            A dictionary whose key/value pairs will be added to the query
-            string. [Optional]
+            A packed dictionary whose key/value pairs will be added to 
+            the query string. [Optional]
             
         Returns:
           A string representation of the body of the response
@@ -551,5 +643,101 @@ class Deal(object):
         
         Returns:
           A string representation of this yipit.Deal instance.
+        '''
+        return self.as_json_string()
+
+class Source(object):
+    '''A class representing the source structure used by the Yipit API
+
+    The source structure exposes the following properties:
+    
+      source._name
+      source._slug
+      source._paid
+      source._url
+    '''
+
+    def __init__(self,
+                 name = None,
+                 slug = None,
+                 paid = None,
+                 url = None):
+        '''An object to hold a Yipit Source
+
+        This class is normally instantiated by the yipit.Api class and
+        returned in a sequence
+
+        Args:
+          name:
+            The name of the source. [Optional]
+          slug:
+            The slug of the source. [Optional]
+          paid:
+            If Yipit pays you for source link click. Integer 1/0. [Optional]
+          url:
+            The url of the source. [Optional]
+        '''
+        self._name = name
+        self._slug = slug
+        self._paid = paid
+        self._url = url
+
+    @staticmethod
+    def new_from_json_dict(data):
+        '''Create a new instance based on a JSON dict.
+        
+        Args:
+          data: A JSON dict, as converted from the JSON in the Yipit
+          API.
+        Returns:
+          A yipit.Source instance
+        '''
+        return Source(name = data.get('name', None),
+                    slug = data.get('slug', None),
+                    paid = data.get('paid', None),
+                    url = data.get('url', None))
+    
+    def as_json_string(self):
+        '''A JSON string representation of this yipit.Source instance.
+        
+        Returns:
+          A JSON string representation of this yipit.Source instance
+        '''
+        return simplejson.dumps(self.as_dict(), sort_keys=True)
+    
+    def as_dict(self):
+        '''A dict representation of this yipit.Source instance.
+        
+        The return value uses the same key names as the JSON representation.
+        
+        Return:
+          A dict represention this yipit.Source instance
+        '''
+        # jzhao what is a better way to make this available to all the classes?
+        data = self.make_dict_from_kwargs(name = self._name,
+                                          slug = self._slug,
+                                          paid = self._paid,
+                                          url = self._url)
+        return data                       
+        
+    def make_dict_from_kwargs(self, **kwargs):
+        '''Returns a dictionary of all parameters with specified keys
+        
+        Args:
+          **kwargs:
+            Default python packaging of un-specified params with keys
+        
+        Returns:
+          A dictionary of all params with specified keys
+        '''
+        return kwargs
+    
+    def __str__(self):
+        '''A string representation of this yipit.Source instance.
+        
+        The return value is the same as the JSON representation.
+        
+        Returns:
+          A string representation of this yipit.Source instance.
         '''
         return self.as_json_string()
