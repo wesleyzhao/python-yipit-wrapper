@@ -29,6 +29,7 @@ DEALS_URL = "http://api.yipit.com/v1/deals/"
 SOURCES_URL = "http://api.yipit.com/v1/sources/"
 DIVISIONS_URL = "http://api.yipit.com/v1/divisions/"
 TAGS_URL = "http://api.yipit.com/v1/tags/"
+BUSINESSES_URL = "http://api.yipit.com/v1/businesses/"
 
 class YipitError(Exception):
     '''Base class for Yipit errors
@@ -179,7 +180,6 @@ class Api(object):
                                               **parameters)
         return deals
         
-
     def get_deal_by_id(self, deal_id):
         '''Return a deal from Yipit based off its Yipit deal id
         Args:
@@ -252,6 +252,8 @@ class Api(object):
                 class_ = Division
             elif yipit_type_key == 'tags':
                 class_ = Tag
+            elif yipit_type_key == 'businesses':
+                class_ = Business
             else:
                 raise YipitError("Please use a correct Yipit object type key. Available: 'deals', 'sources', 'divisions', 'tags', and 'businesses.' You used: '%s'" % (yipit_type_key))
 
@@ -370,6 +372,64 @@ class Api(object):
         url = TAGS_URL
         tags = self.get_yipit_list_by_params(url, yipit_type_key = 'tags')
         return tags
+
+    def get_businesses(self,
+                       lat = None,
+                       lon = None,
+                       radius = None,
+                       division = None,
+                       phone = None):
+        '''Return businesses from Yipit given the parameters'
+        Args:
+          lat,lon:
+            Latitude and longitude (respectively) of point to sort
+            businesses by proximity to. Uses radius. [Optional]
+            Example: lat=-37.74,lon=-76.00
+          radius:
+            Maximum distance of radius in miles to businesses location 
+            from center point. Defaults to 10. Requires lat and lon if 
+            used. [Optional]
+            Example: radius=1.7
+          division:
+            A list of one or more division slugs. To see division slugs call
+            Api.get_divisions() which lists yipit.Division instances[Optional]
+            Example: division=["new-york", "atlanta"]
+          phone:
+            A phone numbers of the specific bussiness. [Optional]
+            Example: phone=2124134259
+            
+        NOTE: The Business API has NOT YET BEEN FULLY IMPLEMENTED. Not all
+        businesses are listed. The Business API is intended to be used to
+        look up a business.
+
+        Returns:
+          A list of yipit.Business instances, each matching the parameters 
+          given
+        '''
+
+        # Build request parameters
+        parameters = {}
+        
+        if lat is not None and lon is not None:
+            parameters['lat'] = lat
+            parameters['lon'] = lon
+            if radius is not None:
+                # radius requires lat&lon so it is located here
+                parameters['radius'] = radius
+            
+        if division is not None:
+            parameters['division'] = ','.join(division)
+
+        if phone is not None:
+            parameters['phone'] = phone
+            
+        # Make and send requests
+        url = BUSINESSES_URL
+        deals = self.get_yipit_list_by_params(url,
+                                              yipit_type_key = 'businesses',
+                                              **parameters)
+        return deals
+        
 
     def fetch_url(self,
                    url,
@@ -794,13 +854,13 @@ class Division(object):
 
     The division structure exposes the following properties:
     
-      source._name
-      source._slug
-      source._active
-      source._time_zone_diff
-      source._lat
-      source._lon
-      source._url
+      division._name
+      division._slug
+      division._active
+      division._time_zone_diff
+      division._lat
+      division._lon
+      division._url
     '''
 
     def __init__(self,
@@ -912,9 +972,9 @@ class Tag(object):
 
     The tag structure exposes the following properties:
     
-      source._name
-      source._slug
-      source._url
+      tag._name
+      tag._slug
+      tag._url
     '''
 
     def __init__(self,
@@ -993,5 +1053,117 @@ class Tag(object):
         
         Returns:
           A string representation of this yipit.Tag instance.
+        '''
+        return self.as_json_string()
+
+
+class Business(object):
+    '''A class representing the business structure used by the Yipit API
+
+    The business structure exposes the following properties:
+    
+      business._id
+      business._name
+      business._url
+      business._locations
+
+    NOTE: The Businesses API has not yet been fully implemented by Yipit.
+    The Businesses API is intended to be used to look up businesses.
+    '''
+
+    def __init__(self,
+                 id = None,
+                 name = None,
+                 url = None,
+                 locations = None):
+        '''An object to hold a Yipit Business
+
+        This class is normally instantiated by the yipit.Api class and
+        returned in a sequence
+
+        Args:
+          id:
+            Id number of the business. [Optional]
+          name:
+            The name of the business. [Optional]
+          url:
+            The url of the business. [Optional]
+          locations:
+            A list of location dictionaries of the business. [Optional]
+            Example:
+              locations = [
+                            {
+                              "id": 19185,
+                              "address" : "126 2nd Ave.",
+                              "locality" : "New York",
+                              "phone" : "212-477-2477",
+                              "lat" : 40.728,
+                              "lon" : -73.987
+                             },
+                             { *another location}
+                           ]
+        '''
+        self._id = id
+        self._name = name
+        self._url = url
+        self._locations = locations
+
+    @staticmethod
+    def new_from_json_dict(data):
+        '''Create a new instance based on a JSON dict.
+        
+        Args:
+          data: A JSON dict, as converted from the JSON in the Yipit
+          API.
+        Returns:
+          A yipit.Business instance
+        '''
+        return Business(id = data.get('id', None),
+                        name = data.get('name', None),
+                        url = data.get('url', None),
+                        locations = data.get('locations', None))
+    
+    def as_json_string(self):
+        '''A JSON string representation of this yipit.Business instance.
+        
+        Returns:
+          A JSON string representation of this yipit.Business instance
+        '''
+        return simplejson.dumps(self.as_dict(), sort_keys=True)
+    
+    def as_dict(self):
+        '''A dict representation of this yipit.Business instance.
+        
+        The return value uses the same key names as the JSON representation.
+        
+        Return:
+          A dict represention this yipit.Business instance
+        '''
+        # jzhao what is a better way to make this available to all the classes?
+        data = self.make_dict_from_kwargs(id = self._id,
+                                          name = self._name,
+                                          url = self._url,
+                                          locations = self._locations)
+        return data                       
+        
+    def make_dict_from_kwargs(self, **kwargs):
+        '''Returns a dictionary of all parameters with specified keys
+        
+        Args:
+          **kwargs:
+            Default python packaging of un-specified params with keys
+        
+        Returns:
+          A dictionary of all params with specified keys
+        '''
+        return kwargs
+    
+    def __str__(self):
+        '''A string representation of this yipit.Business instance.
+        
+        The return value is the same as the JSON representation.
+        
+        Returns:
+          A string representation of this yipit.Business instance.
         '''
         return self.as_json_string()
