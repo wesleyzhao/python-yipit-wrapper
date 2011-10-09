@@ -1,4 +1,8 @@
-Making this very rudimentary for basic use. I tried to keep this very well commented so look through the code. Docs now available here: /docs/index.html
+Making this very rudimentary for basic use. I tried to keep this very well commented so look through the code. 
+
+Docs now available here: 
+     Epydoc-generated (my fav): /doc/index.html
+     Sphinx-generated : /docs/index.html
 
 ** Look at test.py for more examples of how to use this wrapper
 
