@@ -1,3 +1,15 @@
+2011-10-09
+
+	bumped version to 0.2.2
+
+	YipitObject
+	Added this abstract class to implement certain methods that will
+	always be implemented the same way multiple classes will share.
+	And also includes some un-implemented abstract methods.
+	
+	class Deal, Division, Source, Tag, Business
+	All now implement the abstract class YipitObject
+
 2011-10-08
 
 	bumped version to 0.2.1
