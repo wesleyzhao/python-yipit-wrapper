@@ -110,9 +110,8 @@ for business in businesses:
     print location['lon']
 
 ***************************************************************************
-TODO create some sort of abstraction for Yipit API Classes for DRY purposes
-TODO ask Dad questions
-TODO generate pydocs...
+TODO Make stdin work for test.py
+     goal (this should work eventually): >> python test.py the_api_key
 
 ***************************************************************************
 BUGS

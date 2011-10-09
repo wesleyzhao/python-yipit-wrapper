@@ -28,7 +28,7 @@ class YipitTest(object):
             print "Please paste your API key as an arg. This is how you should use test.py. >> python test.py my_yipit_api_key"
             exit(-1)
         """
-        # API_KEY = sys.argv[1]
+        API_KEY = sys.argv[1]
         # print API_KEY
         api = yipit.Api(api_key = API_KEY)
         
