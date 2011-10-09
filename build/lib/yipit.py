@@ -9,7 +9,7 @@
 #
 ''' A library that provides a Python interface to the Yipit API  '''
 __author__ = "wesley.zhao@gmil.com"
-__version__ = "0.2.1"
+__version__ = "0.2.2"
 
 try:
     # Python >= 2.6
@@ -510,16 +510,17 @@ class Api(object):
             raise YipitError("code: %s, name: %s, message: %s" %(str(meta['code']), meta['name'], meta['message']), error_code=meta['code'])
 
         
+class YipitObject(object):
+    """ An abstract class that implements methods several classes the
+    Yipit API will require. Also outlines some abstract methods to
+    require classes which implement YipitObject to implement.
 
-class YipitObjectInterface(object):
-    """ This is an interface for a YipitObject instance
-    Certain methods will always be used and thus must be implemented.
     """
 
     @staticmethod
     def new_from_json_dict(data):
-        '''Create a new instance based on a JSON dict.
-        
+        '''An abstract method. Creates a new instance based on a JSON dict.
+                
         Args:
           data: A JSON dict, as converted from the JSON in the Yipit
           API.
@@ -527,49 +528,6 @@ class YipitObjectInterface(object):
           A yipit.YipitObject instance specific to the type
         '''
         raise NotImplementedError("Should have implemented this...")
-
-    def as_json_string(self):
-        '''A JSON string representation of a yipit.YipitObject instance
-        
-        Returns:
-          A JSON string representation of a yipit.YipitObject instance
-        '''
-        raise NotImplementedError("Should have implemented this...")
-    
-    def as_dict(self):
-        '''A dict representation of a yipit.YipitObject instance.
-        
-        The return value uses the same key names as the JSON representation.
-        
-        Return:
-          A dict represention a yipit.YipitObject instance
-        '''
-        raise NotImplementedError("Should have implemented this...")
-        
-    def make_dict_from_kwargs(self, **kwargs):
-        '''Returns a dictionary of all parameters with specified keys
-        
-        Args:
-          **kwargs:
-            Default python packaging of un-specified params with keys
-        
-        Returns:
-          A dictionary of all params with specified keys
-        '''
-        raise NotImplementedError("Should have implemented this...")
-        
-class YipitObject(YipitObjectInterface):
-    """ An abstract class that implements methods all YipitObject
-    types will have in commond
-
-    implements YipitObjectInterface
-    """
-    @staticmethod
-    def new_from_json_dict(data):
-        '''Must implement this as outlined by the YipitObjectInterface
-        that YipitObject implements
-        '''
-        raise NotImplementedError("Implement as required by YipitObjectInterface")
 
     def as_json_string(self):
         '''A JSON string representation of this yipit.Business instance.
@@ -580,10 +538,15 @@ class YipitObject(YipitObjectInterface):
         return simplejson.dumps(self.as_dict(), sort_keys=True)
     
     def as_dict(self):
-        '''Must implement this as outlined by the YipitObjectInterface
-        that YipitObject implements
+        '''An abstract method. A dict representation of a yipit.YipitObject 
+        instance.
+        
+        The return value uses the same key names as the JSON representation.
+        
+        Return:
+          A dict represention a yipit.YipitObject instance
         '''
-        raise NotImplementedError("Implement as required by YipitObjectInterface")
+        raise NotImplementedError("Should have implemented this...")
 
     def make_dict_from_kwargs(self, **kwargs):
         '''Returns a dictionary of all parameters with specified keys
@@ -608,7 +571,7 @@ class YipitObject(YipitObjectInterface):
         return self.as_json_string()
 
 
-class Deal(object):
+class Deal(YipitObject):
     '''A class representing the deal structure used by the Yipit API
 
     The deal structure exposes the following properties:
@@ -822,7 +785,7 @@ class Deal(object):
                                           tags = self._tags)
         return data                       
         
-class Source(object):
+class Source(YipitObject):
     '''A class representing the source structure used by the Yipit API
 
     The source structure exposes the following properties:
@@ -889,7 +852,7 @@ class Source(object):
         return data                       
         
     
-class Division(object):
+class Division(YipitObject):
     '''A class representing the division structure used by the Yipit API
 
     The division structure exposes the following properties:
@@ -979,7 +942,7 @@ class Division(object):
         return data                       
         
 
-class Tag(object):
+class Tag(YipitObject):
     '''A class representing the tag structure used by the Yipit API
 
     The tag structure exposes the following properties:
