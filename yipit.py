@@ -28,6 +28,7 @@ import urllib2
 DEALS_URL = "http://api.yipit.com/v1/deals/"
 SOURCES_URL = "http://api.yipit.com/v1/sources/"
 DIVISIONS_URL = "http://api.yipit.com/v1/divisions/"
+TAGS_URL = "http://api.yipit.com/v1/tags/"
 
 class YipitError(Exception):
     '''Base class for Yipit errors
@@ -249,8 +250,10 @@ class Api(object):
                 class_ = Source
             elif yipit_type_key == 'divisions':
                 class_ = Division
+            elif yipit_type_key == 'tags':
+                class_ = Tag
             else:
-                raise YipitError("Please use a correct Yipit object type key. Available: 'deals', 'sources', 'divisions', 'tags', and 'businesses.' You used: %s" % (yipit_type_key))
+                raise YipitError("Please use a correct Yipit object type key. Available: 'deals', 'sources', 'divisions', 'tags', and 'businesses.' You used: '%s'" % (yipit_type_key))
 
             temp = class_.new_from_json_dict(object_json_dict)
             yipit_objects.append(temp)
@@ -352,6 +355,21 @@ class Api(object):
                                                 **parameters)
         return divisions
             
+    def get_tags(self):
+        '''Return Tags from Yipit given the parameters'
+        
+        Note: Yipit currently does not have any parameters to specify
+        tag search.
+
+        Returns:
+          A list of yipit.Tag instances, each matching the parameters
+          given
+        '''
+
+        # Make and send requests
+        url = TAGS_URL
+        tags = self.get_yipit_list_by_params(url, yipit_type_key = 'tags')
+        return tags
 
     def fetch_url(self,
                    url,
@@ -802,7 +820,7 @@ class Division(object):
           name:
             The name of the division. [Optional]
           slug:
-            The slug of the source. [Optional]
+            The slug of the division. [Optional]
           active:
             Whether or not Yipit gets active deals from this Division.
             Integer 1/0. [Optional]
@@ -886,5 +904,94 @@ class Division(object):
         
         Returns:
           A string representation of this yipit.Division instance.
+        '''
+        return self.as_json_string()
+
+class Tag(object):
+    '''A class representing the tag structure used by the Yipit API
+
+    The tag structure exposes the following properties:
+    
+      source._name
+      source._slug
+      source._url
+    '''
+
+    def __init__(self,
+                 name = None,
+                 slug = None,
+                 url = None):
+        '''An object to hold a Yipit Tag
+
+        This class is normally instantiated by the yipit.Api class and
+        returned in a sequence
+
+        Args:
+          name:
+            The name of the tag. [Optional]
+          slug:
+            The slug of the tag. [Optional]
+          url:
+            The url of thetag. [Optional]
+        '''
+        self._name = name
+        self._slug = slug
+        self._url = url
+
+    @staticmethod
+    def new_from_json_dict(data):
+        '''Create a new instance based on a JSON dict.
+        
+        Args:
+          data: A JSON dict, as converted from the JSON in the Yipit
+          API.
+        Returns:
+          A yipit.Tag instance
+        '''
+        return Tag(name = data.get('name', None),
+                   slug = data.get('slug', None),
+                   url = data.get('url', None))
+    
+    def as_json_string(self):
+        '''A JSON string representation of this yipit.Tag instance.
+        
+        Returns:
+          A JSON string representation of this yipit.Tag instance
+        '''
+        return simplejson.dumps(self.as_dict(), sort_keys=True)
+    
+    def as_dict(self):
+        '''A dict representation of this yipit.Tag instance.
+        
+        The return value uses the same key names as the JSON representation.
+        
+        Return:
+          A dict represention this yipit.Tag instance
+        '''
+        # jzhao what is a better way to make this available to all the classes?
+        data = self.make_dict_from_kwargs(name = self._name,
+                                          slug = self._slug,
+                                          url = self._url)
+        return data                       
+        
+    def make_dict_from_kwargs(self, **kwargs):
+        '''Returns a dictionary of all parameters with specified keys
+        
+        Args:
+          **kwargs:
+            Default python packaging of un-specified params with keys
+        
+        Returns:
+          A dictionary of all params with specified keys
+        '''
+        return kwargs
+    
+    def __str__(self):
+        '''A string representation of this yipit.Tag instance.
+        
+        The return value is the same as the JSON representation.
+        
+        Returns:
+          A string representation of this yipit.Tag instance.
         '''
         return self.as_json_string()
