@@ -1,0 +1,949 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>yipit.Api</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="yipit-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="yipit-module.html">Module&nbsp;yipit</a> ::
+        Class&nbsp;Api
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="yipit.Api-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class Api</h1><p class="nomargin-top"><span class="codelink"><a href="yipit-pysrc.html#Api">source&nbsp;code</a></span></p>
+<pre class="base-tree">
+object --+
+         |
+        <strong class="uidshort">Api</strong>
+</pre>
+
+<hr />
+<pre class="literalblock">
+A python interface into the Yipit API
+
+All calls require to to pass in your Yipit API Key as api_key
+For example:
+
+  &gt;&gt; import yipit
+  &gt;&gt; api = yipit.Api(api_key='jkldskfjdfl88234llkj')
+
+</pre>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="yipit.Api-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">api_key</span>)</span><br />
+      Instantiate a new yipit.Api object.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="yipit-pysrc.html#Api.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="set_credentials"></a><span class="summary-sig-name">set_credentials</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">api_key</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="yipit-pysrc.html#Api.set_credentials">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="yipit.Api-class.html#get_deals" class="summary-sig-name">get_deals</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">lat</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">lon</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">radius</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">division</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">source</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">phone</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">tag</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">paid</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">limit</span>=<span class="summary-sig-default">20</span>)</span><br />
+      Return deals from Yipit given the parameters'
+Args:
+  lat,lon:
+    Latitude and longitude (respectively) of point to sort deals by 
+    proximity to.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="yipit-pysrc.html#Api.get_deals">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="yipit.Api-class.html#get_deal_by_id" class="summary-sig-name">get_deal_by_id</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">deal_id</span>)</span><br />
+      Return a deal from Yipit based off its Yipit deal id
+Args:
+  deal_id:
+    returns a yipit.Deal instance with the an id matching deal_id
+    or nothing if it does not exist</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="yipit-pysrc.html#Api.get_deal_by_id">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="yipit.Api-class.html#get_yipit_list_by_params" class="summary-sig-name">get_yipit_list_by_params</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">url</span>,
+        <span class="summary-sig-arg">yipit_type_key</span>,
+        <span class="summary-sig-arg">**params</span>)</span><br />
+      Returns a list of object instances from calling the api with the
+url and given parameters.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="yipit-pysrc.html#Api.get_yipit_list_by_params">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="yipit.Api-class.html#get_sources" class="summary-sig-name">get_sources</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">division</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">paid</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">limit</span>=<span class="summary-sig-default">20</span>)</span><br />
+      Return Sources from Yipit given the parameters'</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="yipit-pysrc.html#Api.get_sources">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="yipit.Api-class.html#get_divisions" class="summary-sig-name">get_divisions</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">source</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">lat</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">lon</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">radius</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">limit</span>=<span class="summary-sig-default">20</span>)</span><br />
+      Return Divisions from Yipit given the parameters'</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="yipit-pysrc.html#Api.get_divisions">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="yipit.Api-class.html#get_tags" class="summary-sig-name">get_tags</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Return Tags from Yipit given the parameters'</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="yipit-pysrc.html#Api.get_tags">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="yipit.Api-class.html#get_businesses" class="summary-sig-name">get_businesses</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">lat</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">lon</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">radius</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">division</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">phone</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Return businesses from Yipit given the parameters'
+Args:
+  lat,lon:
+    Latitude and longitude (respectively) of point to sort
+    businesses by proximity to.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="yipit-pysrc.html#Api.get_businesses">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="yipit.Api-class.html#fetch_url" class="summary-sig-name">fetch_url</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">url</span>,
+        <span class="summary-sig-arg">**parameters</span>)</span><br />
+      Fetch the data from a url with the given parameters</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="yipit-pysrc.html#Api.fetch_url">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="yipit.Api-class.html#parse_and_check_yipit" class="summary-sig-name">parse_and_check_yipit</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">json</span>)</span><br />
+      Try and parse the JSON returned from Yipit's API</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="yipit-pysrc.html#Api.parse_and_check_yipit">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="yipit.Api-class.html#build_url" class="summary-sig-name">build_url</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">url</span>,
+        <span class="summary-sig-arg">parameters</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Builds a url with a proper query string based off the parameters</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="yipit-pysrc.html#Api.build_url">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="yipit.Api-class.html#check_for_yipit_error" class="summary-sig-name">check_for_yipit_error</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">data</span>)</span><br />
+      Raises a YipitError if Yipit returns an error</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="yipit-pysrc.html#Api.check_for_yipit_error">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__format__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__repr__</code>,
+      <code>__setattr__</code>,
+      <code>__sizeof__</code>,
+      <code>__str__</code>,
+      <code>__subclasshook__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">api_key</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="yipit-pysrc.html#Api.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Instantiate a new yipit.Api object.
+
+Args:
+  api_key:
+    Your Yipit API Key.
+
+</pre>
+  <dl class="fields">
+    <dt>Overrides:
+        object.__init__
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_deals"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_deals</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">lat</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">lon</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">radius</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">division</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">source</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">phone</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">tag</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">paid</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">limit</span>=<span class="sig-default">20</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="yipit-pysrc.html#Api.get_deals">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Return deals from Yipit given the parameters'
+Args:
+  lat,lon:
+    Latitude and longitude (respectively) of point to sort deals by 
+    proximity to. Uses radius. [Optional]
+    Example: lat=-37.74,lon=-76.00
+  radius:
+    Maximum distance of radius in miles to deal location from center 
+    point. Defaults to 10. Requires lat and lon if used. [Optional]
+    Example: radius=1.7
+  division:
+    A list of one or more division slugs. To see division slugs call
+    Api.get_divisions() which lists yipit.Division instances[Optional]
+    Example: division=[&quot;new-york&quot;, &quot;atlanta&quot;]
+  source:
+    A list of one or more source slugs. To see source slugs call 
+    Api.get_sources() which lists yipit.Source instances [Optional]
+    Example: source=[&quot;groupon&quot;, &quot;scoutmob&quot;]
+  phone:
+    A list of phone numbers of specific bussinesses. Deals available 
+    at a business matching one of the phone numbers. [Optional]
+    Example: phone=[2124134259,2124655555]
+  tag:
+    A list of one or more tag slugs. To see tag slugs call 
+    Api.get_tags() which lists yipit.Tag instances [Optional]
+    Example: tag=[&quot;restaurants&quot;,&quot;bar-club&quot;]
+  paid:
+    If set to True, returns only deals Yipit pays you as a dev.
+    If set to False (default/recommended), returns deals Yipit
+    does not pay you for. [Optional]
+    Example: paid=True
+  limit:
+    Sets maximum number of items returned. Default 20. Max 5000.
+    [Optional]
+    Example: limit=300
+    
+Returns:
+  A list of yipit.Deal instances, each matching the parameters given
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_deal_by_id"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_deal_by_id</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">deal_id</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="yipit-pysrc.html#Api.get_deal_by_id">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Return a deal from Yipit based off its Yipit deal id
+Args:
+  deal_id:
+    returns a yipit.Deal instance with the an id matching deal_id
+    or nothing if it does not exist
+    
+Returns:
+  A yipit.Deal instance, matching the deal_id. Or None if none
+  match.
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_yipit_list_by_params"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_yipit_list_by_params</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">url</span>,
+        <span class="sig-arg">yipit_type_key</span>,
+        <span class="sig-arg">**params</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="yipit-pysrc.html#Api.get_yipit_list_by_params">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Returns a list of object instances from calling the api with the
+url and given parameters. The object type is determined by the 
+yipit_type_key.
+
+Args:
+  url:
+    The string url to be requested.
+  yipit_type_key:
+    The string key to be found inside the 'response' section of the
+    Yipit API call. The following keys are known to currently work:
+      'deals',
+      'sources',
+      'divisions',
+      'tags',
+      'businesses'              
+  **params: 
+    A packed dictionary of values to be translated into a query
+    string. [Optional]
+    
+Returns:
+  A list of yipit.Deal/yipit.Source/yipit.Division/yipit.Tag/
+  yipit.Business (depending on the yipit_type_key given) instances 
+  grabbed and processed from the url with the given parameters
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_sources"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_sources</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">division</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">paid</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">limit</span>=<span class="sig-default">20</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="yipit-pysrc.html#Api.get_sources">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Return Sources from Yipit given the parameters'
+
+Args:
+  division:
+    A list of one or more division slugs. To see division slugs call
+    Api.get_divisions() which lists yipit.Division instances[Optional]
+    Example: division=[&quot;new-york&quot;, &quot;atlanta&quot;]
+  paid:
+    If set to True, returns only deals Yipit pays you as a dev.
+    If set to False (default/recommended), returns deals Yipit
+    does not pay you for. [Optional]
+    Example: paid=True
+  limit:
+    Sets maximum number of items returned. Default 20. Max 1000.
+    [Optional]
+    Example: limit=300
+    
+Returns:
+  A list of yipit.Source instances, each matching the parameters given
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_divisions"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_divisions</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">source</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">lat</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">lon</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">radius</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">limit</span>=<span class="sig-default">20</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="yipit-pysrc.html#Api.get_divisions">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Return Divisions from Yipit given the parameters'
+
+Args:
+  source:
+    A list of one or more source slugs. To see source slugs call 
+    Api.get_sources() which lists yipit.Source instances [Optional]
+    Example: source=[&quot;groupon&quot;, &quot;scoutmob&quot;]
+  lat,lon:
+    Latitude and longitude (respectively) of point to sort divisions
+    by proximity to. Uses radius. [Optional]
+    Example: lat=-37.74,lon=-76.00
+  radius:
+    Maximum distance of radius in miles to deal location from center
+    point. Defaults to 10. Requires lat and lon if used. [Optional]
+    Example: radius=1.7
+  limit:
+    Sets maximum number of items returned. Default 20. Max 200.
+    [Optional]
+    Example: limit=200        
+    
+Returns:
+  A list of yipit.Division instances, each matching the parameters
+  given
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_tags"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_tags</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="yipit-pysrc.html#Api.get_tags">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Return Tags from Yipit given the parameters'
+
+Note: Yipit currently does not have any parameters to specify
+tag search.
+
+Returns:
+  A list of yipit.Tag instances, each matching the parameters
+  given
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_businesses"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_businesses</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">lat</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">lon</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">radius</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">division</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">phone</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="yipit-pysrc.html#Api.get_businesses">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Return businesses from Yipit given the parameters'
+Args:
+  lat,lon:
+    Latitude and longitude (respectively) of point to sort
+    businesses by proximity to. Uses radius. [Optional]
+    Example: lat=-37.74,lon=-76.00
+  radius:
+    Maximum distance of radius in miles to businesses location 
+    from center point. Defaults to 10. Requires lat and lon if 
+    used. [Optional]
+    Example: radius=1.7
+  division:
+    A list of one or more division slugs. To see division slugs call
+    Api.get_divisions() which lists yipit.Division instances[Optional]
+    Example: division=[&quot;new-york&quot;, &quot;atlanta&quot;]
+  phone:
+    A phone numbers of the specific bussiness. [Optional]
+    Example: phone=2124134259
+    
+NOTE: The Business API has NOT YET BEEN FULLY IMPLEMENTED. Not all
+businesses are listed. The Business API is intended to be used to
+look up a business.
+
+Returns:
+  A list of yipit.Business instances, each matching the parameters 
+  given
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="fetch_url"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">fetch_url</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">url</span>,
+        <span class="sig-arg">**parameters</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="yipit-pysrc.html#Api.fetch_url">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Fetch the data from a url with the given parameters
+
+Args:
+  url:
+    The URL to retrieve
+  parameters:
+    A packed dictionary whose key/value pairs will be added to 
+    the query string. [Optional]
+    
+Returns:
+  A string representation of the body of the response
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="parse_and_check_yipit"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">parse_and_check_yipit</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">json</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="yipit-pysrc.html#Api.parse_and_check_yipit">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Try and parse the JSON returned from Yipit's API
+
+Args:
+  json:
+    The JSON string 
+  
+Returns:
+  A dictionary object of the parsed JSON, or if there was some
+  error then return the error information
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="build_url"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">build_url</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">url</span>,
+        <span class="sig-arg">parameters</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="yipit-pysrc.html#Api.build_url">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Builds a url with a proper query string based off the parameters
+
+Args:
+  url:
+    The base of the URL
+  parameters:
+    A dictionary whose key/value paris will be translated to a query
+    string and appended to the base URL. [Optional]
+
+Returns:
+  A string of the concacted base URL and query string
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="check_for_yipit_error"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">check_for_yipit_error</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">data</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="yipit-pysrc.html#Api.check_for_yipit_error">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Raises a YipitError if Yipit returns an error 
+
+Args:
+  data:
+    A converted JSON dict with a response from the Yipit API. 
+    Should always have the keys 'meta' and 'response'
+    
+Raises:
+  YipitError wrapping for yipit error message if one exists
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="yipit-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Sun Oct  9 02:02:06 2011
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>
