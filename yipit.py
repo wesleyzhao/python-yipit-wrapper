@@ -8,7 +8,7 @@
 #
 #
 ''' A library that provides a Python interface to the Yipit API  '''
-__author__ = "wesley.zhao@gmil.com"
+__author__ = "wesley.zhao@gmail.com"
 __version__ = "0.2.2"
 
 try:
