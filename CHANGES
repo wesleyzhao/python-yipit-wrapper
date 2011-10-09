@@ -25,6 +25,12 @@
 	Created this to show how to use the api and to make sure all the main
 	functions work.
 
+	YipitError
+	Created this class to extend Exception for specific yipit errors.
+
+	README
+	Added several examples...maybe should create an examples folder?
+
 2011-10-08
 
 Don't know what to write here...
