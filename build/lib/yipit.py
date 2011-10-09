@@ -509,6 +509,105 @@ class Api(object):
             # if everything is NOT OK
             raise YipitError("code: %s, name: %s, message: %s" %(str(meta['code']), meta['name'], meta['message']), error_code=meta['code'])
 
+        
+
+class YipitObjectInterface(object):
+    """ This is an interface for a YipitObject instance
+    Certain methods will always be used and thus must be implemented.
+    """
+
+    @staticmethod
+    def new_from_json_dict(data):
+        '''Create a new instance based on a JSON dict.
+        
+        Args:
+          data: A JSON dict, as converted from the JSON in the Yipit
+          API.
+        Returns:
+          A yipit.YipitObject instance specific to the type
+        '''
+        raise NotImplementedError("Should have implemented this...")
+
+    def as_json_string(self):
+        '''A JSON string representation of a yipit.YipitObject instance
+        
+        Returns:
+          A JSON string representation of a yipit.YipitObject instance
+        '''
+        raise NotImplementedError("Should have implemented this...")
+    
+    def as_dict(self):
+        '''A dict representation of a yipit.YipitObject instance.
+        
+        The return value uses the same key names as the JSON representation.
+        
+        Return:
+          A dict represention a yipit.YipitObject instance
+        '''
+        raise NotImplementedError("Should have implemented this...")
+        
+    def make_dict_from_kwargs(self, **kwargs):
+        '''Returns a dictionary of all parameters with specified keys
+        
+        Args:
+          **kwargs:
+            Default python packaging of un-specified params with keys
+        
+        Returns:
+          A dictionary of all params with specified keys
+        '''
+        raise NotImplementedError("Should have implemented this...")
+        
+class YipitObject(YipitObjectInterface):
+    """ An abstract class that implements methods all YipitObject
+    types will have in commond
+
+    implements YipitObjectInterface
+    """
+    @staticmethod
+    def new_from_json_dict(data):
+        '''Must implement this as outlined by the YipitObjectInterface
+        that YipitObject implements
+        '''
+        raise NotImplementedError("Implement as required by YipitObjectInterface")
+
+    def as_json_string(self):
+        '''A JSON string representation of this yipit.Business instance.
+        
+        Returns:
+          A JSON string representation of this yipit.Business instance
+        '''
+        return simplejson.dumps(self.as_dict(), sort_keys=True)
+    
+    def as_dict(self):
+        '''Must implement this as outlined by the YipitObjectInterface
+        that YipitObject implements
+        '''
+        raise NotImplementedError("Implement as required by YipitObjectInterface")
+
+    def make_dict_from_kwargs(self, **kwargs):
+        '''Returns a dictionary of all parameters with specified keys
+        
+        Args:
+          **kwargs:
+            Default python packaging of un-specified params with keys
+        
+        Returns:
+          A dictionary of all params with specified keys
+        '''
+        return kwargs
+    
+    def __str__(self):
+        '''A string representation of this yipit.Business instance.
+        
+        The return value is the same as the JSON representation.
+        
+        Returns:
+          A string representation of this yipit.Business instance.
+        '''
+        return self.as_json_string()
+
+
 class Deal(object):
     '''A class representing the deal structure used by the Yipit API
 
@@ -695,14 +794,6 @@ class Deal(object):
                     source = data.get('source', None),
                     tags = data.get('tags', None))
     
-    def as_json_string(self):
-        '''A JSON string representation of this yipit.Deal instance.
-        
-        Returns:
-          A JSON string representation of this yipit.Deal instance
-        '''
-        return simplejson.dumps(self.as_dict(), sort_keys=True)
-    
     def as_dict(self):
         '''A dict representation of this yipit.Deal instance.
         
@@ -731,28 +822,6 @@ class Deal(object):
                                           tags = self._tags)
         return data                       
         
-    def make_dict_from_kwargs(self, **kwargs):
-        '''Returns a dictionary of all parameters with specified keys
-        
-        Args:
-          **kwargs:
-            Default python packaging of un-specified params with keys
-        
-        Returns:
-          A dictionary of all params with specified keys
-        '''
-        return kwargs
-    
-    def __str__(self):
-        '''A string representation of this yipit.Deal instance.
-        
-        The return value is the same as the JSON representation.
-        
-        Returns:
-          A string representation of this yipit.Deal instance.
-        '''
-        return self.as_json_string()
-
 class Source(object):
     '''A class representing the source structure used by the Yipit API
 
@@ -803,15 +872,7 @@ class Source(object):
                     slug = data.get('slug', None),
                     paid = data.get('paid', None),
                     url = data.get('url', None))
-    
-    def as_json_string(self):
-        '''A JSON string representation of this yipit.Source instance.
         
-        Returns:
-          A JSON string representation of this yipit.Source instance
-        '''
-        return simplejson.dumps(self.as_dict(), sort_keys=True)
-    
     def as_dict(self):
         '''A dict representation of this yipit.Source instance.
         
@@ -827,28 +888,7 @@ class Source(object):
                                           url = self._url)
         return data                       
         
-    def make_dict_from_kwargs(self, **kwargs):
-        '''Returns a dictionary of all parameters with specified keys
-        
-        Args:
-          **kwargs:
-            Default python packaging of un-specified params with keys
-        
-        Returns:
-          A dictionary of all params with specified keys
-        '''
-        return kwargs
     
-    def __str__(self):
-        '''A string representation of this yipit.Source instance.
-        
-        The return value is the same as the JSON representation.
-        
-        Returns:
-          A string representation of this yipit.Source instance.
-        '''
-        return self.as_json_string()
-
 class Division(object):
     '''A class representing the division structure used by the Yipit API
 
@@ -919,13 +959,6 @@ class Division(object):
                         lon = data.get('lon', None),
                         url = data.get('url', None))
     
-    def as_json_string(self):
-        '''A JSON string representation of this yipit.Division instance.
-        
-        Returns:
-          A JSON string representation of this yipit.Divison instance
-        '''
-        return simplejson.dumps(self.as_dict(), sort_keys=True)
     
     def as_dict(self):
         '''A dict representation of this yipit.Division instance.
@@ -945,27 +978,6 @@ class Division(object):
                                           url = self._url)
         return data                       
         
-    def make_dict_from_kwargs(self, **kwargs):
-        '''Returns a dictionary of all parameters with specified keys
-        
-        Args:
-          **kwargs:
-            Default python packaging of un-specified params with keys
-        
-        Returns:
-          A dictionary of all params with specified keys
-        '''
-        return kwargs
-    
-    def __str__(self):
-        '''A string representation of this yipit.Division instance.
-        
-        The return value is the same as the JSON representation.
-        
-        Returns:
-          A string representation of this yipit.Division instance.
-        '''
-        return self.as_json_string()
 
 class Tag(object):
     '''A class representing the tag structure used by the Yipit API
@@ -1012,14 +1024,6 @@ class Tag(object):
                    slug = data.get('slug', None),
                    url = data.get('url', None))
     
-    def as_json_string(self):
-        '''A JSON string representation of this yipit.Tag instance.
-        
-        Returns:
-          A JSON string representation of this yipit.Tag instance
-        '''
-        return simplejson.dumps(self.as_dict(), sort_keys=True)
-    
     def as_dict(self):
         '''A dict representation of this yipit.Tag instance.
         
@@ -1034,30 +1038,8 @@ class Tag(object):
                                           url = self._url)
         return data                       
         
-    def make_dict_from_kwargs(self, **kwargs):
-        '''Returns a dictionary of all parameters with specified keys
-        
-        Args:
-          **kwargs:
-            Default python packaging of un-specified params with keys
-        
-        Returns:
-          A dictionary of all params with specified keys
-        '''
-        return kwargs
-    
-    def __str__(self):
-        '''A string representation of this yipit.Tag instance.
-        
-        The return value is the same as the JSON representation.
-        
-        Returns:
-          A string representation of this yipit.Tag instance.
-        '''
-        return self.as_json_string()
 
-
-class Business(object):
+class Business(YipitObject):
     '''A class representing the business structure used by the Yipit API
 
     The business structure exposes the following properties:
@@ -1122,15 +1104,7 @@ class Business(object):
                         name = data.get('name', None),
                         url = data.get('url', None),
                         locations = data.get('locations', None))
-    
-    def as_json_string(self):
-        '''A JSON string representation of this yipit.Business instance.
         
-        Returns:
-          A JSON string representation of this yipit.Business instance
-        '''
-        return simplejson.dumps(self.as_dict(), sort_keys=True)
-    
     def as_dict(self):
         '''A dict representation of this yipit.Business instance.
         
@@ -1145,121 +1119,3 @@ class Business(object):
                                           url = self._url,
                                           locations = self._locations)
         return data                       
-        
-    def make_dict_from_kwargs(self, **kwargs):
-        '''Returns a dictionary of all parameters with specified keys
-        
-        Args:
-          **kwargs:
-            Default python packaging of un-specified params with keys
-        
-        Returns:
-          A dictionary of all params with specified keys
-        '''
-        return kwargs
-    
-    def __str__(self):
-        '''A string representation of this yipit.Business instance.
-        
-        The return value is the same as the JSON representation.
-        
-        Returns:
-          A string representation of this yipit.Business instance.
-        '''
-        return self.as_json_string()
-
-class YipitObjectInterface(object):
-    """ This is an interface for a YipitObject instance
-    Certain methods will always be used and thus must be implemented.
-    """
-
-    @staticmethod
-    def new_from_json_dict(data):
-        '''Create a new instance based on a JSON dict.
-        
-        Args:
-          data: A JSON dict, as converted from the JSON in the Yipit
-          API.
-        Returns:
-          A yipit.YipitObject instance specific to the type
-        '''
-        raise NotImplementedError("Should have implemented this...")
-
-    def as_json_string(self):
-        '''A JSON string representation of a yipit.YipitObject instance
-        
-        Returns:
-          A JSON string representation of a yipit.YipitObject instance
-        '''
-        raise NotImplementedError("Should have implemented this...")
-    
-    def as_dict(self):
-        '''A dict representation of a yipit.YipitObject instance.
-        
-        The return value uses the same key names as the JSON representation.
-        
-        Return:
-          A dict represention a yipit.YipitObject instance
-        '''
-        raise NotImplementedError("Should have implemented this...")
-        
-    def make_dict_from_kwargs(self, **kwargs):
-        '''Returns a dictionary of all parameters with specified keys
-        
-        Args:
-          **kwargs:
-            Default python packaging of un-specified params with keys
-        
-        Returns:
-          A dictionary of all params with specified keys
-        '''
-        raise NotImplementedError("Should have implemented this...")
-        
-class YipitObject(YipitObjectInterface):
-    """ An abstract class that implements methods all YipitObject
-    types will have in commond
-
-    implements YipitObjectInterface
-    """
-    @staticmethod
-    def new_from_json_dict(data):
-        '''Must implement this as outlined by the YipitObjectInterface
-        that YipitObject implements
-        '''
-        raise NotImplementedError("Implement as required by YipitObjectInterface")
-
-    def as_json_string(self):
-        '''A JSON string representation of this yipit.Business instance.
-        
-        Returns:
-          A JSON string representation of this yipit.Business instance
-        '''
-        return simplejson.dumps(self.as_dict(), sort_keys=True)
-    
-    def as_dict(self):
-        '''Must implement this as outlined by the YipitObjectInterface
-        that YipitObject implements
-        '''
-        raise NotImplementedError("Implement as required by YipitObjectInterface")
-
-    def make_dict_from_kwargs(self, **kwargs):
-        '''Returns a dictionary of all parameters with specified keys
-        
-        Args:
-          **kwargs:
-            Default python packaging of un-specified params with keys
-        
-        Returns:
-          A dictionary of all params with specified keys
-        '''
-        return kwargs
-    
-    def __str__(self):
-        '''A string representation of this yipit.Business instance.
-        
-        The return value is the same as the JSON representation.
-        
-        Returns:
-          A string representation of this yipit.Business instance.
-        '''
-        return self.as_json_string()
