@@ -447,11 +447,13 @@ class Api(object):
           A string representation of the body of the response
         '''
         params = {'key' : self._api_key}
+        # print params
+        # print self._api_key
         if parameters:
             params.update(parameters)
-
+        # print params
         url = self.build_url(url, params)
-        
+        # print url
         url_data = self._urllib.urlopen(url).read() # urllib.urlopen.read() gets raw json, urllib2.urlopen.read() loads json as python dict
         
         return url_data

@@ -14,15 +14,20 @@ class YipitTest(object):
     def main():
         # jzhao why is this main function not being called automatically?
 
+        """
+        commented out while weird characters plague my ish!!
         parser = optparse.OptionParser() # only doing this for the 1st arg
         (opts, args) = parser.parse_args()
         try:
-            API_KEY = args[0]
+            API_KEY = str(args[0]) # avoid random python chars
+        
+            # API_KEY.replace('\xc2\x96','')
+ 
         except IndexError:
             # no args were given, user needs to input API_KEY
             print "Please paste your API key as an arg. This is how you should use test.py. >> python test.py my_yipit_api_key"
             exit(-1)
-
+        """
         api = yipit.Api(api_key = API_KEY)
         
         deals = api.get_deals()
