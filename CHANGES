@@ -10,6 +10,9 @@
 	class Deal, Division, Source, Tag, Business
 	All now implement the abstract class YipitObject
 
+	Documentation
+	Added docs to /docs/index.html
+
 2011-10-08
 
 	bumped version to 0.2.1
