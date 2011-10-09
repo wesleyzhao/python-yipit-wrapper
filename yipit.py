@@ -1,4 +1,4 @@
-#!/usr/bin/python2.5
+#!/usr/bin/python
 # Created by Wesley Zhao
 # Modeled after the python-twitter wrapper done by
 # The Python-Twitter Developers (python-twitter@googlegroups.com)
@@ -24,11 +24,44 @@ except ImportError:
 import urllib
 import urllib2
 
+
 DEALS_URL = "http://api.yipit.com/v1/deals/"
 
 class YipitError(Exception):
-    '''Base class for Yipit errors'''
+    '''Base class for Yipit errors
+
+    Will hold the following attributes:
+      _error_code:
+        Integer representation of the YipitError, as specified by the
+        Yipit API Docs. We have the following error codes and what they
+        represent:
+          400 - Invalid Request (Bad or missing parameters)
+          401 - Authentication Error Unauthorized
+          404 - Named resource not found
+          500 - Internal Service error
+          502 - Bad Gateway -- Yipit is down or is being upgraded.
+    '''
     
+    def __init__(self, message, error_code=None):
+        '''Instantiate a new YipitError object
+        
+        Args:
+          message:
+            Inherited from Exception, it is just the error message to be
+            printed out when the Error is raised.
+          error_code:
+            Integer representation of the Yipit Error, as specified by the
+            Yipit API Docs. We have the following error codes and what they
+            represent:
+              400 - Invalid Request (Bad or missing parameters)
+              401 - Authentication Error Unauthorized
+              404 - Named resource not found
+              500 - Internal Service error
+              502 - Bad Gateway -- Yipit is down or is being upgraded.
+        '''
+        Exception.__init__(self, message)
+        self._error_code = error_code
+
     @property # jzhao what is this?
     def message(self):
         ''' Returns the first argument used to construct this error. '''
@@ -36,9 +69,23 @@ class YipitError(Exception):
 
 
 class Api(object):
+    '''A python interface into the Yipit API
     
+    All calls require to to pass in your Yipit API Key as api_key
+    For example:
+    
+      >> import yipit
+      >> api = yipit.Api(api_key='jkldskfjdfl88234llkj')
+    '''
+
     def __init__(self,
                  api_key):
+        '''Instantiate a new yipit.Api object.
+
+        Args:
+          api_key:
+            Your Yipit API Key.
+        '''
         self._urllib = urllib # urllib2...read() loads json to python dict, urllib...read() loads raw json string
         self.set_credentials(api_key)
     
@@ -142,12 +189,13 @@ class Api(object):
         '''
         
         url = DEALS_URL + deal_id # example: api.yipit.com/vi/deals/16721
-        deals = self.get_deals_list_by_params(url)
-        if deals:
-            # if there are any elements
-            return deals[0] # should be one and only one element
-        else:
+        try:
+            deals = self.get_deals_list_by_params(url)
+        except YipitError:
+            # this should only raise an error if the id was incorrect
             return None
+        
+        return deals[0] # should be one and only one Deal
         
     def get_deals_list_by_params(self,
                                  url,
@@ -217,7 +265,7 @@ class Api(object):
         '''
         data = simplejson.loads(json)
         self.check_for_yipit_error(data)
-
+        
         return data
 
     def build_url(self, 
@@ -242,8 +290,9 @@ class Api(object):
         return url
     
     def check_for_yipit_error(self, data):
-        """place holder as I see errors
+        """Raises a YipitError if Yipit returns an error 
         """
+        
         return True
 
 class Deal(object):
