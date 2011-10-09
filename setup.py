@@ -19,7 +19,7 @@
 '''The setup and build script for the python-yipit library.'''
 
 __author__ = 'wesley.zhao@gmail.com'
-__version__ = '0.1.1'
+__version__ = '0.2.1'
 
 
 # The base package metadata to be used by both distutils and setuptools
