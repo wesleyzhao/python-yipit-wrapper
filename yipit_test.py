@@ -30,5 +30,14 @@ class YipitTest(object):
         print "Individual Source:"
         print sources[0]
 
+        # test divisions general fetch
+        divisions = api.get_divisions()
+        print "Divisions: "
+        print divisions
+
+        # test individual division
+        print "Individual division:"
+        print divisions[0]
+
     if __name__ == "__main__":
         self.__main__()
