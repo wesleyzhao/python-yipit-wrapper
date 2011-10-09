@@ -1,6 +1,6 @@
 import yipit
 
-API_KEY = '4rZUnBn4z9YgACck'
+API_KEY = 'YOUR_API_KEY'
 
 class YipitTest(object):
     def main():
