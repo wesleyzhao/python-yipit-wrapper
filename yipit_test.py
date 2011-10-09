@@ -3,7 +3,7 @@ import yipit
 API_KEY = '4rZUnBn4z9YgACck'
 
 class YipitTest(object):
-    def __main__(self):
+    def main():
         # jzhao why is this main function not being called automatically?
 
         api = yipit.Api(api_key = API_KEY)
@@ -88,4 +88,4 @@ class YipitTest(object):
         print businesses[0]
 
     if __name__ == "__main__":
-        self.__main__()
+        main()
