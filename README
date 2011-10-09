@@ -12,6 +12,7 @@ import yipit
 
 api = yipit.Api(api_key = "mykeyasdfasdfasdfasdfasd9fa9sfa9s")
 
+''' DEALS API '''
 deals = api.get_deals(lat=-100.2, 
                       lon=144.444, 
 		      radius=20, 
@@ -44,6 +45,56 @@ for deal in deals:
     print deal.source # will be a dictionary of the source
     print deal.tags # will be a list of tag dictionaries
 
+''' SOURCES API '''
+sources = api.get_sources(division=['new-york','atlanta'],
+		          paid=False,
+                          limit=10)
+        # test individual source
+        print "Individual Source:"
+        print sources[0]
+
+        print ""
+        # test divisions general fetch
+        divisions = api.get_divisions()
+        print "Divisions: "
+        print divisions
+        # test filtered division fetch
+        print "Filtered Divisions: source=['groupon','living-social'],lat=40.7654629, lon=-73.97724, radius=25, limit=10"
+        print api.get_divisions(source=['groupon', 'living-social'],
+                                lat=40.7654629, 
+                                lon=-73.97724,
+                                radius=25,
+                                limit=10)
+        # test individual division
+        print "Individual division:"
+        print divisions[0]
+
+        print ""
+        # test tags general fetch
+        tags = api.get_tags()
+        print "Tags:"
+        print tags
+        # test filtered tags fetch
+        # PSYCH THERE IS NO FILTERED TAG SEARCH LULZ
+        # test individual tag
+        print "Tag:"
+        print tags[0]
+
+        print ""
+        # test businesses general fetch
+        businesses = api.get_businesses()
+        print "Businesses:"
+        print businesses
+        # test filtered business fetch
+        print "Businesses Filtered: lat=40.7654629, lon=-73.97724, radius=25,division=['new-york']"
+        # this filter also allows search by the param 'phone', but it often does
+        # not work because Yipit has not fully implemented the Businesses API
+        print api.get_businesses(lat=40.7654629, 
+                                 lon=-73.97724,
+                                 radius=25,
+                                 division=['new-york'])
+
+***************************************************************************
 TODO create some sort of abstraction for Yipit API Classes for DRY purposes
 TODO ask Dad questions
 TODO generate pydocs...
