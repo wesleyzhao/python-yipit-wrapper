@@ -614,7 +614,8 @@ class Deal(YipitObject):
                  value=None,
                  purchased=None,
                  source=None,
-                 tags=None):
+                 tags=None,
+                 **kwargs):
         '''An object to hold a Yipit Deal
 
         This class is normally instantiated by the yipit.Api class and
@@ -708,6 +709,9 @@ class Deal(YipitObject):
                         "slug" : "theater",
                         "url" : ""
                        }]
+           **kwargs:
+             Any extra key/value params that may be added if Yipit's API
+             changes and response sends more data than expected
         '''
         self._title = title
         self._url = url
@@ -733,29 +737,15 @@ class Deal(YipitObject):
         '''Create a new instance based on a JSON dict.
         
         Args:
-          data: A JSON dict, as converted from the JSON in the Yipit
-          API.
+          data: 
+            A JSON dict, as converted from the JSON in the Yipit API.
+            It should include all the keys that correspond with params
+            outlined in the constructor. Any extra keys from data 
+            will be incorporated through the **kwargs param in __init__
         Returns:
           A yipit.Deal instance
         '''
-        return Deal(title = data.get('title', None),
-                    url = data.get('url', None),
-                    yipit_title = data.get('yipit_title', None),
-                    yipit_url = data.get('yipit_url', None),
-                    active = data.get('active', None),
-                    business = data.get('business', None),
-                    date_added = data.get('date_added', None),
-                    division = data.get('division', None),
-                    end_date = data.get('end_date', None),
-                    id = data.get('id', None),
-                    images = data.get('images', None),
-                    mobile_url = data.get('mobile_url', None),
-                    discount = data.get('discount', None),
-                    price = data.get('price', None),
-                    value = data.get('value', None),
-                    purchased = data.get('purchased', None),
-                    source = data.get('source', None),
-                    tags = data.get('tags', None))
+        return Deal(**data)
     
     def as_dict(self):
         '''A dict representation of this yipit.Deal instance.
@@ -800,7 +790,8 @@ class Source(YipitObject):
                  name = None,
                  slug = None,
                  paid = None,
-                 url = None):
+                 url = None,
+                 **kwargs):
         '''An object to hold a Yipit Source
 
         This class is normally instantiated by the yipit.Api class and
@@ -815,6 +806,9 @@ class Source(YipitObject):
             If Yipit pays you for source link click. Integer 1/0. [Optional]
           url:
             The url of the source. [Optional]
+          **kwargs:
+            Any extra key/value params that the Yipit API may add on in the
+            future to the response JSON. [Optional]
         '''
         self._name = name
         self._slug = slug
@@ -826,15 +820,14 @@ class Source(YipitObject):
         '''Create a new instance based on a JSON dict.
         
         Args:
-          data: A JSON dict, as converted from the JSON in the Yipit
-          API.
+          data: A JSON dict, as converted from the JSON in the Yipit API.
+          It should include all the keys that correspond with params
+          outlined in the constructor. Any extra keys from data 
+          will be incorporated through the **kwargs param in __init__
         Returns:
           A yipit.Source instance
         '''
-        return Source(name = data.get('name', None),
-                    slug = data.get('slug', None),
-                    paid = data.get('paid', None),
-                    url = data.get('url', None))
+        return Source(**data)
         
     def as_dict(self):
         '''A dict representation of this yipit.Source instance.
@@ -873,7 +866,8 @@ class Division(YipitObject):
                  time_zone_diff = None,
                  lat = None,
                  lon = None,
-                 url = None):
+                 url = None,
+                 **kwargs):
         '''An object to hold a Yipit Division
 
         This class is normally instantiated by the yipit.Api class and
@@ -895,6 +889,9 @@ class Division(YipitObject):
             The longitude of the division as a float. [Optional]
           url:
             The url of the source. [Optional]
+          **kwargs:
+            Any extra key/value params that the Yipit API may add on in
+            the future to the response JSON. [Optional]
         '''
         self._name = name
         self._slug = slug
@@ -909,18 +906,14 @@ class Division(YipitObject):
         '''Create a new instance based on a JSON dict.
         
         Args:
-          data: A JSON dict, as converted from the JSON in the Yipit
-          API.
+          data: A JSON dict, as converted from the JSON in the Yipit API.
+          It should include all the keys that correspond with params
+          outlined in the constructor. Any extra keys from data 
+          will be incorporated through the **kwargs param in __init__
         Returns:
           A yipit.Division instance
         '''
-        return Division(name = data.get('name', None),
-                        slug = data.get('slug', None),
-                        active = data.get('active', None),
-                        time_zone_diff = data.get('time_zone_diff', None),
-                        lat = data.get('lat', None),
-                        lon = data.get('lon', None),
-                        url = data.get('url', None))
+        return Division(**data)
     
     
     def as_dict(self):
@@ -978,14 +971,14 @@ class Tag(YipitObject):
         '''Create a new instance based on a JSON dict.
         
         Args:
-          data: A JSON dict, as converted from the JSON in the Yipit
-          API.
+          data: A JSON dict, as converted from the JSON in the Yipit API.
+          It should include all the keys that correspond with params
+          outlined in the constructor. Any extra keys from data 
+          will be incorporated through the **kwargs param in __init__
         Returns:
           A yipit.Tag instance
         '''
-        return Tag(name = data.get('name', None),
-                   slug = data.get('slug', None),
-                   url = data.get('url', None))
+        return Tag(**data)
     
     def as_dict(self):
         '''A dict representation of this yipit.Tag instance.
@@ -1058,15 +1051,14 @@ class Business(YipitObject):
         '''Create a new instance based on a JSON dict.
         
         Args:
-          data: A JSON dict, as converted from the JSON in the Yipit
-          API.
+          data: A JSON dict, as converted from the JSON in the Yipit API.
+          It should include all the keys that correspond with params
+          outlined in the constructor. Any extra keys from data 
+          will be incorporated through the **kwargs param in __init__
         Returns:
           A yipit.Business instance
         '''
-        return Business(id = data.get('id', None),
-                        name = data.get('name', None),
-                        url = data.get('url', None),
-                        locations = data.get('locations', None))
+        return Business(**data)        
         
     def as_dict(self):
         '''A dict representation of this yipit.Business instance.
