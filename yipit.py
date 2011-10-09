@@ -235,6 +235,7 @@ class Api(object):
         '''
 
         json = self.fetch_url(url, **params)
+        
         data = self.parse_and_check_yipit(json)
         # first check to make sure we got some results
         if len(data['response']) == 0:
@@ -469,6 +470,10 @@ class Api(object):
           A dictionary object of the parsed JSON, or if there was some
           error then return the error information
         '''
+        if ("Server Error" in json):
+            raise YipitError("Yipit's servers are temporarily down",
+                             error_code = 500)
+
         data = simplejson.loads(json)
         self.check_for_yipit_error(data)
         

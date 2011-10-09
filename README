@@ -117,6 +117,8 @@ TODO generate pydocs...
 ***************************************************************************
 BUGS
 
+ ****RESOLVED: Yipit server goes down periodically, added error catching****
+
 # shows up once in a while... no idea why
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
