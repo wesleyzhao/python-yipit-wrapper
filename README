@@ -45,6 +45,9 @@ for deal in deals:
 TODO:
 	* Api class
 	  - fill out all methods
+	    TODO get_divisions()
+	    TODO get_sources()
+	    TODO get_tags()
 	* Deal class
 	  - finish/fill out
 	* Source class
