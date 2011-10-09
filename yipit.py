@@ -9,7 +9,7 @@
 #
 ''' A library that provides a Python interface to the Yipit API  '''
 __author__ = "wesley.zhao@gmil.com"
-__version__ = "0.2.1"
+__version__ = "0.2.2"
 
 try:
     # Python >= 2.6
