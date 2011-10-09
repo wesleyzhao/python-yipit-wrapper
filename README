@@ -26,73 +26,84 @@ deals = api.get_deals(lat=-100.2,
 individ_deal = api.get_deal_by_id(deal_id = 16721)
 
 for deal in deals:
-    print deal.title
-    print deal.url
-    print deal.yipit_title
-    print deal.yipit_url
-    print deal.active 
-    print deal.business # dictionary with the business information
-    print deal.date_added 
-    print deal.division # dictionary with division information
-    print deal.end_date
-    print deal.id
-    print deal.images # dictionary with 'image_big' and 'image_small'
-    print deal.mobile_url
-    print deal.discount # dictionary with 'formatted' and 'raw'
-    print deal.price # dictionary with 'formatted' and 'raw'
-    print deal.value # dictionary with 'formatted' and 'raw'
-    print deal.purchased 
-    print deal.source # will be a dictionary of the source
-    print deal.tags # will be a list of tag dictionaries
+    print deal._title
+    print deal._url
+    print deal._yipit_title
+    print deal._yipit_url
+    print deal._active 
+    print deal._business # dictionary with the business information
+    print deal._date_added 
+    print deal._division # dictionary with division information
+    print deal._end_date
+    print deal._id
+    print deal._images # dictionary with 'image_big' and 'image_small'
+    print deal._mobile_url
+    print deal._discount # dictionary with 'formatted' and 'raw'
+    print deal._price # dictionary with 'formatted' and 'raw'
+    print deal._value # dictionary with 'formatted' and 'raw'
+    print deal._purchased 
+    print deal._source # will be a dictionary of the source
+    print deal._tags # will be a list of tag dictionaries
+
 
 ''' SOURCES API '''
 sources = api.get_sources(division=['new-york','atlanta'],
 		          paid=False,
                           limit=10)
-        # test individual source
-        print "Individual Source:"
-        print sources[0]
 
-        print ""
-        # test divisions general fetch
-        divisions = api.get_divisions()
-        print "Divisions: "
-        print divisions
-        # test filtered division fetch
-        print "Filtered Divisions: source=['groupon','living-social'],lat=40.7654629, lon=-73.97724, radius=25, limit=10"
-        print api.get_divisions(source=['groupon', 'living-social'],
-                                lat=40.7654629, 
+for source in sources:
+    print source._name
+    print source._slug
+    print source._paid
+    print source._url
+
+
+''' DIVISIONS API '''
+api.get_divisions(source=['groupon', 'living-social']
+                  lat=40.7654629, 
+                  lon=-73.97724,
+                  radius=25,
+                  limit=10)
+
+for division in divisions:
+    print division._slug
+    print division._name
+    print division._active
+    print division._time_zone_diff # based off UTC
+    print division._lat
+    print division._lon
+    print division._url
+
+
+''' TAGS API '''
+tags = api.get_tags() # there are no filters
+
+for tag in tags:
+    print tag._name
+    print tag._slug
+    print tag._url
+
+
+''' BUSINESSES API '''
+
+businesses = api.get_businesses(lat=40.7654629, 
                                 lon=-73.97724,
                                 radius=25,
-                                limit=10)
-        # test individual division
-        print "Individual division:"
-        print divisions[0]
+				phone=222111333,
+                                division=['new-york'])
 
-        print ""
-        # test tags general fetch
-        tags = api.get_tags()
-        print "Tags:"
-        print tags
-        # test filtered tags fetch
-        # PSYCH THERE IS NO FILTERED TAG SEARCH LULZ
-        # test individual tag
-        print "Tag:"
-        print tags[0]
-
-        print ""
-        # test businesses general fetch
-        businesses = api.get_businesses()
-        print "Businesses:"
-        print businesses
-        # test filtered business fetch
-        print "Businesses Filtered: lat=40.7654629, lon=-73.97724, radius=25,division=['new-york']"
-        # this filter also allows search by the param 'phone', but it often does
-        # not work because Yipit has not fully implemented the Businesses API
-        print api.get_businesses(lat=40.7654629, 
-                                 lon=-73.97724,
-                                 radius=25,
-                                 division=['new-york'])
+for business in businesses:
+    print business._id
+    print business._name
+    print business._url
+    print business._locations 
+    location = business._locations[0] # a list of location dictionaries
+    print location['id']
+    print location['address']
+    print location['locality']
+    print location['phone']
+    print location['lat']
+    print location['lon']
 
 ***************************************************************************
 TODO create some sort of abstraction for Yipit API Classes for DRY purposes
