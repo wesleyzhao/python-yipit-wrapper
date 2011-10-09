@@ -26,6 +26,15 @@ import urllib2
 
 DEALS_URL = "http://api.yipit.com/v1/deals/"
 
+class YipitError(Exception):
+    '''Base class for Yipit errors'''
+    
+    @property # jzhao what is this?
+    def message(self):
+        ''' Returns the first argument used to construct this error. '''
+        return self.args[0]
+
+
 class Api(object):
     
     def __init__(self,
