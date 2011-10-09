@@ -608,7 +608,7 @@ class YipitObject(YipitObjectInterface):
         return self.as_json_string()
 
 
-class Deal(object):
+class Deal(YipitObject):
     '''A class representing the deal structure used by the Yipit API
 
     The deal structure exposes the following properties:
@@ -822,7 +822,7 @@ class Deal(object):
                                           tags = self._tags)
         return data                       
         
-class Source(object):
+class Source(YipitObject):
     '''A class representing the source structure used by the Yipit API
 
     The source structure exposes the following properties:
@@ -889,7 +889,7 @@ class Source(object):
         return data                       
         
     
-class Division(object):
+class Division(YipitObject):
     '''A class representing the division structure used by the Yipit API
 
     The division structure exposes the following properties:
@@ -979,7 +979,7 @@ class Division(object):
         return data                       
         
 
-class Tag(object):
+class Tag(YipitObject):
     '''A class representing the tag structure used by the Yipit API
 
     The tag structure exposes the following properties:
