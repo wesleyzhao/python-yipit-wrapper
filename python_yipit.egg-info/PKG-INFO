@@ -1,0 +1,183 @@
+Metadata-Version: 1.0
+Name: python-yipit
+Version: 0.2.2
+Summary: A python wrapper around the Yipit API
+Home-page: https://github.com/wesleyzhao/python-yipit-wrapper
+Author: Wesley Zhao
+Author-email: wesley.zhao@gmail.com
+License: Apache License 2.0
+Description: Making this very rudimentary for basic use. I tried to keep this very well commented so look through the code. 
+        
+        Docs now available here: 
+             Epydoc-generated (my fav): /doc/index.html
+             Sphinx-generated : /docs/index.html
+        
+        ** Look at test.py for more examples of how to use this wrapper
+        
+        [INSTALL]
+        $ python setup.py install
+        
+        [BASIC EXAMPLE]
+        # after already navigating into the directory that holds yipit.py
+        
+        import yipit
+        
+        api = yipit.Api(api_key = "mykeyasdfasdfasdfasdfasd9fa9sfa9s")
+        
+        ''' DEALS API '''
+        deals = api.get_deals(lat=-100.2, 
+                              lon=144.444, 
+        		      radius=20, 
+        		      divison=["new-york"], 
+        		      source=["groupon","living-social"], 
+        		      phone=[2123335555], 
+        		      tag=['restaurants','bar-club'],
+        		      paid=True,
+        		      limit=5000) # all are optional params
+        
+        individ_deal = api.get_deal_by_id(deal_id = 16721)
+        
+        for deal in deals:
+            print deal._title
+            print deal._url
+            print deal._yipit_title
+            print deal._yipit_url
+            print deal._active 
+            print deal._business # dictionary with the business information
+            print deal._date_added 
+            print deal._division # dictionary with division information
+            print deal._end_date
+            print deal._id
+            print deal._images # dictionary with 'image_big' and 'image_small'
+            print deal._mobile_url
+            print deal._discount # dictionary with 'formatted' and 'raw'
+            print deal._price # dictionary with 'formatted' and 'raw'
+            print deal._value # dictionary with 'formatted' and 'raw'
+            print deal._purchased 
+            print deal._source # will be a dictionary of the source
+            print deal._tags # will be a list of tag dictionaries
+        
+        
+        ''' SOURCES API '''
+        sources = api.get_sources(division=['new-york','atlanta'],
+        		          paid=False,
+                                  limit=10)
+        
+        for source in sources:
+            print source._name
+            print source._slug
+            print source._paid
+            print source._url
+        
+        
+        ''' DIVISIONS API '''
+        api.get_divisions(source=['groupon', 'living-social']
+                          lat=40.7654629, 
+                          lon=-73.97724,
+                          radius=25,
+                          limit=10)
+        
+        for division in divisions:
+            print division._slug
+            print division._name
+            print division._active
+            print division._time_zone_diff # based off UTC
+            print division._lat
+            print division._lon
+            print division._url
+        
+        
+        ''' TAGS API '''
+        tags = api.get_tags() # there are no filters
+        
+        for tag in tags:
+            print tag._name
+            print tag._slug
+            print tag._url
+        
+        
+        ''' BUSINESSES API '''
+        
+        businesses = api.get_businesses(lat=40.7654629, 
+                                        lon=-73.97724,
+                                        radius=25,
+        				phone=222111333,
+                                        division=['new-york'])
+        
+        for business in businesses:
+            print business._id
+            print business._name
+            print business._url
+            print business._locations 
+            location = business._locations[0] # a list of location dictionaries
+            print location['id']
+            print location['address']
+            print location['locality']
+            print location['phone']
+            print location['lat']
+            print location['lon']
+        
+        ***************************************************************************
+        TODO create some sort of abstraction for Yipit API Classes for DRY purposes
+        TODO ask Dad questions
+        TODO generate pydocs...
+        2011-10-09
+        
+        	bumped version to 0.2.2
+        
+        	YipitObject
+        	Added this abstract class to implement certain methods that will
+        	always be implemented the same way multiple classes will share.
+        	And also includes some un-implemented abstract methods.
+        	
+        	class Deal, Division, Source, Tag, Business
+        	All now implement the abstract class YipitObject
+        
+        	Documentation
+        	Added docs to /docs/index.html
+        
+        2011-10-08
+        
+        	bumped version to 0.2.1
+        	
+        	Deals API
+        	Added methods to Deal class that allow for easy string representation
+        	
+        	Divisions API
+        	Added and filled out Division class. Also added get_divisions() to
+        	Api class to search for divisions by params.
+        
+        	Sources API
+        	Added and filled out Source class. Also added get_sources() to Api
+        	class to search for sources by params.
+        	
+        	Tags API
+        	Added and filled out Tag class. Also added get_tags() to Api class to
+        	get all tags.
+        
+        	Businesses API
+        	Added and filled out Business class. Also added get_businesses() to Api
+        	class to search for businesses by params.
+        
+        	yipit_test.py
+        	Created this to show how to use the api and to make sure all the main
+        	functions work.
+        
+        	YipitError
+        	Created this class to extend Exception for specific yipit errors.
+        
+        	README
+        	Added several examples...maybe should create an examples folder?
+        
+        2011-10-08
+        
+        Don't know what to write here...
+        
+Keywords: yipit api
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Communications :: Chat
+Classifier: Topic :: Internet
