@@ -171,6 +171,7 @@ class Api(object):
 
         # Make and send requests
         url = DEALS_URL
+        print "url :" + url
         deals = self.get_deals_list_by_params(url, parameters)
         return deals
         

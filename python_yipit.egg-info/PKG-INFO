@@ -1,0 +1,79 @@
+Metadata-Version: 1.0
+Name: python-yipit
+Version: 0.1.1
+Summary: A python wrapper around the Yipit API
+Home-page: https://github.com/wesleyzhao/python-yipit-wrapper
+Author: Wesley Zhao
+Author-email: wesley.zhao@gmail.com
+License: Apache License 2.0
+Description: Making this very rudimentary for basic use. I tried to keep this very well commented so look through the code (will generate docs later) for details.
+        
+        [INSTALL]
+        $ python setup.py install
+        
+        [BASIC EXAMPLE]
+        # after already navigating into the directory that holds yipit.py
+        
+        import yipit
+        
+        api = yipit.Api(api_key = "mykeyasdfasdfasdfasdfasd9fa9sfa9s")
+        
+        deals = api.get_deals(lat=-100.2, 
+                              lon=144.444, 
+        		      radius=20, 
+        		      divison=["new-york"], 
+        		      source=["groupon","living-social"], 
+        		      phone=[2123335555], 
+        		      tag=['restaurants','bar-club'],
+        		      paid=True,
+        		      limit=5000) # all are optional params
+        
+        individ_deal = api.get_deal_by_id(deal_id = 16721)
+        
+        for deal in deals:
+            print deal.title
+            print deal.url
+            print deal.yipit_title
+            print deal.yipit_url
+            print deal.active 
+            print deal.business # dictionary with the business information
+            print deal.date_added 
+            print deal.division # dictionary with division information
+            print deal.end_date
+            print deal.id
+            print deal.images # dictionary with 'image_big' and 'image_small'
+            print deal.mobile_url
+            print deal.discount # dictionary with 'formatted' and 'raw'
+            print deal.price # dictionary with 'formatted' and 'raw'
+            print deal.value # dictionary with 'formatted' and 'raw'
+            print deal.purchased 
+            print deal.source # will be a dictionary of the source
+            print deal.tags # will be a list of tag dictionaries
+        
+        TODO:
+        	* Api class
+        	  - fill out all methods
+        	    TODO get_divisions()
+        	    TODO get_sources()
+        	    TODO get_tags()
+        	* Deal class
+        	  - finish/fill out
+        	* Source class
+        	  - DO IT FOR SOURCES API
+        	* Division class
+        	  - DO IT
+        	* Tag class
+        	  - JUST DO IT
+        	* Business class
+        	  - ALSO DO THIS
+        Don't know what to write here...
+        
+        Begun 2011-10-08
+Keywords: yipit api
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Communications :: Chat
+Classifier: Topic :: Internet

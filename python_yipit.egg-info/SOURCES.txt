@@ -1,0 +1,8 @@
+README
+setup.py
+yipit.py
+python_yipit.egg-info/PKG-INFO
+python_yipit.egg-info/SOURCES.txt
+python_yipit.egg-info/dependency_links.txt
+python_yipit.egg-info/requires.txt
+python_yipit.egg-info/top_level.txt
