@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 import sys
 import yipit
-import optparse
 
 API_KEY = 'YOUR_API_KEY'
 
@@ -12,24 +11,15 @@ class YipitTest(object):
     $ python test.py YIPIT_API_KEY
     """
     def main():
-        # jzhao why is this main function not being called automatically?
 
-        """
-        commented out while weird characters plague my ish!!
-        parser = optparse.OptionParser() # only doing this for the 1st arg
-        (opts, args) = parser.parse_args()
         try:
-            API_KEY = str(args[0]) # avoid random python chars
-        
-            # API_KEY.replace('\xc2\x96','')
- 
+            API_KEY = sys.argv[1]
+
         except IndexError:
             # no args were given, user needs to input API_KEY
             print "Please paste your API key as an arg. This is how you should use test.py. >> python test.py my_yipit_api_key"
             exit(-1)
-        """
-        API_KEY = sys.argv[1]
-        # print API_KEY
+
         api = yipit.Api(api_key = API_KEY)
         
         deals = api.get_deals()

@@ -448,7 +448,7 @@ class Api(object):
           A string representation of the body of the response
         '''
         params = {'key' : self._api_key}
-        print params
+        # print params
         # print self._api_key
         if parameters:
             params.update(parameters)
