@@ -5,6 +5,7 @@ Docs now available here:
      Sphinx-generated : /docs/index.html
 
 ** Look at test.py for more examples of how to use this wrapper
+   Try this to test: >> python test.py your_api_key
 
 [INSTALL]
 $ python setup.py install
